@@ -1,0 +1,91 @@
+﻿@model subdomain.Areas.CreatorAcademy.ViewModels.GoLiveGuideViewModel
+@{
+    ViewData["Title"] = "Go Live Guide";
+    ViewData["ActivePage"] = Model.ActivePage;
+}
+
+<!-- Hero card -->
+<section class="cacademy-hero-card-band">
+    <div class="cacademy-hero-card-grid">
+        <div class="cacademy-hero-card">
+            <h1>@Model.HeroTitle</h1>
+            <p>@Model.HeroSubtitle</p>
+            <div class="cacademy-hero-card-pills">
+                @foreach (var pill in Model.QuickNav)
+                {
+                    <a href="@pill.Anchor" class="cacademy-pill cacademy-pill--outline">@pill.Label</a>
+                }
+            </div>
+        </div>
+        @if (Model.HeroImageUrl != null)
+        {
+            <div class="cacademy-hero-card-media">
+                <img src="@Model.HeroImageUrl" alt="@Model.HeroTitle" />
+            </div>
+        }
+    </div>
+</section>
+
+<!-- Guide blocks -->
+<section class="cacademy-guide">
+    @foreach (var item in Model.Blocks)
+    {
+        <div id="@item.Id" class="cacademy-guide-block">
+            <div class="cacademy-guide-media">
+                @if (item.MediaImageUrl != null)
+                {
+                    <img src="@item.MediaImageUrl" alt="@item.Title" loading="lazy" />
+                }
+                @if (item.MediaLabel != null)
+                {
+                    <span class="cacademy-guide-media-label">@item.MediaLabel</span>
+                }
+                @if (item.HasVideo)
+                {
+                    <span class="cacademy-play"><i class="bi bi-play-fill"></i></span>
+                }
+            </div>
+
+            <div class="cacademy-guide-content">
+                <h2>@item.Title</h2>
+                @if (!string.IsNullOrEmpty(item.Body))
+                {
+                    <p>@item.Body</p>
+                }
+
+                <div class="cacademy-accordion-group">
+                    @foreach (var acc in item.Accordions)
+                    {
+                        <div class="cacademy-accordion">
+                            <button type="button" class="cacademy-accordion-header">
+                                <span>@acc.Header</span>
+                                <i class="bi bi-chevron-down cacademy-accordion-icon"></i>
+                            </button>
+                            <div class="cacademy-accordion-body">
+                                @if (!string.IsNullOrEmpty(acc.Body))
+                                {
+                                    <p>@acc.Body</p>
+                                }
+                                @if (acc.BulletItems != null)
+                                {
+                                    <ul>
+                                        @foreach (var bullet in acc.BulletItems)
+                                        {
+                                            <li>@bullet</li>
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- Need Help callout -->
+    <div class="cacademy-callout">
+        <strong>Need Help?</strong>
+        <p>If something goes wrong, you can pause the show by tapping the dropdown arrow on the top right corner in your live and click "minimize show". Then, do a hard close of the app, reopen Lively, and navigate back to your livestream. If the issue persists, please document it with a photo or a video and reach out to creatorsupport@lively.com describing the issue.</p>
+    </div>
+</section>

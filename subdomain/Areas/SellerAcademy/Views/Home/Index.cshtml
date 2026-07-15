@@ -1,0 +1,78 @@
+﻿@model Rotex.Lively.Web.Client.Areas.SellerAcademy.ViewModels.AcademyHomeViewModel
+
+@{
+    ViewData["Title"] = "Seller Academy";
+    ViewData["ActivePage"] = Model.ActivePage;
+}
+
+<!-- Hero -->
+
+<section class="academy-hero academy-hero--home">
+    <span class="academy-gold-blob academy-gold-blob--left" aria-hidden="true"></span>
+    <span class="academy-gold-blob academy-gold-blob--right" aria-hidden="true"></span>
+
+    <span class="academy-hero-badge">Blog Post · Check out our latest post →</span>
+    <h1 class="academy-hero-title">@Model.HeroTitle</h1>
+    <p class="academy-hero-subtitle">@Model.HeroSubtitle</p>
+    <a href="#getting-started" class="academy-pill academy-pill--solid">Seller Resources</a>
+
+    <div class="academy-hero-video">
+        @if (Model.HeroVideoUrl != null)
+        {
+            <img src="@Model.HeroVideoUrl" alt="Seller academy intro video" />
+        }
+        <span class="academy-play"><i class="bi bi-play-fill"></i></span>
+    </div>
+</section>
+<!-- Seller Resources quick-nav -->
+<section class="academy-quicknav-band">
+    <div class="academy-quicknav-inner">
+        <div class="academy-quicknav-intro">
+            <h2>Seller Resources</h2>
+            <p>Use this quick navigation to find the topic you need help with on this page.</p>
+        </div>
+        <div class="academy-quicknav-pills">
+            @foreach (var pill in Model.QuickNav)
+            {
+                <a href="@pill.Anchor" class="academy-pill academy-pill--outline">@pill.Label</a>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Content sections -->
+@foreach (var academySection in Model.Sections)
+{
+    <section id="@academySection.Id" class="academy-section @(academySection.YellowBackground ? "academy-section--yellow" : "")">
+        <div class="academy-section-inner @(academySection.ImageLeft ? "" : "academy-section-inner--reverse")">
+            @if (academySection.ImageUrl != null)
+            {
+                <div class="academy-section-media">
+                    <img src="@academySection.ImageUrl" alt="@academySection.Title" loading="lazy" />
+                </div>
+            }
+            <div class="academy-section-content">
+                <h2>@academySection.Title</h2>
+                @if (academySection.Body != null)
+                {
+                    <p>@academySection.Body</p>
+                }
+                <ul class="academy-link-list">
+                    @foreach (var link in academySection.Links)
+                    {
+                        <li>
+                            <a href="@link.Url">
+                                <i class="bi @link.Icon"></i>
+                                <span>@link.Text</span>
+                                @if (link.ExternalArrow)
+                                {
+                                    <i class="bi bi-arrow-right academy-link-arrow"></i>
+                                }
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </section>
+}

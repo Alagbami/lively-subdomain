@@ -1,0 +1,78 @@
+﻿
+@model subdomain.Areas.CreatorAcademy.ViewModels.AcademyHomeViewModel
+@{
+    ViewData["Title"] = "Creator Academy";
+    ViewData["ActivePage"] = Model.ActivePage;
+}
+
+<!-- Hero -->
+<section class="cacademy-hero cacademy-hero--home">
+    <span class="cacademy-gold-blob cacademy-gold-blob--left" aria-hidden="true"></span>
+    <span class="cacademy-gold-blob cacademy-gold-blob--right" aria-hidden="true"></span>
+
+    <span class="cacademy-hero-badge">Blog Post · Check out our latest post →</span>
+    <h1 class="cacademy-hero-title">@Model.HeroTitle</h1>
+    <p class="cacademy-hero-subtitle">@Model.HeroSubtitle</p>
+    <a href="#getting-started" class="cacademy-pill cacademy-pill--solid">Start Learning</a>
+
+    <div class="cacademy-hero-video">
+        @if (Model.HeroVideoUrl != null)
+        {
+            <img src="@Model.HeroVideoUrl" alt="Creator academy intro video" />
+        }
+        <span class="cacademy-play"><i class="bi bi-play-fill"></i></span>
+    </div>
+</section>
+
+<!-- Creator Resources quick-nav -->
+<section class="cacademy-quicknav-band">
+    <div class="cacademy-quicknav-inner">
+        <div class="cacademy-quicknav-intro">
+            <h2>Creator Resources</h2>
+            <p>Use this quick navigation to find the topic you need help with on this page.</p>
+        </div>
+        <div class="cacademy-quicknav-pills">
+            @foreach (var pill in Model.QuickNav)
+            {
+                <a href="@pill.Anchor" class="cacademy-pill cacademy-pill--outline">@pill.Label</a>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Content sections -->
+@foreach (var item in Model.Sections)
+{
+    <section id="@item.Id" class="cacademy-section @(item.YellowBackground ? "cacademy-section--yellow" : "")">
+        <div class="cacademy-section-inner @(item.ImageLeft ? "" : "cacademy-section-inner--reverse")">
+            @if (item.ImageUrl != null)
+            {
+                <div class="cacademy-section-media">
+                    <img src="@item.ImageUrl" alt="@item.Title" loading="lazy" />
+                </div>
+            }
+            <div class="cacademy-section-content">
+                <h2>@item.Title</h2>
+                @if (item.Body != null)
+                {
+                    <p>@item.Body</p>
+                }
+                <ul class="cacademy-link-list">
+                    @foreach (var link in item.Links)
+                    {
+                        <li>
+                            <a href="@link.Url">
+                                <i class="bi @link.Icon"></i>
+                                <span>@link.Text</span>
+                                @if (link.ExternalArrow)
+                                {
+                                    <i class="bi bi-arrow-right cacademy-link-arrow"></i>
+                                }
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </section>
+}

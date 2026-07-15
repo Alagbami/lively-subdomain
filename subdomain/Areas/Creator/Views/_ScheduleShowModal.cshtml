@@ -1,0 +1,351 @@
+﻿@* Schedule New Show Modal - Partial View *@
+@* Include in parent view: @await Html.PartialAsync("_ScheduleShowModal") *@
+
+<link rel="stylesheet" href="~/css/creatorStyle/ScheduleShowModal.css" asp-append-version="true" />
+
+<!-- Modal Backdrop -->
+<div id="scheduleShowModal" class="ssm-backdrop" style="display: none;">
+    <!-- Modal Container -->
+    <div class="ssm-modal">
+        <!-- Modal Header -->
+        <header class="ssm-header">
+            <div class="ssm-header__icon">
+                <i class="bi bi-calendar-event"></i>
+            </div>
+            <div class="ssm-header__text">
+                <h2 class="ssm-header__title">Schedule New Show</h2>
+                <p class="ssm-header__subtitle">Plan your upcoming performance</p>
+            </div>
+            <button type="button" class="ssm-close" aria-label="Close modal">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </header>
+
+        <!-- Modal Body (Scrollable) -->
+        <div class="ssm-body">
+            <form id="scheduleShowForm" class="ssm-form">
+
+                <!-- Show Title -->
+                <div class="ssm-field">
+                    <label class="ssm-label">
+                        Show Title <span class="ssm-required">*</span>
+                    </label>
+                    <input type="text"
+                           class="ssm-input"
+                           name="showTitle"
+                           placeholder="e.g GLCO End of the Year Party"
+                           required />
+                </div>
+
+                <!-- Description -->
+                <div class="ssm-field">
+                    <label class="ssm-label">Description</label>
+                    <textarea class="ssm-textarea"
+                              name="description"
+                              rows="4"
+                              placeholder="Tell your fans what to expect from this show"></textarea>
+                </div>
+
+                <!-- Categories -->
+                <div class="ssm-field">
+                    <label class="ssm-label">
+                        Categories <span class="ssm-required">*</span>
+                    </label>
+                    <div class="ssm-categories">
+                        <button type="button" class="ssm-category" data-category="comedy">
+                            <span class="ssm-category__icon">😂</span>
+                            <span class="ssm-category__label">Comedy & Stand-up</span>
+                        </button>
+                        <button type="button" class="ssm-category" data-category="music">
+                            <span class="ssm-category__icon">🎵</span>
+                            <span class="ssm-category__label">Music Performance</span>
+                        </button>
+                        <button type="button" class="ssm-category" data-category="dance">
+                            <span class="ssm-category__icon">💃</span>
+                            <span class="ssm-category__label">Dance & Movement</span>
+                        </button>
+                        <button type="button" class="ssm-category" data-category="cooking">
+                            <span class="ssm-category__icon">🍳</span>
+                            <span class="ssm-category__label">Cooking & Culinary</span>
+                        </button>
+                        <button type="button" class="ssm-category" data-category="talk">
+                            <span class="ssm-category__icon">🎤</span>
+                            <span class="ssm-category__label">Talk Show & Interview</span>
+                        </button>
+                        <button type="button" class="ssm-category" data-category="fashion">
+                            <span class="ssm-category__icon">👗</span>
+                            <span class="ssm-category__label">Fashion & Style</span>
+                        </button>
+                        <button type="button" class="ssm-category" data-category="art">
+                            <span class="ssm-category__icon">🎨</span>
+                            <span class="ssm-category__label">Art & Creativity</span>
+                        </button>
+                        <button type="button" class="ssm-category" data-category="fitness">
+                            <span class="ssm-category__icon">💪</span>
+                            <span class="ssm-category__label">Fitness & Wellness</span>
+                        </button>
+                        <button type="button" class="ssm-category" data-category="educational">
+                            <span class="ssm-category__icon">📚</span>
+                            <span class="ssm-category__label">Educational & Tutorial</span>
+                        </button>
+                        <button type="button" class="ssm-category" data-category="variety">
+                            <span class="ssm-category__icon">✨</span>
+                            <span class="ssm-category__label">Variety Show</span>
+                        </button>
+                    </div>
+                    <input type="hidden" name="selectedCategory" id="selectedCategory" required />
+                </div>
+
+                <!-- Date & Time Row -->
+                <div class="ssm-row">
+                    <div class="ssm-field ssm-field--half">
+                        <label class="ssm-label">
+                            Date <span class="ssm-required">*</span>
+                        </label>
+                        <div class="ssm-input-wrapper">
+                            <input type="text"
+                                   class="ssm-input"
+                                   id="showDate"
+                                   name="showDate"
+                                   placeholder="mm/dd/yyyy"
+                                   readonly
+                                   required />
+                            <i class="bi bi-calendar3 ssm-input-icon"></i>
+                        </div>
+                        <!-- Calendar Popup -->
+                        <div id="calendarPopup" class="ssm-calendar" style="display: none;">
+                            <div class="ssm-calendar__header">
+                                <button type="button" class="ssm-calendar__nav" data-nav="prev">
+                                    <i class="bi bi-chevron-left"></i>
+                                </button>
+                                <span class="ssm-calendar__month-year" id="calendarMonthYear">December 2025</span>
+                                <button type="button" class="ssm-calendar__nav" data-nav="next">
+                                    <i class="bi bi-chevron-right"></i>
+                                </button>
+                            </div>
+                            <div class="ssm-calendar__grid" id="calendarGrid">
+                                <!-- Calendar days will be dynamically populated -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ssm-field ssm-field--half">
+                        <label class="ssm-label">
+                            Time <span class="ssm-required">*</span>
+                        </label>
+                        <div class="ssm-input-wrapper">
+                            <input type="text"
+                                   class="ssm-input"
+                                   id="showTime"
+                                   name="showTime"
+                                   placeholder="--:--"
+                                   readonly
+                                   required />
+                            <i class="bi bi-clock ssm-input-icon"></i>
+                        </div>
+                        <!-- Time Picker Popup -->
+                        <div id="timePopup" class="ssm-time-picker" style="display: none;">
+                            <div class="ssm-time-picker__row">
+                                <label class="ssm-time-picker__label">Hour</label>
+                                <select class="ssm-time-picker__select" id="hourSelect">
+                                    <option value="">--</option>
+                                </select>
+                            </div>
+                            <div class="ssm-time-picker__row">
+                                <label class="ssm-time-picker__label">Minute</label>
+                                <select class="ssm-time-picker__select" id="minuteSelect">
+                                    <option value="">--</option>
+                                </select>
+                            </div>
+                            <div class="ssm-time-picker__row">
+                                <label class="ssm-time-picker__label">Period</label>
+                                <select class="ssm-time-picker__select" id="periodSelect">
+                                    <option value="AM">AM</option>
+                                    <option value="PM">PM</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Show Media -->
+                <div class="ssm-field">
+                    <label class="ssm-label">
+                        Show Media <span class="ssm-required">*</span>
+                    </label>
+                    <p class="ssm-field-note">Add visuals to attract more viewers</p>
+
+                    <!-- Thumbnail Upload -->
+                    <div class="ssm-upload-box">
+                        <input type="file" id="thumbnailInput" accept="image/*" style="display: none;" />
+                        <label for="thumbnailInput" class="ssm-upload-label">
+                            <i class="bi bi-cloud-upload"></i>
+                            <span class="ssm-upload-text">Upload Thumbnail (16:9)</span>
+                            <span class="ssm-upload-subtext">PNG, JPG up to 5MB</span>
+                        </label>
+                        <span class="ssm-upload-note">Thumbnail (Recommended)</span>
+                    </div>
+
+                    <!-- Cover Image Upload -->
+                    <div class="ssm-upload-box">
+                        <input type="file" id="coverInput" accept="image/*" style="display: none;" />
+                        <label for="coverInput" class="ssm-upload-label">
+                            <i class="bi bi-image"></i>
+                            <span class="ssm-upload-text">Upload Cover Image</span>
+                            <span class="ssm-upload-subtext">PNG, JPG up to 5MB</span>
+                        </label>
+                        <span class="ssm-upload-note">Cover Image (Optional)</span>
+                    </div>
+
+                    <!-- Video Preview Upload -->
+                    <div class="ssm-upload-box">
+                        <input type="file" id="videoInput" accept="video/*" style="display: none;" />
+                        <label for="videoInput" class="ssm-upload-label">
+                            <i class="bi bi-camera-video"></i>
+                            <span class="ssm-upload-text">Upload Video Preview (15-30s)</span>
+                            <span class="ssm-upload-subtext">PNG, JPG up to 5MB</span>
+                        </label>
+                        <span class="ssm-upload-note">Video Preview</span>
+                    </div>
+                </div>
+
+                <!-- Paid Show Toggle -->
+                <div class="ssm-field">
+                    <div class="ssm-toggle-card ssm-toggle-card--success">
+                        <div class="ssm-toggle-card__head">
+                            <div class="ssm-toggle-card__icon">
+                                <i class="bi bi-currency-dollar"></i>
+                            </div>
+                            <span class="ssm-toggle-card__label">Paid Show</span>
+                        </div>
+                        <label class="ssm-toggle">
+                            <input type="checkbox" id="paidShowToggle" name="paidShow" />
+                            <span class="ssm-toggle__slider"></span>
+                        </label>
+                    </div>
+                    <p class="ssm-field-note">Charge a ticket price for exclusive access</p>
+
+                    <!-- Ticket Price Input (Hidden initially) -->
+                    <div id="ticketPriceSection" class="ssm-ticket-price" style="display: none;">
+                        <label class="ssm-label">Ticket Price (USD)</label>
+                        <div class="ssm-input-wrapper ssm-input-wrapper--currency">
+                            <span class="ssm-currency-symbol">🇬🇭 GHS</span>
+                            <input type="number"
+                                   class="ssm-input ssm-input--currency"
+                                   id="ticketPrice"
+                                   name="ticketPrice"
+                                   placeholder="2,000"
+                                   min="0"
+                                   step="100" />
+                            <button type="button" class="ssm-currency-dropdown">
+                                <i class="bi bi-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expected Fans -->
+                <div class="ssm-field">
+                    <label class="ssm-label">
+                        Expected Fans (enter number of expected viewers to join your show) <span class="ssm-required">*</span>
+                    </label>
+                    <div class="ssm-fan-options">
+                        <button type="button" class="ssm-fan-btn" data-fans="500">500</button>
+                        <button type="button" class="ssm-fan-btn" data-fans="1000">1000</button>
+                        <button type="button" class="ssm-fan-btn" data-fans="2000">2000</button>
+                        <button type="button" class="ssm-fan-btn" data-fans="5000">5000</button>
+                        <button type="button" class="ssm-fan-btn ssm-fan-btn--custom" data-fans="custom">Custom</button>
+                    </div>
+                    <input type="hidden" name="expectedFans" id="expectedFans" required />
+
+                    <!-- Custom Input (Hidden initially) -->
+                    <div id="customFansSection" class="ssm-custom-fans" style="display: none;">
+                        <input type="number"
+                               class="ssm-input"
+                               id="customFansInput"
+                               placeholder="Enter your expected viewers"
+                               min="1" />
+                    </div>
+                </div>
+
+                <!-- Revenue Options During Show -->
+                <div class="ssm-field">
+                    <label class="ssm-label">
+                        Revenue Options During Show <span class="ssm-required">*</span>
+                    </label>
+                    <div class="ssm-revenue-options">
+                        <label class="ssm-checkbox-card">
+                            <input type="checkbox" name="allowCashTips" />
+                            <span class="ssm-checkbox-icon">
+                                <i class="bi bi-check"></i>
+                            </span>
+                            <span class="ssm-checkbox-label">
+                                <span class="ssm-checkbox-icon-inline">💵</span>
+                                <span>Allow Cash Tips</span>
+                            </span>
+                        </label>
+
+                        <label class="ssm-checkbox-card">
+                            <input type="checkbox" name="allowVirtualGifts" />
+                            <span class="ssm-checkbox-icon">
+                                <i class="bi bi-check"></i>
+                            </span>
+                            <span class="ssm-checkbox-label">
+                                <span class="ssm-checkbox-icon-inline">🎁</span>
+                                <span>Allow Virtual Gifts</span>
+                            </span>
+                        </label>
+                    </div>
+                    <p class="ssm-field-note">
+                        <i class="bi bi-info-circle"></i>
+                        Fans can send gifts and tips during your live performance
+                    </p>
+                </div>
+
+                <!-- Multi-Guest Mode -->
+                <div class="ssm-field">
+                    <div class="ssm-toggle-card ssm-toggle-card--primary">
+                        <div class="ssm-toggle-card__head">
+                            <div class="ssm-toggle-card__icon">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <span class="ssm-toggle-card__label">Multi-Guest Mode</span>
+                        </div>
+                        <label class="ssm-toggle">
+                            <input type="checkbox" id="multiGuestToggle" name="multiGuest" />
+                            <span class="ssm-toggle__slider"></span>
+                        </label>
+                    </div>
+                    <p class="ssm-field-note">Allow fans to request to join your live show</p>
+
+                    <!-- Multi-Guest Details (Hidden initially) -->
+                    <div id="multiGuestSection" class="ssm-multi-guest-details" style="display: none;">
+                        <p class="ssm-info-text">
+                            <i class="bi bi-info-circle"></i>
+                            <strong>When enabled:</strong>
+                        </p>
+                        <ul class="ssm-info-list">
+                            <li>Viewers can request to join as guests</li>
+                            <li>You can accept up to 3 guests at a time</li>
+                            <li>Control guest audio and video</li>
+                            <li>Great for Q&A and live interaction</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- Modal Footer -->
+        <footer class="ssm-footer">
+            <button type="button" class="ssm-btn ssm-btn--secondary" id="cancelBtn">
+                Cancel
+            </button>
+            <button type="submit" form="scheduleShowForm" class="ssm-btn ssm-btn--primary">
+                Schedule Show
+            </button>
+        </footer>
+    </div>
+</div>
+
+<script src="~/js/creator/scheduleShowModal.js" asp-append-version="true"></script>

@@ -1,0 +1,111 @@
+﻿@model Rotex.Lively.Web.Client.ViewModels.GoLiveViewModel
+@{
+    var s = Model.Stats;
+}
+
+<div class="gl-stats">
+
+    @* ─── Earnings card (purple gradient) ─── *@
+    <div class="gl-earnings">
+        <div class="gl-earnings__label">Total Earnings</div>
+        <div class="gl-earnings__amount">@Model.Currency@s.TotalEarnings.ToString("N2")</div>
+
+        <div class="gl-earnings__split">
+            <div class="gl-earnings__chip">
+                <div class="gl-earnings__chip-label">Gifts</div>
+                <div class="gl-earnings__chip-val">@s.GiftCount Gifts</div>
+                <div class="gl-earnings__chip-sub">
+                    <span class="gl-coin">●</span> @s.CoinValue Coins
+                </div>
+            </div>
+            <div class="gl-earnings__chip">
+                <div class="gl-earnings__chip-label">Tip</div>
+                <div class="gl-earnings__chip-val">@Model.Currency@s.TipAmount.ToString("N2")</div>
+            </div>
+        </div>
+    </div>
+
+    @* ─── Top Gifters (yellow card) ─── *@
+    <div class="gl-top-gifters">
+        <div class="gl-top-gifters__head">
+            <i class="bi bi-trophy-fill"></i>
+            <span>Top Gifters</span>
+        </div>
+
+        <ul class="gl-gifter-list">
+            @foreach (var g in s.TopGifters)
+            {
+                <li class="gl-gifter-item">
+                    <span class="gl-gifter-rank">
+                        @if (g.Rank == 1)
+                        {
+                            <i class="bi bi-trophy-fill" style="color:#f59e0b"></i>
+                        }
+                        else if (g.Rank == 2)
+                        {
+                            <i class="bi bi-trophy-fill" style="color:#94a3b8"></i>
+                        }
+                        else if (g.Rank == 3)
+                        {
+                            <i class="bi bi-trophy-fill" style="color:#cd7f32"></i>
+                        }
+                        else
+                        {
+                            <span class="gl-gifter-num">#@g.Rank</span>
+                        }
+                    </span>
+                    <div class="gl-gifter-item__body">
+                        <div class="gl-gifter-item__name">@g.Name</div>
+                        <div class="gl-gifter-item__count">@g.GiftCount Gifts</div>
+                    </div>
+                    <div class="gl-gifter-item__coins">
+                        <span class="gl-coin">●</span>
+                        @g.CoinTotal Coins
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+
+    @* ─── Metric strip ─── *@
+    <div class="gl-metric gl-metric--blue">
+        <div class="gl-metric__row">
+            <span class="gl-metric__label">Current Viewers</span>
+            <span class="gl-metric__val">@s.CurrentViewers</span>
+        </div>
+        <div class="gl-progress">
+            <div class="gl-progress__bar" style="width:@(s.CurrentVsPeakBar)%"></div>
+        </div>
+    </div>
+
+    <div class="gl-metric gl-metric--pink">
+        <div class="gl-metric__row">
+            <span class="gl-metric__label">Total Gifts</span>
+            <span class="gl-metric__val">@s.TotalGifts</span>
+        </div>
+        <div class="gl-metric__sub">
+            <i class="bi bi-gift"></i> @s.GiftsPerMinute.ToString("0.0") per minute
+        </div>
+    </div>
+
+    <div class="gl-metric gl-metric--green">
+        <div class="gl-metric__row">
+            <span class="gl-metric__label">Live Duration</span>
+            <span class="gl-metric__val">@s.LiveDuration</span>
+        </div>
+        <div class="gl-metric__sub">
+            <i class="bi bi-graph-up-arrow"></i> Peak: @s.PeakViewers Viewers
+        </div>
+    </div>
+
+    <div class="gl-metric gl-metric--purple">
+        <div class="gl-metric__row">
+            <span class="gl-metric__label">Engagement Rate</span>
+            <span class="gl-metric__val">@s.EngagementRatePercent.ToString("0.0")%</span>
+        </div>
+        <div class="gl-metric__sub">
+            @s.TotalInteractions interactions
+        </div>
+    </div>
+
+</div>

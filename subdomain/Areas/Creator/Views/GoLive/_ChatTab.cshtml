@@ -1,0 +1,49 @@
+﻿@model Rotex.Lively.Web.Client.ViewModels.GoLiveViewModel
+
+<div class="gl-chat">
+    <ul class="gl-chat-list" id="glChatList">
+        @foreach (var msg in Model.ChatMessages)
+        {
+            <li class="gl-chat-item">
+                <span class="gl-avatar" style="background:@msg.Avatar">@msg.UserInitial</span>
+                <div class="gl-chat-item__body">
+                    <div class="gl-chat-item__top">
+                        <span class="gl-chat-item__name">@msg.UserName</span>
+                        @switch (msg.Type)
+                        {
+                            case "Gift":
+                                <span class="gl-chat-tag gl-chat-tag--gift">Gift</span>
+                                break;
+                            case "Tip":
+                                <span class="gl-chat-tag gl-chat-tag--tip">Tip</span>
+                                break;
+                        }
+                    </div>
+                    @if (msg.Type == "Gift")
+                    {
+                        <div class="gl-chat-item__line gl-chat-item__line--gift">
+                            @msg.GiftLabel <span class="gl-chat-emoji">@msg.GiftEmoji</span>
+                        </div>
+                    }
+                    else if (msg.Type == "Tip")
+                    {
+                        <div class="gl-chat-item__line gl-chat-item__line--tip">
+                            @msg.Text &#8358;@(msg.TipAmount?.ToString("N0") ?? "0")
+                        </div>
+                    }
+                    else if (!string.IsNullOrEmpty(msg.Text))
+                    {
+                        <div class="gl-chat-item__line">@msg.Text</div>
+                    }
+                </div>
+            </li>
+        }
+    </ul>
+
+    <div class="gl-chat-compose">
+        <input type="text" class="gl-chat-input" placeholder="Type a message..." id="glChatInput" />
+        <button type="button" class="gl-chat-send" id="glChatSend" aria-label="Send">
+            <i class="bi bi-send-fill"></i>
+        </button>
+    </div>
+</div>

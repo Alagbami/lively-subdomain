@@ -1,0 +1,155 @@
+﻿@model Rotex.Lively.Web.Client.ViewModels.GoLiveViewModel
+@{
+    ViewData["Title"] = "Live - " + Model.ShowTitle;
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="~/css/creatorStyle/GoLive.css" asp-append-version="true" />
+}
+
+<div id="goLivePage" class="gl-page" data-started-at="@Model.StartedAt.ToString("o")">
+
+    @* ────────── Top Bar ────────── *@
+    <header class="gl-topbar">
+        <div class="gl-topbar__left">
+            <span class="gl-live-pill">
+                <span class="gl-live-dot"></span>
+                LIVE
+            </span>
+            <span class="gl-timer" id="glTimer">
+                <i class="bi bi-stopwatch"></i>
+                <span id="glTimerValue">00:00</span>
+            </span>
+        </div>
+
+        <div class="gl-topbar__right">
+            <span class="gl-stat-pill">
+                <i class="bi bi-eye"></i>
+                <span id="glViewerCount">@Model.CurrentViewers</span>
+            </span>
+            <span class="gl-stat-pill gl-stat-pill--earnings">
+                <i class="bi bi-cash"></i>
+                <span>@Model.Currency@Model.TipsAmount.ToString("N0"), &#8358;@Model.CoinsAmount.ToString("N0")</span>
+            </span>
+        </div>
+    </header>
+
+    @* ────────── Main Content ────────── *@
+    <main class="gl-main" id="glMain">
+
+        @* ── Stream area (left) ── *@
+        <section class="gl-stream" id="glStream">
+            <div class="gl-stream__viewport" id="glViewport">
+
+                @if (!string.IsNullOrEmpty(Model.StreamUrl))
+                {
+                    <video class="gl-stream__video" autoplay muted playsinline poster="@Model.PosterUrl">
+                        <source src="@Model.StreamUrl" type="video/mp4" />
+                    </video>
+                }
+                else
+                {
+                    <img class="gl-stream__video" src="@Model.PosterUrl" alt="@Model.ShowTitle"
+                         onerror="this.style.background='linear-gradient(135deg,#1a0a2e,#3d1a5e)';this.removeAttribute('src');" />
+                }
+
+                @* Top-left show info *@
+                <div class="gl-overlay-info">
+                    <span class="gl-overlay-info__title">@Model.ShowTitle</span>
+                    <span class="gl-badge gl-badge--category">@Model.Category</span>
+                </div>
+
+                @* Top-right stats *@
+                <div class="gl-overlay-stats">
+                    <span class="gl-overlay-pill">
+                        <i class="bi bi-graph-up-arrow"></i>
+                        Peak: <strong id="glPeak">@Model.PeakViewers</strong>
+                    </span>
+                    <span class="gl-overlay-pill">
+                        <i class="bi bi-gift-fill"></i>
+                        <strong id="glGifts">@Model.TotalGifts</strong> gifts
+                    </span>
+                </div>
+
+                @* Activity bubbles *@
+                <div class="gl-activity" id="glActivity"></div>
+
+                @* Controls *@
+                <div class="gl-controls">
+                    <button type="button" class="gl-ctrl-btn" id="glMicBtn" aria-label="Toggle microphone">
+                        <i class="bi bi-mic-fill"></i>
+                    </button>
+                    <button type="button" class="gl-ctrl-btn" id="glCamBtn" aria-label="Toggle camera">
+                        <i class="bi bi-camera-video-fill"></i>
+                    </button>
+                    <button type="button" class="gl-end-btn" id="glEndBtn">End Stream</button>
+                    <button type="button" class="gl-ctrl-btn" id="glShareBtn" aria-label="Share stream">
+                        <i class="bi bi-share-fill"></i>
+                    </button>
+                    <button type="button" class="gl-ctrl-btn" id="glFsBtn" aria-label="Fullscreen">
+                        <i class="bi bi-arrows-fullscreen"></i>
+                    </button>
+                </div>
+
+                @* Share toast *@
+                <div class="gl-toast" id="glToast">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <span>Share link copied to clipboard</span>
+                </div>
+            </div>
+        </section>
+
+        @* ── Sidebar (right) ── *@
+        <aside class="gl-sidebar" id="glSidebar">
+            <nav class="gl-tabs" role="tablist">
+                <button type="button" class="gl-tab gl-tab--active" data-tab="chat" role="tab" aria-selected="true">
+                    <i class="bi bi-chat"></i><span>Chat</span>
+                </button>
+                <button type="button" class="gl-tab" data-tab="viewers" role="tab" aria-selected="false">
+                    <i class="bi bi-people"></i><span>Viewers</span>
+                </button>
+                <button type="button" class="gl-tab" data-tab="guest" role="tab" aria-selected="false">
+                    <i class="bi bi-person-plus"></i>
+                    <span>Guest</span>
+                    <span class="gl-tab__badge">@Model.GuestRequests.Count</span>
+                </button>
+                <button type="button" class="gl-tab" data-tab="stats" role="tab" aria-selected="false">
+                    <i class="bi bi-graph-up"></i><span>Stats</span>
+                </button>
+            </nav>
+
+            <div class="gl-tab-panels">
+                <div class="gl-tab-panel gl-tab-panel--active" data-panel="chat">
+                    @await Html.PartialAsync("~/Areas/Creator/Views/GoLive/_ChatTab.cshtml", Model)
+                </div>
+                <div class="gl-tab-panel" data-panel="viewers">
+                    @await Html.PartialAsync("~/Areas/Creator/Views/GoLive/_ViewersTab.cshtml", Model)
+                </div>
+                <div class="gl-tab-panel" data-panel="guest">
+                    @await Html.PartialAsync("~/Areas/Creator/Views/GoLive/_GuestTab.cshtml", Model)
+                </div>
+                <div class="gl-tab-panel" data-panel="stats">
+                    @await Html.PartialAsync("~/Areas/Creator/Views/GoLive/_StatsTab.cshtml", Model)
+                </div>
+            </div>
+        </aside>
+
+    </main>
+</div>
+
+@* End-stream confirm modal *@
+<div id="glEndModal" class="gl-confirm-modal" style="display:none;">
+    <div class="gl-confirm-modal__box">
+        <h3>End live stream?</h3>
+        <p>Your viewers will be notified that the stream has ended.</p>
+        <div class="gl-confirm-modal__actions">
+            <button type="button" class="gl-btn gl-btn--ghost" id="glEndCancel">Cancel</button>
+            <button type="button" class="gl-btn gl-btn--danger" id="glEndConfirm">End Stream</button>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/creator/goLive.js" asp-append-version="true"></script>
+}

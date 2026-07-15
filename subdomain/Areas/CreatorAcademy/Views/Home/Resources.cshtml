@@ -1,0 +1,88 @@
+﻿@model subdomain.Areas.CreatorAcademy.ViewModels.ResourcesViewModel
+
+@{
+    ViewData["Title"] = "Resources";
+    ViewData["ActivePage"] = Model.ActivePage;
+}
+
+<!-- Hero card -->
+<section class="cacademy-hero-card-band">
+    <div class="cacademy-hero-card-grid">
+        <div class="cacademy-hero-card">
+            <h1>@Model.HeroTitle</h1>
+            <p>@Model.HeroSubtitle</p>
+            <div class="cacademy-hero-card-pills">
+                @foreach (var pill in Model.QuickNav)
+                {
+                    <a href="@pill.Anchor" class="cacademy-pill cacademy-pill--outline">@pill.Label</a>
+                }
+            </div>
+        </div>
+        @if (Model.HeroImageUrl != null)
+        {
+            <div class="cacademy-hero-card-media">
+                <img src="@Model.HeroImageUrl" alt="@Model.HeroTitle" />
+            </div>
+        }
+    </div>
+</section>
+
+<!-- Brand Guidelines -->
+<section id="brand-guidelines" class="cacademy-resource-section">
+    <h2 class="cacademy-resource-heading">Brand Guidelines</h2>
+    <div class="cacademy-resource-row">
+        <div class="cacademy-resource-media">
+            @if (Model.BrandGuidelines.ImageUrl != null)
+            {
+                <img src="@Model.BrandGuidelines.ImageUrl" alt="@Model.BrandGuidelines.Title" />
+            }
+        </div>
+        <div class="cacademy-resource-content">
+            <h3>@Model.BrandGuidelines.Title</h3>
+            <p>@Model.BrandGuidelines.Body</p>
+            <a href="@Model.BrandGuidelines.ButtonUrl" class="cacademy-btn-dark">@Model.BrandGuidelines.ButtonText</a>
+        </div>
+    </div>
+</section>
+
+<!-- Design Resources -->
+<section id="design-resources" class="cacademy-resource-section">
+    <h2 class="cacademy-resource-heading">Design Resources</h2>
+    @foreach (var card in Model.DesignResources)
+    {
+        <div class="cacademy-resource-row">
+            <div class="cacademy-resource-media" style="@(card.ImageBackground != null ? $"background:{card.ImageBackground};" : "")">
+                @if (card.ImageUrl != null)
+                {
+                    <img src="@card.ImageUrl" alt="@card.Title" loading="lazy" />
+                }
+            </div>
+            <div class="cacademy-resource-content">
+                <h3>@card.Title</h3>
+                <p>@card.Body</p>
+                <a href="@card.ButtonUrl" class="cacademy-btn-dark">@card.ButtonText</a>
+            </div>
+        </div>
+    }
+</section>
+
+<!-- Marketing Resources -->
+<section class="cacademy-resource-section">
+    <h2 class="cacademy-resource-heading">Marketing Resources</h2>
+    @foreach (var card in Model.MarketingResources)
+    {
+        <div class="cacademy-resource-row">
+            <div class="cacademy-resource-media" style="@(card.ImageBackground != null ? $"background:{card.ImageBackground};" : "")">
+                @if (card.ImageUrl != null)
+                {
+                    <img src="@card.ImageUrl" alt="@card.Title" loading="lazy" />
+                }
+            </div>
+            <div class="cacademy-resource-content">
+                <h3>@card.Title</h3>
+                <p>@card.Body</p>
+                <a href="@card.ButtonUrl" class="cacademy-btn-dark">@card.ButtonText</a>
+            </div>
+        </div>
+    }
+</section>

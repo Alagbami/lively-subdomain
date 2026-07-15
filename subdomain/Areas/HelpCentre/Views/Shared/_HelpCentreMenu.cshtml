@@ -1,0 +1,86 @@
+﻿<div class="help-centre-hero" style="@(ViewData["HeroStyle"])">
+    <div class="help-centre-header">
+        <div class="header-content-wrapper">
+            <a href="#" class="btn-contact-us">Contact Us</a>
+            <div class="header-logo text-center">
+                <img src="/img/logo-white.svg" alt="lively">
+            </div>
+            <div class="header-tools">
+                <a href="#" class="lang-dropdown">
+                    English <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i>
+                </a>
+                <div class="search-circle" id="searchToggle">
+                    <i class="bi bi-search" style="font-size: 14px;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-content">
+        <div class="content-container w-100 h-100 position-relative">
+            @if (ViewData["HeroTitle"] != null || ViewData["CategorySlug"] != null)
+            {
+                <div class="category-hero-text">
+                    <div class="breadcrumb">
+                        <a href="/HelpCentre">Lively Help Center</a> <i class="bi bi-chevron-right mx-2 text-white opacity-75 small"></i>
+                        
+                        @if (ViewData["SubCategorySlug"] != null)
+                        {
+                            <a href="/HelpCentre/@ViewData["CategorySlug"]">@ViewData["CategorySlug"]</a> <i class="bi bi-chevron-right mx-2 text-white opacity-75 small"></i> 
+                            @ViewData["SubCategorySlug"]
+                        }
+                        else
+                        {
+                            @ViewData["CategorySlug"]
+                        }
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h1>@(ViewData["HeroTitle"] ?? ViewData["Title"].ToString().Split('-')[0].Trim())</h1>
+                        @if (ViewData["IsArticle"] != null && (bool)ViewData["IsArticle"])
+                        {
+                            <button class="btn btn-dark rounded-pill px-4 ms-4 border border-secondary" style="background-color: rgba(0,0,0,0.6);">Follow</button>
+                        }
+                    </div>
+
+                    @if (ViewData["IsArticle"] != null && (bool)ViewData["IsArticle"])
+                    {
+                        <div class="d-flex align-items-center mt-2">
+                            <img src="/img/lively-icon-small.png" alt="Lively" style="width:24px; height:24px; border-radius:50%;" onerror="this.src='/img/logo-white.svg'; this.style.width='auto';" class="me-2" />
+                            <span class="text-white opacity-75" style="font-size: 14px;">Lively Support &nbsp; January 19, 2026 at 10:38 AM</span>
+                        </div>
+                    }
+
+                </div>
+            }
+            else
+            {
+                <div class="hero-search-centered">
+                    <h1 class="text-center">What can we help you with?</h1>
+                    <div class="hero-search-wrapper mx-auto">
+                        <input type="text" class="hero-search-input" placeholder="Type your question here...">
+                        <button type="button" class="btn-hero-search">Search</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- Search Overlay -->
+<div id="searchOverlay" class="search-overlay" style="display: none;">
+    <div class="search-overlay-header">
+        <div class="content-container">
+            <h2 class="search-overlay-heading">What can we help you with?</h2>
+            <div class="search-bar-wrapper">
+                <input type="text" class="search-overlay-input" placeholder="Type your question here...">
+                <button type="button" class="btn-search-overlay">Search</button>
+            </div>
+        </div>
+    </div>
+    <div class="search-overlay-bg">
+        <div class="close-overlay" id="closeSearch">
+            <i class="bi bi-x"></i>
+        </div>
+    </div>
+</div>

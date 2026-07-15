@@ -1,0 +1,39 @@
+﻿@model HelpViewModel
+@{
+    ViewData["Title"] = "Help";
+    ViewData["ActivePage"] = Model.ActivePage;
+}
+
+<!-- Hero -->
+<section class="academy-help-hero-band">
+    <div class="academy-help-hero-grid">
+        <div class="academy-help-hero-card">
+            <h1>@Model.HeroTitle</h1>
+            <p>@Model.HeroSubtitle</p>
+        </div>
+        @if (Model.HeroImageUrl != null)
+        {
+            <div class="academy-help-hero-media">
+                <img src="@Model.HeroImageUrl" alt="@Model.HeroTitle" />
+            </div>
+        }
+    </div>
+</section>
+
+<!-- Help content -->
+<section class="academy-help-content">
+    <div class="academy-help-grid">
+        <div class="academy-help-media">
+            <img src="/images/academy/help-content.jpg" alt="Seller help" loading="lazy" />
+        </div>
+        <div class="academy-help-text">
+            @foreach (var item in Model.HelpSections)
+            {
+                <div class="academy-help-block">
+                    <h2>@item.Title</h2>
+                    <p>@item.Body</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>

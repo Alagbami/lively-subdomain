@@ -1,0 +1,40 @@
+﻿@using subdomain.Areas.CreatorAcademy.DummyData
+@model string
+
+@{
+    var active = Model ?? string.Empty;
+}
+
+<header class="cacademy-header">
+    <div class="cacademy-header-inner">
+        <a asp-area="CreatorAcademy"
+               asp-controller="Home"
+               asp-action="Index"
+               class="cacademy-logo">
+
+            <span class="cacademy-logo-mark" aria-hidden="true">
+                <img src="~/img/logo-black.svg"
+                     asp-append-version="true"
+                     alt="Lively" />
+            </span>
+        </a>
+
+        <nav class="cacademy-nav" aria-label="Creator Academy navigation">
+            @foreach (var item in AcademyDummyData.Nav)
+            {
+                var isActive = string.Equals(
+                    item.Action,
+                    active,
+                    StringComparison.OrdinalIgnoreCase);
+
+                <a asp-area="CreatorAcademy"
+                       asp-controller="Home"
+                       asp-action="@item.Action"
+                       class="cacademy-nav-link @(isActive ? "active" : "")"
+                       aria-current="@(isActive ? "page" : null)">
+                    @item.Label
+                </a>
+            }
+        </nav>
+    </div>
+</header>

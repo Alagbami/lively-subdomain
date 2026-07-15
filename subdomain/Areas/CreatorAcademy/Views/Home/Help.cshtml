@@ -1,0 +1,40 @@
+﻿@model subdomain.Areas.CreatorAcademy.ViewModels.HelpViewModel
+@{
+    ViewData["Title"] = "Help";
+    ViewData["ActivePage"] = Model.ActivePage;
+}
+
+<!-- Hero -->
+<section class="cacademy-help-hero-band">
+    <div class="cacademy-help-hero-grid">
+        <div class="cacademy-help-hero-card">
+            <h1>@Model.HeroTitle</h1>
+            <p>@Model.HeroSubtitle</p>
+        </div>
+        @if (Model.HeroImageUrl != null)
+        {
+            <div class="cacademy-help-hero-media">
+                <img src="@Model.HeroImageUrl" alt="@Model.HeroTitle" />
+            </div>
+        }
+    </div>
+</section>
+
+<!-- Help content -->
+<section class="cacademy-help-content">
+    <h2 class="cacademy-help-section-title">Brand Guidelines</h2>
+    <div class="cacademy-help-grid">
+        <div class="cacademy-help-media">
+            <img src="/images/creator-academy/help-content.jpg" alt="Creator help" loading="lazy" />
+        </div>
+        <div class="cacademy-help-text">
+            @foreach (var item in Model.HelpSections)
+            {
+                <div class="cacademy-help-block">
+                    <h2>@item.Title</h2>
+                    <p>@item.Body</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>

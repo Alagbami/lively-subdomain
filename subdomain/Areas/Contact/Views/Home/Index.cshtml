@@ -1,0 +1,233 @@
+@model Rotex.Lively.Web.Client.Areas.Contact.ViewModels.ContactViewModel
+@{
+    ViewData["Title"] = "Submit a request - Lively";
+}
+
+<div class="contact-main">
+    <div class="content-container">
+        <p class="info-text">
+            To submit a support request related to a recent order, please visit the <a href="#">Activity</a> tab and select &#34;Get help with this purchase&#34; from the order details page
+        </p>
+
+        <h2 class="request-heading">How can we help you today?</h2>
+
+        <div class="custom-select-wrapper" id="requestDropdown">
+            <div class="custom-select-trigger">
+                <span id="selectedValue">&mdash;</span>
+                <i class="bi bi-chevron-down"></i>
+            </div>
+            <div class="custom-options">
+                <div class="custom-option" data-value="">&mdash;</div>
+                @foreach (var type in Model.RequestTypes)
+                {
+                    <div class="custom-option" data-value="@type.Id">@type.Name</div>
+                }
+            </div>
+        </div>
+        <input type="hidden" name="RequestTypeId" id="RequestTypeId" value="" />
+
+        <!-- Dynamic DSA Report Form (Hidden by default) -->
+        <div id="dsaReportForm" class="dynamic-form-section" style="display: none;">
+            <div class="form-group-item">
+                <label class="form-label">Your email address <span class="required-star">*</span></label>
+                <input type="email" class="form-input" name="EmailAddress" required />
+            </div>
+
+            <div class="form-group-item">
+                <label class="form-label">What's your region? <span class="required-star">*</span></label>
+                <div class="custom-select-wrapper sub-dropdown" id="regionDropdown">
+                    <div class="custom-select-trigger">
+                        <span id="selectedRegion">&mdash;</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+                    <div class="custom-options">
+                        <div class="custom-option" data-value="">&mdash;</div>
+                        @foreach (var region in Model.Regions)
+                        {
+                            <div class="custom-option" data-value="@region">@region</div>
+                        }
+                    </div>
+                </div>
+                <input type="hidden" name="Region" id="Region" value="" />
+            </div>
+
+            <div class="form-group-item">
+                <label class="form-label">
+                    Please confirm that the report you are submitting is about illegal or prohibited content within the scope of the Digital Services Act (DSA). If not, please submit a notice through our in-app reporting system <span class="required-star">*</span>
+                </label>
+                <div class="custom-select-wrapper sub-dropdown" id="confirmationDropdown">
+                    <div class="custom-select-trigger">
+                        <span id="selectedConfirmation">&mdash;</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+                    <div class="custom-options">
+                        <div class="custom-option" data-value="">&mdash;</div>
+                        @foreach (var option in Model.ConfirmationOptions)
+                        {
+                            <div class="custom-option" data-value="@option">@option</div>
+                        }
+                    </div>
+                </div>
+                <input type="hidden" name="IsIllegalContent" id="IsIllegalContent" value="" />
+            </div>
+
+            <div class="form-group-item">
+                <label class="form-label">Describe your issue in a few words <span class="required-star">*</span></label>
+                <input type="text" class="form-input" name="IssueDescription" required />
+            </div>
+
+            <div class="form-group-item">
+                <label class="form-label">Additional details <span class="required-star">*</span></label>
+                <textarea class="form-textarea" name="AdditionalDetails" required></textarea>
+                <span class="field-hint">Please provide more context about the situation</span>
+            </div>
+
+            <div class="form-group-item">
+                <label class="form-label">Username</label>
+                <input type="text" class="form-input" name="Username" />
+            </div>
+
+            <div class="form-group-item">
+                <label class="form-label">User ID</label>
+                <input type="text" class="form-input" name="UserId" />
+            </div>
+
+            <div class="form-group-item">
+                <label class="form-label">Attachments</label>
+                <div class="file-dropzone" id="dropzone">
+                    <span class="dropzone-text"><a href="#" class="add-file-btn">Add file</a> or drop file here.</span>
+                </div>
+                <span class="field-hint">Attach up to 5 files (Max 50MB each)</span>
+            </div>
+
+            <div class="form-submit-container">
+                <button type="submit" class="btn-submit-form" disabled>Submit</button>
+            </div>
+        </div>
+
+        <!-- Dynamic Trust & Safety Approval Form (Hidden by default) -->
+        <div id="trustSafetyForm" class="dynamic-form-section" style="display: none;">
+            <div class="form-group-item">
+                <label class="form-label">Your email address <span class="required-star">*</span></label>
+                <input type="email" class="form-input" name="EmailAddress" required />
+            </div>
+
+            <div class="form-group-item">
+                <label class="form-label">Your Lively username <span class="required-star">*</span></label>
+                <input type="text" class="form-input" name="Username" required />
+            </div>
+
+            <div class="form-group-item">
+                <label class="form-label">How can we help? <span class="required-star">*</span></label>
+                <div class="custom-select-wrapper sub-dropdown" id="helpDropdown">
+                    <div class="custom-select-trigger">
+                        <span>&mdash;</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+                    <div class="custom-options">
+                        <div class="custom-option" data-value="">&mdash;</div>
+                        @foreach (var option in Model.HelpOptions)
+                        {
+                            <div class="custom-option" data-value="@option">@option</div>
+                        }
+                    </div>
+                </div>
+                <input type="hidden" name="HelpOption" id="HelpOption" value="" />
+            </div>
+
+            <div class="form-group-item">
+                <label class="form-label">Country <span class="required-star">*</span></label>
+                <div class="custom-select-wrapper sub-dropdown" id="countryDropdown">
+                    <div class="custom-select-trigger">
+                        <span>&mdash;</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+                    <div class="custom-options">
+                        <div class="custom-option" data-value="">&mdash;</div>
+                        @foreach (var country in Model.Countries)
+                        {
+                            <div class="custom-option" data-value="@country">@country</div>
+                        }
+                    </div>
+                </div>
+                <input type="hidden" name="Country" id="Country" value="" />
+            </div>
+
+            <div class="form-group-item">
+                <label class="form-label">Describe your issue in a few words <span class="required-star">*</span></label>
+                <input type="text" class="form-input" name="BriefDescription" required />
+            </div>
+
+            <div class="form-group-item">
+                <label class="form-label">What's the issue called, according to your Account Health Dashboard?</label>
+                <input type="text" class="form-input" name="AccountHealthIssueName" />
+                <span class="field-hint">Leave this blank if you're not sure</span>
+            </div>
+
+            <div class="form-group-item">
+                <label class="form-label">If this is a Performance Rate issue, what are the order IDs you'd like reviewed?</label>
+                <input type="text" class="form-input" name="OrderIdsToReview" />
+                <span class="field-hint">Alternatively, you can give us a date range</span>
+            </div>
+
+            <div class="form-group-item">
+                <label class="form-label">Are you appealing this issue or violation? <span class="required-star">*</span></label>
+                <div class="custom-select-wrapper sub-dropdown" id="appealDropdown">
+                    <div class="custom-select-trigger">
+                        <span>&mdash;</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+                    <div class="custom-options">
+                        <div class="custom-option" data-value="">&mdash;</div>
+                        @foreach (var option in Model.AppealOptions)
+                        {
+                            <div class="custom-option" data-value="@option">@option</div>
+                        }
+                    </div>
+                </div>
+                <input type="hidden" name="IsAppealing" id="IsAppealing" value="" />
+            </div>
+
+            <div class="form-group-item">
+                <label class="form-label">Describe your issue in a few words <span class="required-star">*</span></label>
+                <input type="text" class="form-input" name="IssueDescription" required />
+            </div>
+
+            <div class="form-group-item">
+                <label class="form-label">Additional details <span class="required-star">*</span></label>
+                <textarea class="form-textarea" name="AdditionalDetails" required></textarea>
+                <span class="field-hint">Please provide more context about the situation</span>
+            </div>
+
+            <div class="form-group-item">
+                <label class="form-label">Attachments</label>
+                <div class="file-dropzone" id="ts_dropzone">
+                    <span class="dropzone-text"><a href="#" class="add-file-btn">Add file</a> or drop file here.</span>
+                </div>
+                <span class="field-hint">Attach up to 5 files (Max 50MB each)</span>
+            </div>
+
+            <div class="form-submit-container">
+                <button type="submit" class="btn-submit-form" disabled>Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Search Overlay -->
+<div id="searchOverlay" class="search-overlay" style="display: none;">
+    <div class="search-overlay-header">
+        <div class="content-container">
+            <h2 class="search-overlay-heading">What can we help you with?</h2>
+            <div class="search-bar-wrapper">
+                <input type="text" class="search-overlay-input" placeholder="Type your question here...">
+                <button type="button" class="btn-search-overlay">Search</button>
+            </div>
+        </div>
+    </div>
+    <div class="search-overlay-bg">
+        <div class="close-overlay" id="closeSearch">
+            <i class="bi bi-x"></i>
+        </div>
+    </div>
+</div>

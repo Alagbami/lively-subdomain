@@ -1,0 +1,148 @@
+﻿@model subdomain.Areas.Blogs.ViewModels.BlogListViewModel
+
+@{
+    ViewData["Title"] = "Insights, Stories & Updates";
+}
+
+<section class="blog-hero">
+    <h1 class="blog-hero-title">
+        Insights, Stories &amp; Updates from Lively
+    </h1>
+
+    <p class="blog-hero-subtitle">
+        Discover tips, trends, and stories shaping the future of live commerce.
+    </p>
+
+    <nav class="blog-categories"
+         aria-label="Blog categories">
+
+        @foreach (var category in Model.Categories)
+        {
+            var isActive = string.Equals(
+                category,
+                Model.ActiveCategory,
+                StringComparison.OrdinalIgnoreCase);
+
+            <a asp-area="Blogs"
+                   asp-controller="Blog"
+                   asp-action="Index"
+                   asp-route-category="@category"
+                   asp-route-search="@Model.SearchTerm"
+                   class="blog-category-link @(isActive ? "active" : "")"
+                   aria-current="@(isActive ? "page" : null)">
+                @category
+            </a>
+        }
+    </nav>
+
+    <form class="blog-search"
+          method="get"
+          asp-area="Blogs"
+          asp-controller="Blog"
+          asp-action="Index">
+
+        <input type="hidden"
+               name="category"
+               value="@Model.ActiveCategory" />
+
+        <i class="bi bi-search blog-search-icon"
+           aria-hidden="true"></i>
+
+        <input type="search"
+               name="search"
+               value="@Model.SearchTerm"
+               class="blog-search-input"
+               placeholder="Search articles..."
+               aria-label="Search blog articles" />
+
+        <button type="submit"
+                class="blog-search-submit">
+            Search
+        </button>
+    </form>
+</section>
+
+<section class="blog-grid-section">
+    @if (Model.Posts.Any())
+    {
+        <div class="blog-grid">
+            @foreach (var post in Model.Posts)
+            {
+                <partial name="~/Areas/Blogs/Views/Shared/_BlogCard.cshtml"
+                         model="post" />
+            }
+        </div>
+    }
+    else
+    {
+        <div class="blog-empty">
+            @if (string.IsNullOrWhiteSpace(Model.SearchTerm))
+            {
+                <p>No articles were found in this category.</p>
+            }
+            else
+            {
+                <p>
+                    No articles were found for
+                    <strong>&ldquo;@Model.SearchTerm&rdquo;</strong>.
+                </p>
+            }
+
+            <a asp-area="Blogs"
+                   asp-controller="Blog"
+                   asp-action="Index"
+                   class="blog-empty-reset">
+                Clear filters
+            </a>
+        </div>
+    }
+
+    @if (Model.TotalPages > 1)
+    {
+        <nav class="blog-pagination"
+             aria-label="Blog pagination">
+
+            <div class="blog-pagination-side">
+                @if (Model.HasNewerPosts)
+                {
+                    <a asp-area="Blogs"
+                           asp-controller="Blog"
+                           asp-action="Index"
+                           asp-route-category="@Model.ActiveCategory"
+                           asp-route-search="@Model.SearchTerm"
+                           asp-route-page="@(Model.CurrentPage - 1)"
+                           class="blog-page-link blog-page-link--prev">
+
+                        <i class="bi bi-chevron-left"
+                           aria-hidden="true"></i>
+
+                        Newer Posts
+                    </a>
+                }
+            </div>
+
+            <span class="blog-pagination-status">
+                Page @Model.CurrentPage of @Model.TotalPages
+            </span>
+
+            <div class="blog-pagination-side blog-pagination-side--right">
+                @if (Model.HasOlderPosts)
+                {
+                    <a asp-area="Blogs"
+                           asp-controller="Blog"
+                           asp-action="Index"
+                           asp-route-category="@Model.ActiveCategory"
+                           asp-route-search="@Model.SearchTerm"
+                           asp-route-page="@(Model.CurrentPage + 1)"
+                           class="blog-page-link blog-page-link--next">
+
+                        Older Posts
+
+                        <i class="bi bi-chevron-right"
+                           aria-hidden="true"></i>
+                    </a>
+                }
+            </div>
+        </nav>
+    }
+</section>

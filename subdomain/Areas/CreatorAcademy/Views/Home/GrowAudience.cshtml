@@ -1,0 +1,75 @@
+﻿
+@model subdomain.Areas.CreatorAcademy.ViewModels.GrowAudienceViewModel
+
+@{
+    ViewData["Title"] = "Grow Audience";
+    ViewData["ActivePage"] = Model.ActivePage;
+}
+
+<!-- Hero card -->
+<section class="cacademy-hero-card-band">
+    <div class="cacademy-hero-card-grid">
+        <div class="cacademy-hero-card">
+            <h1>@Model.HeroTitle</h1>
+            <p>@Model.HeroSubtitle</p>
+            <div class="cacademy-hero-card-pills">
+                @foreach (var pill in Model.QuickNav)
+                {
+                    <a href="@pill.Anchor" class="cacademy-pill cacademy-pill--outline">@pill.Label</a>
+                }
+            </div>
+        </div>
+        @if (Model.HeroImageUrl != null)
+        {
+            <div class="cacademy-hero-card-media">
+                <img src="@Model.HeroImageUrl" alt="@Model.HeroTitle" />
+            </div>
+        }
+    </div>
+</section>
+
+<!-- Features -->
+<section id="features" class="cacademy-features">
+    <h2 class="cacademy-features-heading">@Model.FeaturesHeading</h2>
+
+    @foreach (var feature in Model.Features)
+    {
+        <div class="cacademy-feature-row">
+            <div class="cacademy-guide-media cacademy-feature-media">
+                @if (feature.MediaImageUrl != null)
+                {
+                    <img src="@feature.MediaImageUrl" alt="@feature.Title" loading="lazy" />
+                }
+                @if (feature.MediaLabel != null)
+                {
+                    <span class="cacademy-guide-media-label">@feature.MediaLabel</span>
+                }
+                @if (feature.HasVideo)
+                {
+                    <span class="cacademy-play"><i class="bi bi-play-fill"></i></span>
+                }
+            </div>
+            <div class="cacademy-feature-content">
+                <h3>@feature.Title</h3>
+                <p>@feature.Body</p>
+            </div>
+        </div>
+    }
+</section>
+
+<!-- Info card grid -->
+@if (Model.Cards.Any())
+{
+    <section class="cacademy-cards-band">
+        <div class="cacademy-cards-grid">
+            @foreach (var card in Model.Cards)
+            {
+                <div class="cacademy-info-card">
+                    <span class="cacademy-info-card-icon"><i class="bi @card.Icon"></i></span>
+                    <h3>@card.Title</h3>
+                    <p>@card.Body</p>
+                </div>
+            }
+        </div>
+    </section>
+}

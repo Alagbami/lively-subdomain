@@ -1,0 +1,67 @@
+﻿@model Rotex.Lively.Web.Client.ViewModels.GoLiveViewModel
+
+<div class="gl-viewers">
+    <div class="gl-viewers__head">
+        <div>
+            <div class="gl-viewers__title">Current Viewers</div>
+            <div class="gl-viewers__sub">Peak: @Model.PeakViewers viewers</div>
+        </div>
+        <div class="gl-viewers__count">@Model.CurrentViewers</div>
+    </div>
+
+    <ul class="gl-viewer-list">
+        @foreach (var v in Model.Viewers)
+        {
+            <li class="gl-viewer-item" data-viewer-id="@v.Id">
+                <span class="gl-avatar" style="background:@v.Avatar">@v.Initial</span>
+                <div class="gl-viewer-item__body">
+                    <div class="gl-viewer-item__name">@v.Name</div>
+                    <div class="gl-viewer-item__status">
+                        <span class="gl-status-dot @(v.IsActive ? "gl-status-dot--active" : "gl-status-dot--inactive")"></span>
+                        Active
+                    </div>
+                </div>
+                @if (v.IsStarred)
+                {
+                    <button type="button" class="gl-viewer-star is-starred" aria-label="Starred">
+                        <i class="bi bi-star"></i>
+                    </button>
+                }
+                else
+                {
+                    <button type="button" class="gl-viewer-star" aria-label="Star viewer">
+                        <i class="bi bi-star"></i>
+                    </button>
+                }
+                <button type="button" class="gl-viewer-menu"
+                        data-viewer-id="@v.Id"
+                        data-name="@v.Name"
+                        data-fullname="@(string.IsNullOrEmpty(v.FullName) ? v.Name : v.FullName)"
+                        data-initial="@v.Initial"
+                        data-avatar="@v.Avatar"
+                        aria-label="Viewer options">
+                    <i class="bi bi-three-dots-vertical"></i>
+                </button>
+            </li>
+        }
+    </ul>
+
+    @* Viewer popover (Image 5) - positioned by JS *@
+    <div class="gl-viewer-popover" id="glViewerPopover" style="display:none;">
+        <div class="gl-viewer-popover__head">
+            <span class="gl-avatar" id="popAvatar"></span>
+            <div>
+                <div class="gl-viewer-popover__name" id="popName"></div>
+                <div class="gl-viewer-popover__fullname" id="popFullName"></div>
+            </div>
+        </div>
+        <div class="gl-viewer-popover__icons">
+            <span class="gl-pop-icon gl-pop-icon--pink">🎁</span>
+            <span class="gl-pop-icon gl-pop-icon--blue">⭐</span>
+        </div>
+        <div class="gl-viewer-popover__actions">
+            <button type="button" class="gl-btn gl-btn--invite">Invite to Join Live</button>
+            <button type="button" class="gl-btn gl-btn--remove">Remove from stream</button>
+        </div>
+    </div>
+</div>

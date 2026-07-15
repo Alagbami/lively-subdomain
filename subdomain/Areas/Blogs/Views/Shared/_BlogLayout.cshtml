@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Lively Blog</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="~/css/blog.css" asp-append-version="true" />
+</head>
+<body class="blog-body">
+
+    <!-- ===== Header ===== -->
+    <header class="blog-header">
+        <div class="blog-header-inner">
+            <a asp-area="Blogs" asp-controller="Blog" asp-action="Index" class="blog-logo">
+                <span class="blog-logo-mark" aria-hidden="true">
+                    <img src="/img/logo-black.svg" alt="lively">
+                </span>
+                @* <span class="blog-logo-text">lively</span> *@
+            </a>
+        </div>
+    </header>
+
+    <!-- ===== Page content ===== -->
+    <main class="blog-main">
+        @RenderBody()
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="blog-footer">
+        <div class="blog-footer-inner">
+            <div class="blog-footer-brand">
+                <a asp-area="Blogs" asp-controller="Blog" asp-action="Index" class="blog-logo blog-logo--light">
+                    <span class="blog-logo-mark" aria-hidden="true">
+                        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 4 L24 17 L8 30 Z" fill="#FF0055" />
+                            <path d="M8 17 L18 17 L8 30 Z" fill="#FFE600" />
+                        </svg>
+                    </span>
+                    <span class="blog-logo-text">lively</span>
+                </a>
+            </div>
+
+            <div class="blog-footer-col">
+                <h4>Company</h4>
+                <a href="https://livelyafrican.com" target="_blank" rel="noopener">Livelyafrican.com</a>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">FAQ</a>
+                <a href="#">Affiliates</a>
+            </div>
+
+            <div class="blog-footer-col">
+                <h4>Contact us</h4>
+                <a href="#">Contact Support</a>
+                <address class="blog-footer-address">
+                    547 Lekki Phase 1,<br />
+                    Lagos State,<br />
+                    Nigeria.
+                </address>
+            </div>
+        </div>
+
+        <div class="blog-footer-social">
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+            <a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        </div>
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

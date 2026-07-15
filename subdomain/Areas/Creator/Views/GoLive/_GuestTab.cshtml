@@ -1,0 +1,70 @@
+﻿@model Rotex.Lively.Web.Client.ViewModels.GoLiveViewModel
+
+<div class="gl-guest">
+
+    @* ─── Guest Requests ─── *@
+    <section class="gl-guest__section">
+        <h3 class="gl-guest__title">Guest Requests</h3>
+        <p class="gl-guest__sub">Viewers requesting to join your live</p>
+
+        <ul class="gl-request-list">
+            @foreach (var req in Model.GuestRequests)
+            {
+                <li class="gl-request-item" data-id="@req.Id">
+                    <span class="gl-avatar" style="background:@req.Avatar">@req.Initial</span>
+                    <div class="gl-request-item__body">
+                        <div class="gl-request-item__name">@req.Name</div>
+                        <div class="gl-request-item__meta">
+                            <i class="bi bi-clock"></i> @req.WatchingFor
+                        </div>
+                    </div>
+                    <button type="button" class="gl-btn-pill gl-btn-pill--approve" data-action="approve" data-id="@req.Id">Approve</button>
+                    <button type="button" class="gl-btn-pill gl-btn-pill--decline" data-action="decline" data-id="@req.Id">Decline</button>
+                </li>
+            }
+        </ul>
+    </section>
+
+    @* ─── Invited Guests ─── *@
+    <section class="gl-guest__section">
+        <h3 class="gl-guest__title">Invited Guests</h3>
+        <ul class="gl-invited-list">
+            @foreach (var inv in Model.InvitedGuests)
+            {
+                <li class="gl-invited-item" data-id="@inv.Id">
+                    <span class="gl-avatar" style="background:@inv.Avatar">@inv.Initial</span>
+                    <div class="gl-invited-item__body">
+                        <div class="gl-invited-item__name">@inv.Name</div>
+                        <span class="gl-pill-tag">Invited</span>
+                    </div>
+                    <button type="button" class="gl-btn-text" data-action="cancel-invite" data-id="@inv.Id">Cancel</button>
+                </li>
+            }
+        </ul>
+    </section>
+
+    @* ─── Invite a Viewer ─── *@
+    <section class="gl-guest__section">
+        <h3 class="gl-guest__title">Invite a Viewer</h3>
+        <div class="gl-search">
+            <i class="bi bi-search"></i>
+            <input type="text" class="gl-search__input" id="glViewerSearch" placeholder="Search viewers by name or username" />
+        </div>
+        <ul class="gl-inviteable-list" id="glInviteableList">
+            @foreach (var v in Model.InviteableViewers)
+            {
+                <li class="gl-inviteable-item" data-id="@v.Id" data-name="@v.Name.ToLower()">
+                    <span class="gl-avatar" style="background:@v.Avatar">@v.Initial</span>
+                    <div class="gl-inviteable-item__body">
+                        <div class="gl-inviteable-item__name">@v.Name</div>
+                        <div class="gl-inviteable-item__meta">
+                            <i class="bi bi-clock"></i> @v.WatchingFor
+                        </div>
+                    </div>
+                    <button type="button" class="gl-btn-pill gl-btn-pill--invite" data-action="invite" data-id="@v.Id">Invite</button>
+                </li>
+            }
+        </ul>
+    </section>
+
+</div>

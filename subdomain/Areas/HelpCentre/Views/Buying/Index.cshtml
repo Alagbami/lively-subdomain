@@ -1,0 +1,76 @@
+@{
+    ViewData["Title"] = "Buying - Lively Help Centre";
+    ViewData["CategorySlug"] = "Buying";
+}
+
+<div class="help-centre-details">
+    <div class="content-container details-container">
+        
+        <div class="articles-section mb-5">
+            <h2 class="section-title">Top articles</h2>
+            <ul class="article-list">
+                <li><a asp-action="PreBid">Pre-bid on an item before an auction</a></li>
+                <li><a asp-action="BuyNowPayLater">Pay over time with Buy Now, Pay Later</a></li>
+                <li><a asp-action="ProtectionPolicy">Lively Buyer Protection Policy</a></li>
+                <li><a asp-action="CancelOrder">Request to cancel your order</a></li>
+            </ul>
+        </div>
+
+        <div class="details-grid">
+            <!-- Column 1 -->
+            <div class="details-column">
+                <div class="articles-section">
+                    <h3 class="subsection-title">Getting started</h3>
+                    <ul class="article-list">
+                        <li><a asp-action="PaymentMethods">Add and manage payment methods</a></li>
+                        <li><a asp-action="ShippingAddress">Add or update your default shipping address</a></li>
+                        <li><a asp-action="ChatTags">Using and viewing chat tags in a livestream</a></li>
+                    </ul>
+                </div>
+
+                <div class="articles-section" style="margin-top: 150px;">
+                    <h3 class="subsection-title">Shipping</h3>
+                    <ul class="article-list">
+                        <li><a href="#">Track your order</a></li>
+                        <li><a href="#">Get help with a delayed or missing order</a></li>
+                        <li><a href="#">Change your order's shipping address</a></li>
+                        <li><a href="#">Smart Bundling™</a></li>
+                        <li><a href="#">Weekly Bundling Feature</a></li>
+                        <li><a href="#">US shipping guide for buyers</a></li>
+                    </ul>
+                    <a href="#" class="btn-see-all mt-3">See all 20 articles <i class="bi bi-chevron-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="details-column">
+                <div class="articles-section">
+                    <h3 class="subsection-title">Buying items</h3>
+                    <ul class="article-list">
+                        <li><a asp-action="PreBid">Pre-bid on an item before an auction</a></li>
+                        <li><a asp-action="BuyNowPayLater">Pay over time with Buy Now, Pay Later</a></li>
+                        <li><a href="#">How to become a Verified Buyer</a></li>
+                        <li><a asp-action="BuyingOnLively">Buying on Lively</a></li>
+                        <li><a asp-action="HowToBid">How to bid in an auction</a></li>
+                        <li><a asp-action="FixPaymentIssue">Fix a payment issue or declined payment</a></li>
+                    </ul>
+                    <a asp-action="BuyingItems" class="btn-see-all mt-3">See all 25 articles <i class="bi bi-chevron-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="details-column">
+                <div class="articles-section">
+                    <h3 class="subsection-title">Order issues and refunds</h3>
+                    <ul class="article-list">
+                        <li><a asp-action="ProtectionPolicy">Lively Buyer Protection Policy</a></li>
+                        <li><a asp-action="CancelOrder">Request to cancel your order</a></li>
+                        <li><a href="#">Get help with your purchase</a></li>
+                        <li><a href="#">Seller Provided Support for Buyers</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

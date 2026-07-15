@@ -1,0 +1,32 @@
+﻿@* @model BlogPost *@
+
+@* @model Rotex.Lively.Web.Client.Areas.Blogs.Models.BlogPost *@
+@model subdomain.Areas.Blogs.Models.BlogPost
+
+<a asp-area="Blogs" asp-controller="Blog" asp-action="Details" asp-route-id="@Model.Id" class="blog-card">
+    <div class="blog-card-media @(Model.ImageUrl == null ? "blog-card-media--logo" : "")">
+        @if (Model.ImageUrl != null)
+        {
+            <img src="@Model.ImageUrl" alt="@Model.Title" loading="lazy" />
+        }
+        else
+        {
+            <span class="blog-card-logo">
+                <svg width="30" height="30" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 4 L24 17 L8 30 Z" fill="#FF0055" />
+                    <path d="M8 17 L18 17 L8 30 Z" fill="#FFE600" />
+                </svg>
+                <span>lively</span>
+            </span>
+        }
+    </div>
+
+    <div class="blog-card-body">
+        <span class="blog-tag">@Model.Category</span>
+        <h3 class="blog-card-title">@Model.Title</h3>
+        <div class="blog-card-meta">
+            <i class="bi bi-clock"></i>
+            <span>@Model.DisplayDate</span>
+        </div>
+    </div>
+</a>

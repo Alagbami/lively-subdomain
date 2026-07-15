@@ -1,0 +1,33 @@
+@model HelpCentreViewModel
+
+@{
+    ViewData["Title"] = "Help Centre - Lively";
+}
+
+<div class="help-centre-main">
+    <div class="content-container category-grid">
+        @foreach (var category in Model.Categories)
+        {
+            var controllerName = category.Slug switch
+            {
+                "buying" => "Buying",
+                "selling" => "Selling",
+                "fans" => "Fans",
+                "creating" => "Creating",
+                "account" => "Account",
+                "safety-and-policies" => "SafetyPolicies",
+                _ => "Home"
+            };
+
+            <a asp-area="HelpCentre"
+                   asp-controller="@controllerName"
+                   asp-action="Index"
+                   class="category-card">
+
+                <span class="category-title">
+                    @category.Title
+                </span>
+            </a>
+        }
+    </div>
+</div>

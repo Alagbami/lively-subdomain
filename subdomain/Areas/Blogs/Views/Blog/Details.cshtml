@@ -1,0 +1,112 @@
+﻿@using subdomain.Areas.Blogs.Models
+@model subdomain.Areas.Blogs.ViewModels.BlogDetailsViewModel
+
+@{
+    ViewData["Title"] = Model.Post.Title;
+    var post = Model.Post;
+}
+
+<article class="blog-article">
+    <span class="blog-tag">@post.Category</span>
+
+    @if (!string.IsNullOrWhiteSpace(post.ImageUrl))
+    {
+        <div class="blog-article-hero">
+            <img src="@post.ImageUrl"
+                 alt="@post.Title" />
+        </div>
+    }
+    else
+    {
+        <div class="blog-article-hero blog-article-hero--logo">
+            <span class="blog-card-logo">
+                <svg width="40"
+                     height="40"
+                     viewBox="0 0 34 34"
+                     fill="none"
+                     xmlns="http://www.w3.org/2000/svg"
+                     aria-hidden="true">
+                    <path d="M8 4 L24 17 L8 30 Z"
+                          fill="#FF0055" />
+                    <path d="M8 17 L18 17 L8 30 Z"
+                          fill="#FFE600" />
+                </svg>
+
+                <span>lively</span>
+            </span>
+        </div>
+    }
+
+    <h1 class="blog-article-title">@post.Title</h1>
+
+    @if (!string.IsNullOrWhiteSpace(post.Excerpt))
+    {
+        <p class="blog-article-excerpt">
+            @post.Excerpt
+        </p>
+    }
+
+    <div class="blog-article-body">
+        @foreach (var block in post.Body)
+        {
+            switch (block.Type)
+            {
+                case BlogBlockType.Heading:
+                    if (!string.IsNullOrWhiteSpace(block.Text))
+                    {
+                        <h2 class="blog-article-heading">
+                            @block.Text
+                        </h2>
+                    }
+                    break;
+
+                case BlogBlockType.Paragraph:
+                    if (!string.IsNullOrWhiteSpace(block.Text))
+                    {
+                        <p>@block.Text</p>
+                    }
+                    break;
+
+                case BlogBlockType.Image:
+                    if (!string.IsNullOrWhiteSpace(block.ImageUrl))
+                    {
+                        <div class="blog-article-image">
+                            <img src="@block.ImageUrl"
+                                 alt="@post.Title"
+                                 loading="lazy" />
+                        </div>
+                    }
+                    break;
+
+                case BlogBlockType.BulletList:
+                    if (block.Items is { Count: > 0 })
+                    {
+                        <ul class="blog-article-list">
+                            @foreach (var item in block.Items)
+                            {
+                                <li>@item</li>
+                            }
+                        </ul>
+                    }
+                    break;
+            }
+        }
+    </div>
+</article>
+
+@if (Model.RelatedPosts.Any())
+{
+    <section class="blog-related">
+        <h2 class="blog-related-title">
+            Related articles
+        </h2>
+
+        <div class="blog-grid blog-grid--related">
+            @foreach (var relatedPost in Model.RelatedPosts)
+            {
+                <partial name="~/Areas/Blogs/Views/Shared/_BlogCard.cshtml"
+                         model="relatedPost" />
+            }
+        </div>
+    </section>
+}

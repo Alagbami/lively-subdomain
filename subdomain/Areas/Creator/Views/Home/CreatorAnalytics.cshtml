@@ -1,0 +1,432 @@
+﻿@model Rotex.Lively.Web.Client.ViewModels.CreatorAnalyticsPageViewModel
+@{
+    ViewData["Title"] = "Creator Analytics";
+    var ov = Model.Overview;
+    var sh = Model.Shows;
+    var fn = Model.Fans;
+    var ea = Model.Earnings;
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/creatorStyle/CreatorAnalyticsPage.css" asp-append-version="true" />
+}
+
+<div class="cap-page">
+
+    @* ── Page header ── *@
+    <header class="cap-header">
+        <h1 class="cap-header__title">Creator Analytics</h1>
+
+        @* Date range dropdown trigger *@
+        <div class="cap-date-wrap">
+            <button type="button" class="cap-date-btn" id="capDateBtn">
+                <i class="bi bi-calendar3"></i>
+                <span id="capDateLabel">@Model.DateRange</span>
+                <i class="bi bi-chevron-down"></i>
+            </button>
+
+            @* Dropdown menu *@
+            <ul class="cap-date-menu" id="capDateMenu" hidden>
+                <li class="cap-date-opt is-selected" data-value="Last 7 days">Last 7 days <i class="bi bi-check2"></i></li>
+                <li class="cap-date-opt" data-value="Today">Today</li>
+                <li class="cap-date-opt" data-value="Last 28 days">Last 28 days</li>
+                <li class="cap-date-opt" data-value="Custom">Custom</li>
+            </ul>
+
+            @* Custom date range picker (Image 6) *@
+            <div class="cap-date-picker" id="capDatePicker" hidden>
+                <div class="cap-date-picker__header">
+                    <div class="cap-date-picker__field">
+                        <label>Start Date</label>
+                        <input type="text" id="capStartDate" placeholder="MM/DD/YYYY" readonly />
+                    </div>
+                    <div class="cap-date-picker__field">
+                        <label>End Date</label>
+                        <input type="text" id="capEndDate" placeholder="MM/DD/YYYY" readonly />
+                    </div>
+                </div>
+                <div class="cap-date-picker__calendars" id="capCalendars">
+                    @* Rendered by JS *@
+                </div>
+            </div>
+        </div>
+    </header>
+
+    @* ── Tab nav ── *@
+    <nav class="cap-tabs" role="tablist">
+        <button type="button" class="cap-tab cap-tab--active" data-tab="overview" role="tab" aria-selected="true">
+            <i class="bi bi-bar-chart-line"></i> Overview
+        </button>
+        <button type="button" class="cap-tab" data-tab="shows" role="tab" aria-selected="false">
+            <i class="bi bi-camera-video"></i> Shows
+        </button>
+        <button type="button" class="cap-tab" data-tab="fans" role="tab" aria-selected="false">
+            <i class="bi bi-people"></i> Fans
+        </button>
+        <button type="button" class="cap-tab" data-tab="earnings" role="tab" aria-selected="false">
+            <i class="bi bi-currency-dollar"></i> Earnings
+        </button>
+    </nav>
+
+    @* ════════════════════════════════
+       OVERVIEW PANEL
+       ════════════════════════════════ *@
+    <div class="cap-panel cap-panel--active" data-panel="overview">
+
+        @* Stats grid *@
+        <div class="cap-ov-stats">
+            <div class="cap-ov-card">
+                <div class="cap-ov-card__top">
+                    <span class="cap-ov-card__icon cap-ov-card__icon--pink"><i class="bi bi-cash-coin"></i></span>
+                    <span class="cap-trend cap-trend--@(ov.EarningsUp ? "up" : "down")">
+                        <i class="bi bi-arrow-up-right"></i>@ov.EarningsTrend
+                    </span>
+                </div>
+                <div class="cap-ov-card__value">$@ov.TotalEarnings.ToString("N0")</div>
+                <div class="cap-ov-card__label">Total Earnings</div>
+            </div>
+
+            <div class="cap-ov-card">
+                <div class="cap-ov-card__top">
+                    <span class="cap-ov-card__icon cap-ov-card__icon--purple"><i class="bi bi-eye"></i></span>
+                    <span class="cap-trend cap-trend--@(ov.ViewsUp ? "up" : "down")">
+                        <i class="bi bi-arrow-up-right"></i>@ov.ViewsTrend
+                    </span>
+                </div>
+                <div class="cap-ov-card__value">@ov.LiveViews</div>
+                <div class="cap-ov-card__label">Live Views</div>
+            </div>
+
+            <div class="cap-ov-card">
+                <div class="cap-ov-card__top">
+                    <span class="cap-ov-card__icon cap-ov-card__icon--blue"><i class="bi bi-person-plus"></i></span>
+                    <span class="cap-trend cap-trend--@(ov.FansUp ? "up" : "down")">
+                        <i class="bi bi-arrow-up-right"></i>@ov.FansTrend
+                    </span>
+                </div>
+                <div class="cap-ov-card__value">@ov.NewFans.ToString("N0")</div>
+                <div class="cap-ov-card__label">New Fans</div>
+            </div>
+
+            <div class="cap-ov-card cap-ov-card--wide">
+                <div class="cap-ov-card__top">
+                    <span class="cap-ov-card__icon cap-ov-card__icon--yellow"><i class="bi bi-gift"></i></span>
+                    <span class="cap-trend cap-trend--@(ov.TipsGiftsUp ? "up" : "down")">
+                        <i class="bi bi-arrow-@(ov.TipsGiftsUp ? "up" : "down")-right"></i>@ov.TipsGiftsTrend
+                    </span>
+                </div>
+                <div class="cap-ov-card__value">$@ov.TipsGifts.ToString("N0")</div>
+                <div class="cap-ov-card__label">Tips &amp; Gifts</div>
+            </div>
+
+            <div class="cap-ov-card cap-ov-card--wide">
+                <div class="cap-ov-card__top">
+                    <span class="cap-ov-card__icon cap-ov-card__icon--orange"><i class="bi bi-clock"></i></span>
+                    <span class="cap-trend cap-trend--@(ov.WatchTimeUp ? "up" : "down")">
+                        <i class="bi bi-arrow-@(ov.WatchTimeUp ? "up" : "down")-right"></i>@ov.WatchTimeTrend
+                    </span>
+                </div>
+                <div class="cap-ov-card__value">@ov.AvgWatchTime</div>
+                <div class="cap-ov-card__label">Avg Watch Time</div>
+            </div>
+        </div>
+
+        @* Insight banner *@
+        <div class="cap-insight" id="capInsight">
+            <i class="bi bi-info-circle"></i>
+            <span>@ov.InsightMessage</span>
+            <button type="button" class="cap-insight__close" id="capInsightClose" aria-label="Dismiss">
+                <i class="bi bi-x"></i>
+            </button>
+        </div>
+
+        @* Performance trend chart *@
+        <div class="cap-chart-card">
+            <div class="cap-chart-card__head">
+                <h2 class="cap-chart-card__title">Performance Trend</h2>
+                <div class="cap-chart-toggle">
+                    <button type="button" class="cap-chart-btn" data-series="views">Views</button>
+                    <button type="button" class="cap-chart-btn cap-chart-btn--active" data-series="earnings">Earnings</button>
+                </div>
+            </div>
+
+            @* Embed chart data for JS *@
+            <script id="capChartData" type="application/json">
+                {
+                    "dates":    @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ov.ChartDates)),
+                    "earnings": @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ov.ChartEarningsValues)),
+                    "views":    @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ov.ChartViewsValues))
+                }
+            </script>
+
+            <div class="cap-chart-wrap">
+                <canvas id="capPerfChart" height="200"></canvas>
+            </div>
+
+            <div class="cap-chart-legend" id="capChartLegend">
+                <span class="cap-legend-dot cap-legend-dot--earnings"></span>
+                <span id="capLegendLabel">Earnings ($)</span>
+            </div>
+        </div>
+    </div>
+
+    @* ════════════════════════════════
+       SHOWS PANEL
+       ════════════════════════════════ *@
+    <div class="cap-panel" data-panel="shows">
+        <div class="cap-shows-head">
+            <h2 class="cap-shows-head__title">Shows Performance</h2>
+            <div class="cap-filter-pills" id="capShowFilter">
+                <button type="button" class="cap-filter-pill cap-filter-pill--active" data-filter="top-earning">
+                    <i class="bi bi-graph-up-arrow"></i> Top Earning
+                </button>
+                <button type="button" class="cap-filter-pill" data-filter="most-viewed">
+                    <i class="bi bi-eye"></i> Most Viewed
+                </button>
+                <button type="button" class="cap-filter-pill" data-filter="most-engaging">
+                    <i class="bi bi-heart"></i> Most Engaging
+                </button>
+            </div>
+        </div>
+
+        <div class="cap-shows-table-wrap">
+            <table class="cap-shows-table">
+                <thead>
+                    <tr>
+                        <th>Shows</th>
+                        <th>Date</th>
+                        <th>Views</th>
+                        <th>Avg Watch Time</th>
+                        <th>Tips</th>
+                        <th>Gifts</th>
+                        <th>Total Earnings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var row in sh.Rows)
+                    {
+                        <tr>
+                            <td class="cap-shows-table__show">
+                                <div class="cap-show-thumb">
+                                    <img src="@row.ThumbnailUrl" alt="@row.Title"
+                                         onerror="this.style.background='linear-gradient(135deg,#3a1a5e,#1a0a2e)';this.removeAttribute('src');" />
+                                </div>
+                                <span class="cap-show-title">@row.Title</span>
+                            </td>
+                            <td>@row.Date</td>
+                            <td>@row.Views.ToString("N0")</td>
+                            <td>@row.AvgWatchTime</td>
+                            <td>$ @row.Tips.ToString("N0")</td>
+                            <td>$ @row.Gifts.ToString("N0")</td>
+                            <td class="cap-shows-table__earnings">$ @row.TotalEarnings.ToString("N0")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    @* ════════════════════════════════
+       FANS PANEL
+       ════════════════════════════════ *@
+    <div class="cap-panel" data-panel="fans">
+
+        @* Top row – 3 stat cards *@
+        <div class="cap-fans-stats">
+            <div class="cap-fans-card">
+                <div class="cap-fans-card__label">New vs Returning</div>
+                <div class="cap-fans-bar-row">
+                    <span class="cap-fans-bar-label">New Fans</span>
+                    <span class="cap-fans-bar-pct">@fn.NewFansPercent%</span>
+                </div>
+                <div class="cap-bar cap-bar--full">
+                    <div class="cap-bar__fill cap-bar__fill--pink" style="width:@(fn.NewFansPercent)%"></div>
+                </div>
+                <div class="cap-fans-bar-row" style="margin-top:8px">
+                    <span class="cap-fans-bar-label">Returning Fans</span>
+                    <span class="cap-fans-bar-pct">@fn.ReturningFansPercent%</span>
+                </div>
+                <div class="cap-bar cap-bar--full">
+                    <div class="cap-bar__fill cap-bar__fill--purple" style="width:@(fn.ReturningFansPercent)%"></div>
+                </div>
+            </div>
+
+            <div class="cap-fans-card">
+                <div class="cap-fans-card__label">Follower Growth</div>
+                <div class="cap-fans-growth-val">+@fn.FollowerGrowth.ToString("N0")</div>
+                <div class="cap-fans-growth-trend cap-trend--up">@fn.GrowthTrend</div>
+            </div>
+
+            <div class="cap-fans-card">
+                <div class="cap-fans-card__label">Global Reach</div>
+                <div class="cap-fans-growth-val">@fn.CountriesWatching</div>
+                <div class="cap-fans-card__sub">Countries watching</div>
+            </div>
+        </div>
+
+        @* Top Countries horizontal bar chart *@
+        <div class="cap-card">
+            <h2 class="cap-card__title">Top Countries</h2>
+            <div class="cap-country-chart">
+                @foreach (var c in fn.TopCountries)
+                {
+                    <div class="cap-country-row">
+                        <span class="cap-country-row__name">@c.Country</span>
+                        <div class="cap-bar cap-bar--country">
+                            <div class="cap-bar__fill cap-bar__fill--pink" style="width:@(c.BarPercent)%"></div>
+                        </div>
+                    </div>
+                }
+                @* X-axis labels *@
+                <div class="cap-country-axis">
+                    <span>0</span><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span><span>60</span>
+                </div>
+            </div>
+        </div>
+
+        @* Revenue by Currency *@
+        <div class="cap-card">
+            <h2 class="cap-card__title">Revenue by Currency</h2>
+            <div class="cap-currency-list">
+                @foreach (var cr in fn.RevenueByCurrency)
+                {
+                    <div class="cap-currency-row">
+                        <div class="cap-currency-row__top">
+                            <span class="cap-currency-code">@cr.CurrencyCode</span>
+                            <span class="cap-currency-amount">$@cr.Amount.ToString("N2")</span>
+                            <span class="cap-currency-pct">@cr.Percent%</span>
+                        </div>
+                        <div class="cap-bar cap-bar--full">
+                            <div class="cap-bar__fill cap-bar__fill--@cr.ColorKey" style="width:@(cr.Percent * 2)%"></div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <p class="cap-currency-note">All values are converted to your payout currency (USD).</p>
+        </div>
+    </div>
+
+    @* ════════════════════════════════
+       EARNINGS PANEL
+       ════════════════════════════════ *@
+    <div class="cap-panel" data-panel="earnings">
+
+        @* 3 stat cards *@
+        <div class="cap-earn-stats">
+            <div class="cap-earn-card">
+                <div class="cap-earn-card__head">
+                    <span class="cap-earn-card__icon cap-earn-card__icon--pink"><i class="bi bi-cash-coin"></i></span>
+                    <span class="cap-earn-card__label">Total Earnings</span>
+                </div>
+                <div class="cap-earn-card__value">$@ea.TotalEarnings.ToString("N0")</div>
+                <div class="cap-earn-card__sub">@ea.EarningsPeriod</div>
+            </div>
+
+            <div class="cap-earn-card">
+                <div class="cap-earn-card__head">
+                    <span class="cap-earn-card__icon cap-earn-card__icon--purple"><i class="bi bi-graph-up-arrow"></i></span>
+                    <span class="cap-earn-card__label">Avg. per Show</span>
+                </div>
+                <div class="cap-earn-card__value">$@ea.AvgPerShow.ToString("N0")</div>
+                <div class="cap-earn-card__sub">Based on @ea.ShowCount shows</div>
+            </div>
+
+            <div class="cap-earn-card">
+                <div class="cap-earn-card__head">
+                    <span class="cap-earn-card__icon cap-earn-card__icon--blue"><i class="bi bi-currency-exchange"></i></span>
+                    <span class="cap-earn-card__label">Top Currency</span>
+                </div>
+                <div class="cap-earn-card__value">@ea.TopCurrency</div>
+                <div class="cap-earn-card__sub">@ea.CurrencyPct% of total</div>
+            </div>
+        </div>
+
+        @* Revenue by Source (pie) + Breakdown side by side *@
+        <div class="cap-earn-grid">
+            <div class="cap-card">
+                <h2 class="cap-card__title">Revenue by Source</h2>
+                <div class="cap-pie-wrap">
+                    <canvas id="capPieChart" width="180" height="180"></canvas>
+                    <div class="cap-pie-center" id="capPieCenter">
+                        <span>@ea.PieSlices[0].Label</span>
+                        <strong>$@ea.PieSlices[0].Amount.ToString("N0")</strong>
+                    </div>
+                </div>
+                <div class="cap-pie-percents">
+                    @foreach (var s in ea.PieSlices)
+                    {
+                        <span class="cap-pie-pct cap-pie-pct--@s.ColorKey">@s.Percent%</span>
+                    }
+                </div>
+                @* Pie data for JS *@
+                <script id="capPieData" type="application/json">
+                    @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ea.PieSlices,
+                        new System.Text.Json.JsonSerializerOptions { PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase }))
+                </script>
+            </div>
+
+            <div class="cap-card">
+                <h2 class="cap-card__title">Breakdown by Amount</h2>
+                <div class="cap-breakdown-list">
+                    @foreach (var s in ea.PieSlices)
+                    {
+                        <div class="cap-breakdown-row">
+                            <div class="cap-breakdown-row__top">
+                                <span class="cap-breakdown-dot cap-breakdown-dot--@s.ColorKey"></span>
+                                <span class="cap-breakdown-label">@s.Label</span>
+                                <span class="cap-breakdown-amount">$@s.Amount.ToString("N0")</span>
+                            </div>
+                            <div class="cap-bar cap-bar--full cap-bar--thin">
+                                <div class="cap-bar__fill cap-bar__fill--@s.ColorKey" style="width:@(s.Percent)%"></div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        @* Multi-Currency Breakdown table *@
+        <div class="cap-card">
+            <h2 class="cap-card__title">Multi-Currency Breakdown</h2>
+            <table class="cap-currency-table">
+                <thead>
+                    <tr>
+                        <th>Currency</th>
+                        <th>Amount (Original)</th>
+                        <th>Amount (USD)</th>
+                        <th>% of Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var r in ea.CurrencyRows)
+                    {
+                        <tr>
+                            <td class="cap-currency-table__code">@r.Code</td>
+                            <td>@r.OriginalAmount</td>
+                            <td>@r.UsdAmount</td>
+                            <td>
+                                <div class="cap-table-bar">
+                                    <div class="cap-bar cap-bar--table">
+                                        <div class="cap-bar__fill cap-bar__fill--@r.ColorKey" style="width:@(r.Percent * 2)%"></div>
+                                    </div>
+                                    <span>@r.Percent%</span>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div class="cap-currency-note cap-currency-note--bordered">
+                <i class="bi bi-info-circle"></i>
+                <span>Note: All values are converted to your payout currency (USD) using real-time exchange rates.</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="~/js/creator/creatorAnalyticsPage.js" asp-append-version="true"></script>
+}

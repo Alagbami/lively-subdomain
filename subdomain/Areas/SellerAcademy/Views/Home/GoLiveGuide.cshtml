@@ -1,0 +1,97 @@
+﻿@model GoLiveGuideViewModel
+@{
+    ViewData["Title"] = "Go Live Guide";
+    ViewData["ActivePage"] = Model.ActivePage;
+}
+
+<!-- Hero card -->
+<section class="academy-hero-card-band">
+    <div class="academy-hero-card-grid">
+        <div class="academy-hero-card">
+            <h1>@Model.HeroTitle</h1>
+            <p>@Model.HeroSubtitle</p>
+            <div class="academy-hero-card-pills">
+                @foreach (var pill in Model.QuickNav)
+                {
+                    <a href="@pill.Anchor" class="academy-pill academy-pill--outline">@pill.Label</a>
+                }
+            </div>
+        </div>
+        @if (Model.HeroImageUrl != null)
+        {
+            <div class="academy-hero-card-media">
+                <img src="@Model.HeroImageUrl" alt="@Model.HeroTitle" />
+            </div>
+        }
+    </div>
+</section>
+
+<!-- Guide blocks -->
+<section class="academy-guide">
+    @foreach (var block in Model.Blocks)
+    {
+        <div id="@block.Id" class="academy-guide-block">
+            <div class="academy-guide-media">
+                @if (block.MediaImageUrl != null)
+                {
+                    <img src="@block.MediaImageUrl" alt="@block.Title" loading="lazy" />
+                }
+                @if (block.MediaLabel != null)
+                {
+                    <span class="academy-guide-media-label">@block.MediaLabel</span>
+                }
+                @if (block.HasVideo)
+                {
+                    <span class="academy-play"><i class="bi bi-play-fill"></i></span>
+                }
+            </div>
+
+            <div class="academy-guide-content">
+                <h2>@block.Title</h2>
+                @if (!string.IsNullOrEmpty(block.Body))
+                {
+                    <p>@block.Body</p>
+                }
+
+                <div class="academy-accordion-group">
+                    @foreach (var acc in block.Accordions)
+                    {
+                        <div class="academy-accordion">
+                            <button type="button" class="academy-accordion-header">
+                                <span>@acc.Header</span>
+                                <i class="bi bi-chevron-down academy-accordion-icon"></i>
+                            </button>
+                            <div class="academy-accordion-body">
+                                @if (!string.IsNullOrEmpty(acc.Body))
+                                {
+                                    <p>@acc.Body</p>
+                                }
+                                @if (acc.BulletItems != null)
+                                {
+                                    <ul>
+                                        @foreach (var bullet in acc.BulletItems)
+                                        {
+                                            <li>@bullet</li>
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- Need Help callout -->
+    <div class="academy-callout">
+        <strong>Need Help?</strong>
+        <p>If something goes wrong, you can pause the show by tapping the dropdown arrow on the top right corner in your live and click "minimize show". If the issue persists, please document it with a photo or a video and reach out to sellersupport@lively.com describing the issue.</p>
+    </div>
+
+    <!-- Checklist CTA -->
+    <div id="checklist" class="academy-checklist-cta">
+        <h2>Go Live Checklist</h2>
+        <a href="#" class="academy-pill academy-pill--outline">Download Checklist</a>
+    </div>
+</section>

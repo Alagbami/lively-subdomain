@@ -1,0 +1,26 @@
+﻿@model string
+@{
+    var active = Model ?? "";
+}
+
+<header class="academy-header">
+    <div class="academy-header-inner">
+        <a asp-area="SellerAcademy" asp-controller="Home" asp-action="Index" class="academy-logo">
+            <span class="academy-logo-mark" aria-hidden="true">
+                <img src="/img/logo-black.svg" alt="lively">
+            </span>
+            @* <span class="academy-logo-text">lively</span> *@
+        </a>
+
+        <nav class="academy-nav">
+            @foreach (var item in AcademyDummyData.Nav)
+            {
+                var isActive = string.Equals(item.Action, active, StringComparison.OrdinalIgnoreCase);
+                <a asp-area="SellerAcademy" asp-controller="Home" asp-action="@item.Action"
+                       class="academy-nav-link @(isActive ? "active" : "")">
+                    @item.Label
+                </a>
+            }
+        </nav>
+    </div>
+</header>

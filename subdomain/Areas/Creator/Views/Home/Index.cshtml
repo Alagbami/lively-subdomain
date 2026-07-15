@@ -1,0 +1,359 @@
+@model Rotex.Lively.Web.Client.ViewModels.CreatorHubViewModel
+@{
+    ViewData["Title"] = "Creator Hub";
+
+    string FormatRelativeTime(DateTime date)
+    {
+        var span = DateTime.Now - date;
+        if (span.TotalMinutes < 60) return $"{(int)span.TotalMinutes} minutes ago";
+        if (span.TotalHours < 24) return $"{(int)span.TotalHours} hours ago";
+        if (span.TotalHours < 48) return "Yesterday";
+        if (span.TotalDays < 7) return $"{(int)span.TotalDays} days ago";
+        return date.ToString("MMM d, yyyy");
+    }
+
+    string FormatDuration(TimeSpan d)
+    {
+        var hours = (int)d.TotalHours;
+        var minutes = d.Minutes;
+        return hours > 0 ? $"{hours}h {minutes}m" : $"{minutes}m";
+    }
+
+    string FormatScheduled(DateTime date)
+    {
+        var today = DateTime.Today;
+        var tomorrow = today.AddDays(1);
+        if (date.Date == today) return $"Today at {date:h:mm tt}";
+        if (date.Date == tomorrow) return $"Tomorrow at {date:h:mm tt}";
+        return date.ToString("MMM d, h:mm tt");
+    }
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/creatorStyle/CreatorHome.css" asp-append-version="true" />
+}
+
+<div class="creator-hub">
+
+    @* ---------- Header ---------- *@
+    <header class="ch-header">
+        <div class="ch-header__text">
+            <h1 class="ch-header__title">Creator Hub</h1>
+            <p class="ch-header__subtitle">Manage your shows, fans, and creative content</p>
+        </div>
+        <a href="#" id="goLiveBtn" class="ch-btn ch-btn--primary">
+            <i class="bi bi-camera-video"></i>
+            <span>Go Live - Perform</span>
+        </a>
+    </header>
+
+    @* ---------- Stats grid ---------- *@
+    <section class="ch-stats">
+        <div class="ch-stat-card">
+            <div class="ch-stat-card__head">
+                <span class="ch-stat-card__icon ch-stat-card__icon--pink">
+                    <i class="bi bi-cash-coin"></i>
+                </span>
+                <span class="ch-stat-card__label">Total Earnings</span>
+            </div>
+            <div class="ch-stat-card__value">&#8358;@Model.Stats.TotalEarnings.ToString("N0")</div>
+            <div class="ch-stat-card__trend @(Model.Stats.TotalEarningsIsPositive ? "ch-trend--up" : "ch-trend--down")">
+                <i class="bi @(Model.Stats.TotalEarningsIsPositive ? "bi-graph-up-arrow" : "bi-graph-down-arrow")"></i>
+                <span>@Model.Stats.TotalEarningsTrend</span>
+            </div>
+        </div>
+
+        <div class="ch-stat-card">
+            <div class="ch-stat-card__head">
+                <span class="ch-stat-card__icon ch-stat-card__icon--purple">
+                    <i class="bi bi-ticket-perforated"></i>
+                </span>
+                <span class="ch-stat-card__label">Total Ticket Sold</span>
+            </div>
+            <div class="ch-stat-card__value">@Model.Stats.TotalTicketsSold.ToString("N0")</div>
+            <div class="ch-stat-card__trend @(Model.Stats.TotalTicketsIsPositive ? "ch-trend--up" : "ch-trend--down")">
+                <i class="bi @(Model.Stats.TotalTicketsIsPositive ? "bi-graph-up-arrow" : "bi-graph-down-arrow")"></i>
+                <span>@Model.Stats.TotalTicketsTrend</span>
+            </div>
+        </div>
+
+        <div class="ch-stat-card">
+            <div class="ch-stat-card__head">
+                <span class="ch-stat-card__icon ch-stat-card__icon--blue">
+                    <i class="bi bi-eye"></i>
+                </span>
+                <span class="ch-stat-card__label">Total Views</span>
+            </div>
+            <div class="ch-stat-card__value">@Model.Stats.TotalViews.ToString("N0")</div>
+            <div class="ch-stat-card__trend @(Model.Stats.TotalViewsIsPositive ? "ch-trend--up" : "ch-trend--down")">
+                <span>@Model.Stats.TotalViewsTrend</span>
+            </div>
+        </div>
+
+        <div class="ch-stat-card">
+            <div class="ch-stat-card__head">
+                <span class="ch-stat-card__icon ch-stat-card__icon--gray">
+                    <i class="bi bi-person"></i>
+                </span>
+                <span class="ch-stat-card__label">Total Fans</span>
+            </div>
+            <div class="ch-stat-card__value">@Model.Stats.TotalFans</div>
+            <div class="ch-stat-card__trend @(Model.Stats.TotalFansIsPositive ? "ch-trend--up" : "ch-trend--down")">
+                <span>@Model.Stats.TotalFansTrend</span>
+            </div>
+        </div>
+
+        <div class="ch-stat-card ch-stat-card--wide">
+            <div class="ch-stat-card__head">
+                <span class="ch-stat-card__icon ch-stat-card__icon--violet">
+                    <i class="bi bi-gem"></i>
+                </span>
+                <span class="ch-stat-card__label">Total Tips Received</span>
+            </div>
+            <div class="ch-stat-card__value">
+                <span class="ch-stat-card__leaf">&#127807;</span>
+                <span>&#8358;@Model.Stats.TotalTipsReceived.ToString("N0")</span>
+            </div>
+            <div class="ch-stat-card__trend @(Model.Stats.TotalTipsIsPositive ? "ch-trend--up" : "ch-trend--down")">
+                <i class="bi @(Model.Stats.TotalTipsIsPositive ? "bi-graph-up-arrow" : "bi-graph-down-arrow")"></i>
+                <span>@Model.Stats.TotalTipsTrend</span>
+            </div>
+        </div>
+
+        <div class="ch-stat-card ch-stat-card--wide">
+            <div class="ch-stat-card__head">
+                <span class="ch-stat-card__icon ch-stat-card__icon--yellow">
+                    <i class="bi bi-bag"></i>
+                </span>
+                <span class="ch-stat-card__label">Total Gifts Received</span>
+            </div>
+            <div class="ch-stat-card__value">
+                <span class="ch-stat-card__coin">&#128176;</span>
+                <span><strong>@Model.Stats.TotalGiftsReceived</strong> <span class="ch-stat-card__unit">Coins</span></span>
+            </div>
+            <div class="ch-stat-card__trend @(Model.Stats.TotalGiftsIsPositive ? "ch-trend--up" : "ch-trend--down")">
+                <span>@Model.Stats.TotalGiftsTrend</span>
+            </div>
+        </div>
+    </section>
+
+    @* ---------- Tabs ---------- *@
+    <nav class="ch-tabs" role="tablist" aria-label="Creator hub sections">
+        <button type="button" class="ch-tab ch-tab--active" role="tab" aria-selected="true" data-tab="overview">
+            <i class="bi bi-bar-chart-line"></i><span>Overview</span>
+        </button>
+        <button type="button" class="ch-tab" role="tab" aria-selected="false" data-tab="shows">
+            <i class="bi bi-camera-video"></i><span>Shows</span>
+        </button>
+        <button type="button" class="ch-tab" role="tab" aria-selected="false" data-tab="fans">
+            <i class="bi bi-people"></i><span>Fans</span>
+        </button>
+        <button type="button" class="ch-tab" role="tab" aria-selected="false" data-tab="earnings">
+            <i class="bi bi-currency-dollar"></i><span>Earnings</span>
+        </button>
+        <button type="button" class="ch-tab" role="tab" aria-selected="false" data-tab="analytics">
+            <i class="bi bi-graph-up"></i><span>Analytics</span>
+        </button>
+    </nav>
+
+    @* ---------- Tab Panels ---------- *@
+
+    @* ?? OVERVIEW PANEL ?? *@
+    <div class="ch-tab-panel ch-tab-panel--active" data-panel="overview">
+
+        <section class="ch-overview-grid">
+
+            @* Recent Shows *@
+            <article class="ch-panel">
+                <header class="ch-panel__head">
+                    <h2 class="ch-panel__title">
+                        <i class="bi bi-camera-video"></i>
+                        <span>Recent Shows</span>
+                    </h2>
+                    <a href="#" class="ch-panel__action">View all</a>
+                </header>
+
+                <ul class="ch-show-list">
+                    @foreach (var show in Model.RecentShows)
+                    {
+                        var isFree = !show.Price.HasValue;
+                        var badgeCls = show.TicketsSoldLabel.Contains("Booked", StringComparison.OrdinalIgnoreCase)
+                        ? "ch-badge--booked" : "ch-badge--sold";
+
+                        <li class="ch-show-item">
+                            <div class="ch-show-item__thumb">
+                                <img src="@show.ThumbnailUrl" alt="@show.Title"
+                                     onerror="this.style.background='linear-gradient(135deg,#8b8c8d,#3a3b3c)';this.removeAttribute('src');" />
+                            </div>
+                            <div class="ch-show-item__body">
+                                <div class="ch-show-item__top">
+                                    <h3 class="ch-show-item__title">@show.Title</h3>
+                                    <span class="ch-show-item__price @(isFree ? "ch-show-item__price--free" : "")">
+                                        @(isFree ? "Free" : $"\u20A6{show.Price!.Value:N0}")
+                                    </span>
+                                </div>
+                                <div class="ch-show-item__tags">
+                                    <span class="ch-badge ch-badge--category">@show.Category</span>
+                                    <span class="ch-badge @badgeCls">@show.TicketsSoldLabel</span>
+                                </div>
+                                <div class="ch-show-item__meta">
+                                    <span>@FormatRelativeTime(show.AiredAt)</span>
+                                    <span class="ch-dot">&bull;</span>
+                                    <span>@FormatDuration(show.Duration)</span>
+                                    <span class="ch-dot">&bull;</span>
+                                    <span><i class="bi bi-eye"></i> @show.Views.ToString("N0")</span>
+                                    <span class="ch-dot">&bull;</span>
+                                    <span><i class="bi bi-gift"></i> @show.Gifts gifts</span>
+                                    <span class="ch-dot">&bull;</span>
+                                    <span><i class="bi bi-cash-coin"></i> &#8358;@show.Tips.ToString("N0") tips</span>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </article>
+
+            @* Upcoming Shows *@
+            <article class="ch-panel">
+                <header class="ch-panel__head">
+                    <h2 class="ch-panel__title">
+                        <i class="bi bi-calendar-event"></i>
+                        <span>Upcoming Shows</span>
+                    </h2>
+                </header>
+
+                <ul class="ch-upcoming-list">
+                    @foreach (var show in Model.UpcomingShows)
+                    {
+                        <li class="ch-upcoming-item">
+                            <h3 class="ch-upcoming-item__title">@show.Title</h3>
+                            <div class="ch-upcoming-item__row">
+                                <i class="bi bi-calendar"></i>
+                                <span>@FormatScheduled(show.ScheduledAt)</span>
+                            </div>
+                            <div class="ch-upcoming-item__row">
+                                <i class="bi bi-person"></i>
+                                <span>Expected: <strong>@show.ExpectedViewers.ToString("N0")</strong></span>
+                            </div>
+                            @if (show.PricePerTicket.HasValue)
+                            {
+                                <div class="ch-upcoming-item__row ch-upcoming-item__row--price">
+                                    <i class="bi bi-ticket-perforated"></i>
+                                    <span>&#8358;@show.PricePerTicket.Value.ToString("N0") per ticket</span>
+                                </div>
+                            }
+                        </li>
+                    }
+                </ul>
+
+                <a href="#" class="ch-btn ch-btn--primary ch-btn--block">
+                    <i class="bi bi-calendar-plus"></i>
+                    <span>Schedule New Show</span>
+                </a>
+            </article>
+        </section>
+
+        @* Performance metrics — only on Overview *@
+        <section class="ch-metrics">
+            <div class="ch-metric-card">
+                <div class="ch-metric-card__head">
+                    <span class="ch-metric-card__icon ch-metric-card__icon--pink">
+                        <i class="bi bi-heart"></i>
+                    </span>
+                    <span class="ch-metric-card__label">Engagement Rate</span>
+                </div>
+                <div class="ch-metric-card__value">@Model.Performance.EngagementRatePercent%</div>
+                <div class="ch-progress">
+                    <div class="ch-progress__bar" style="width: @(Model.Performance.EngagementRatePercent)%;"></div>
+                </div>
+            </div>
+
+            <div class="ch-metric-card">
+                <div class="ch-metric-card__head">
+                    <span class="ch-metric-card__icon ch-metric-card__icon--blue">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </span>
+                    <span class="ch-metric-card__label">Avg. Viewers</span>
+                </div>
+                <div class="ch-metric-card__value">@Model.Performance.AverageViewers.ToString("N0")</div>
+                <div class="ch-metric-card__trend ch-trend--up">@Model.Performance.AverageViewersTrend</div>
+            </div>
+
+            <div class="ch-metric-card">
+                <div class="ch-metric-card__head">
+                    <span class="ch-metric-card__icon ch-metric-card__icon--yellow">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </span>
+                    <span class="ch-metric-card__label">Avg. Watch Time</span>
+                </div>
+                <div class="ch-metric-card__value">@Model.Performance.AverageWatchTimeMinutes min</div>
+                <div class="ch-metric-card__note">@Model.Performance.AverageWatchTimeNote</div>
+            </div>
+        </section>
+
+    </div>
+
+    @* ?? SHOWS PANEL ?? *@
+    <div class="ch-tab-panel" data-panel="shows">
+        @await Html.PartialAsync("~/Views/Shared/Creator/_ShowsTab.cshtml", Model.ShowsTab)
+    </div>
+
+    <div class="ch-tab-panel" data-panel="fans">
+        @await Html.PartialAsync("~/Views/Shared/Creator/_FansTab.cshtml", Model.FansTab)
+    </div>
+    <div class="ch-tab-panel" data-panel="earnings">
+        @await Html.PartialAsync("~/Views/Shared/Creator/_EarningsTab.cshtml", Model.EarningsTab)
+    </div>
+    <div class="ch-tab-panel" data-panel="analytics">
+        @await Html.PartialAsync("~/Views/Shared/Creator/_AnalyticsTab.cshtml", Model.AnalyticsTab)
+    </div>
+
+</div>
+
+@await Html.PartialAsync("~/Views/Shared/Creator/_ScheduleShowModal.cshtml", Model)
+@await Html.PartialAsync("~/Views/Shared/Creator/_ShowDetailsModal.cshtml")     @* ? add *@
+@await Html.PartialAsync("~/Views/Shared/Creator/_ShareShowModal.cshtml")
+@await Html.PartialAsync("~/Views/Shared/Creator/_GoLiveModal.cshtml", Model)
+
+@* Tab switcher — placed inline (NOT in @@section Scripts) so it runs
+   regardless of whether the layout renders the Scripts section. *@
+<script>
+    (function () {
+        const tabs   = document.querySelectorAll('.ch-tab');
+        const panels = document.querySelectorAll('.ch-tab-panel');
+
+        if (tabs.length === 0 || panels.length === 0) {
+            console.warn('[CreatorHub] Tabs or panels not found.', {
+                tabs: tabs.length, panels: panels.length
+            });
+            return;
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = tab.dataset.tab;
+
+                tabs.forEach(t => {
+                    t.classList.remove('ch-tab--active');
+                    t.setAttribute('aria-selected', 'false');
+                });
+                tab.classList.add('ch-tab--active');
+                tab.setAttribute('aria-selected', 'true');
+
+                panels.forEach(p => {
+                    if (p.dataset.panel === target) {
+                        p.classList.add('ch-tab-panel--active');
+                    } else {
+                        p.classList.remove('ch-tab-panel--active');
+                    }
+                });
+            });
+        });
+
+        console.log('[CreatorHub] Tab switcher ready —', tabs.length, 'tabs,', panels.length, 'panels');
+    })();
+</script>
+
+<script src="~/js/creator/creatorEarnings.js" asp-append-version="true"></script>
+<script src="~/js/creator/creatorAnalytics.js" asp-append-version="true"></script>

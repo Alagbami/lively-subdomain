@@ -1,0 +1,57 @@
+﻿@model GrowBusinessViewModel
+@{
+    ViewData["Title"] = "Grow Your Business";
+    ViewData["ActivePage"] = Model.ActivePage;
+}
+
+<!-- Hero card (quote) -->
+<section class="academy-hero-card-band">
+    <div class="academy-hero-card-grid">
+        <div class="academy-hero-card">
+            <h1>@Model.HeroTitle</h1>
+            <p class="academy-hero-quote">@Model.HeroQuote</p>
+            <p class="academy-hero-quote-author">@Model.HeroQuoteAuthor</p>
+            <div class="academy-hero-card-pills">
+                @foreach (var pill in Model.QuickNav)
+                {
+                    <a href="@pill.Anchor" class="academy-pill academy-pill--outline">@pill.Label</a>
+                }
+            </div>
+        </div>
+        @if (Model.HeroImageUrl != null)
+        {
+            <div class="academy-hero-card-media">
+                <img src="@Model.HeroImageUrl" alt="@Model.HeroTitle" />
+            </div>
+        }
+    </div>
+</section>
+
+<!-- Features -->
+<section id="features" class="academy-features">
+    <h2 class="academy-features-heading">@Model.FeaturesHeading</h2>
+
+    @foreach (var feature in Model.Features)
+    {
+        <div class="academy-feature-row">
+            <div class="academy-guide-media academy-feature-media">
+                @if (feature.MediaImageUrl != null)
+                {
+                    <img src="@feature.MediaImageUrl" alt="@feature.Title" loading="lazy" />
+                }
+                @if (feature.MediaLabel != null)
+                {
+                    <span class="academy-guide-media-label">@feature.MediaLabel</span>
+                }
+                @if (feature.HasVideo)
+                {
+                    <span class="academy-play"><i class="bi bi-play-fill"></i></span>
+                }
+            </div>
+            <div class="academy-feature-content">
+                <h3>@feature.Title</h3>
+                <p>@feature.Body</p>
+            </div>
+        </div>
+    }
+</section>
