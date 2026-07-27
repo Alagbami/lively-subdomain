@@ -1,43 +1,138 @@
 @{
     ViewData["Title"] = "Request to cancel your order - Lively Help Center";
     ViewData["CategorySlug"] = "Buying";
-    ViewData["SubCategorySlug"] = "Order issues and refunds";
+    ViewData["SubCategorySlug"] = "Orders issues and refunds";
     ViewData["HeroTitle"] = "Request to cancel your order";
-    ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/img/contact_area/contact_hero_bg.png');";
+    ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/help_centre_img/help_area/help_centre_hero_bg.png');";
     ViewData["IsArticle"] = true;
 }
 
 <div class="article-detail-page">
     <div class="article-body">
-        <p>If you need to cancel an order, you can submit a cancellation request. Once the item has shipped, cancellations are no longer possible.</p>
 
-        <p><strong>On this page:</strong></p>
+        <p>If something unexpected comes up, you can request a cancellation before the seller ships your order. The seller reviews your request and decides whether to approve it. In limited cases, Lively may step in to help.</p>
+
+        <p>If your cancellation is approved, your order will be canceled and fully refunded. If it's declined — or the seller doesn't respond within 48 hours — your order will ship as normal.</p>
+
+        <p><strong>Note:</strong> All bids are binding under our <a asp-action="Index" asp-controller="Home">Community Guidelines</a>. When you win an auction, you're expected to complete the purchase. If something unexpected happens, you can still request a cancellation.</p>
+
+        <p>Every purchase is backed by our <a asp-action="ProtectionPolicy">Buyer Protection Policy</a>. We're here to help make things right.</p>
+
+        <p><strong>In this article:</strong></p>
         <ul>
-            <li><a href="#">When You Can Cancel an Order</a></li>
-            <li><a href="#">When Cancellation Isn't Possible</a></li>
-            <li><a href="#">How to Request a Cancellation</a></li>
-            <li><a href="#">What Happens After You Request</a></li>
+            <li><a href="#when-you-can-request">When you can request cancellation</a></li>
+            <li><a href="#how-to-request">How to request cancellation</a></li>
+            <li><a href="#what-happens-after">What happens after you request cancellation</a></li>
+            <li><a href="#when-lively-steps-in">When Lively may step in</a></li>
+            <li><a href="#faqs">Frequently asked questions (FAQs)</a></li>
         </ul>
 
-        <h2>When You Can Cancel an Order</h2>
+        <hr />
+
+        <h2 id="when-you-can-request">When you can request cancellation</h2>
+
+        <p>You can ask the seller to cancel your purchase if:</p>
         <ul>
-            <li>The order has not shipped.</li>
-            <li>The order is still under Processing.</li>
+            <li>They haven't created a shipping label yet, or</li>
+            <li>It's been less than 24 hours since you placed the order (even if a label was created).</li>
         </ul>
 
-        <h2>When Cancellation Isn't Possible</h2>
+        <p>If you need support, you can still <a asp-action="GetHelpWithPurchase">get help with your purchase</a>.</p>
+
+        <p><strong>Note:</strong> Trust is core to the Lively community. Frequent cancellations may lead to <a asp-action="Index" asp-controller="Home">account action</a> under our <a asp-action="Index" asp-controller="Home">Community Guidelines</a>.</p>
+
+        <h2 id="how-to-request">How to request cancellation</h2>
+
+        <p>You can request cancellation for individual items in an order.</p>
+
+        <p>If an item is part of a bundle, only that item will be canceled and refunded, including its portion of shipping. The rest of the bundle will remain unless you request cancellation for those items too.</p>
+
+        <div class="article-accordion-yellow">
+
+            <div class="article-accordion-yellow__item">
+                <button class="article-accordion-yellow__trigger" type="button">
+                    <span class="article-accordion-yellow__icon">−</span>
+                    <span class="article-accordion-yellow__title">Request cancellation from the app</span>
+                </button>
+
+                <div class="article-accordion-yellow__content">
+                    <ol>
+                        <li>From the <strong>Lively app</strong>, tap <strong>Activity</strong> at the bottom of the screen</li>
+                        <li>Select <strong>Purchases</strong></li>
+                        <li>Choose the order</li>
+                        <li>Tap <strong>Get help with this purchase</strong></li>
+                        <li>If eligible, you'll see the option to <strong>Request cancellation</strong> — tap it</li>
+                        <li>Fill out the form and submit your request</li>
+                    </ol>
+
+                    <div class="text-center my-4">
+                        <img src="/help_centre_img/help_area/request_cancellation.png"
+                             alt="Request cancellation flow in the Lively app"
+                             class="img-fluid"
+                             style="border-radius: 12px;" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="article-accordion-yellow__item is-collapsed">
+                <button class="article-accordion-yellow__trigger" type="button">
+                    <span class="article-accordion-yellow__icon">−</span>
+                    <span class="article-accordion-yellow__title">Request cancellation on web</span>
+                </button>
+
+                <div class="article-accordion-yellow__content">
+                    <p><strong>Note:</strong> When you use <a asp-action="Index" asp-controller="Home">Lively.com</a>, your request is sent to the seller and creates a ticket for Lively Support.</p>
+                    <ol>
+                        <li>From <a asp-action="Index" asp-controller="Home">lively.com</a>, click the Activity icon on the top right</li>
+                        <li>Under the <a asp-action="Index" asp-controller="Home">Purchases</a> tab, select the order you want to cancel</li>
+                        <li>Choose Get help with this purchase</li>
+                        <li>Click I need help with something else</li>
+                        <li>Choose Submit a cancellation request</li>
+                        <li><a asp-action="Index" asp-controller="Home">If eligible</a>, submit your request</li>
+                    </ol>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 id="what-happens-after">What happens after you request cancellation</h2>
+
+        <p>Your order status will change to <strong>Pending Cancellation</strong>, and your request will be sent to the seller.</p>
+
+        <p>The seller has 48 hours to respond:</p>
         <ul>
-            <li>The seller has already shipped the item.</li>
-            <li>Tracking info has been added.</li>
+            <li><strong>If approved:</strong> Your order is canceled and refunded to your original payment method within 3–5 business days.</li>
+            <li><strong>If declined or no response within 48 hours:</strong> The order remains final and will ship as normal.</li>
         </ul>
 
-        <h2>How to Request a Cancellation</h2>
-        <ol>
-            <li>Open the Lively App.</li>
-            <li>Go to your profile.</li>
-            <li>Find your order history and select the order.</li>
-            <li>Tap "Cancel Order".</li>
-        </ol>
+        <p>You'll be notified as soon as the seller responds.</p>
+
+        <div class="article-info-box">
+            <strong>Tip:</strong> Check your order status anytime under <strong>Activity &gt; Purchases.</strong>
+        </div>
+
+        <h2 id="when-lively-steps-in">When Lively may step in</h2>
+
+        <p>Most cancellation requests are handled by the seller. In certain situations, Lively may help or make limited exceptions:</p>
+
+        <ul>
+            <li><strong>Bidding error (auction purchases only):</strong> If you experienced a technical issue while bidding, <a asp-action="Index" asp-controller="Home">contact Support</a> within 2 hours. Include details and screenshots, if available.</li>
+            <li><strong>One-time exception:</strong> If a shipping label hasn't been created and you haven't received an exception before, Lively may approve a one-time cancellation for eligible buyers. This doesn't apply to Card Breaks or items that can be used or consumed on-screen.</li>
+            <li><strong>EU or UK buyers:</strong> You may have cancellation rights under local consumer laws. Review our <a asp-action="ProtectionPolicy">Buyer Protection Policy</a> for details on the EU/UK Right of Withdrawal.</li>
+        </ul>
+
+        <p>Cancellations and refunds aren't offered for buyer's remorse, and Lively reserves the right to deny requests. Learn more in our <a asp-action="ProtectionPolicy">Buyer Protection Policy</a>.</p>
+
+        <h2 id="faqs">Frequently asked questions (FAQs)</h2>
+
+        <h3>I bid by mistake and won. Can I cancel?</h3>
+        <p>You can <a asp-action="RequestToCancelOrder">request cancellation</a> for the seller to review, but approval isn't guaranteed.</p>
+
+        <h3>Can I cancel my pre-bid?</h3>
+        <p>No. Pre-bids can't be canceled or changed. <a asp-action="PreBid">Learn more.</a></p>
+
+        <h3>My package is delayed. Can I cancel my order?</h3>
+        <p>Orders can't be canceled once they're in transit. <a asp-action="GetHelpWithPurchase">Learn what to do if your package is delayed.</a></p>
 
         <div class="helpful-widget">
             <p>Was this article helpful?</p>
@@ -47,5 +142,6 @@
             </div>
             <span>80 out of 145 found this helpful</span>
         </div>
+
     </div>
 </div>

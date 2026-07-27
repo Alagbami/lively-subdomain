@@ -1,0 +1,149 @@
+﻿@{
+    ViewData["Title"] = "Track your order - Lively Help Center";
+    ViewData["CategorySlug"] = "Buying";
+    ViewData["SubCategorySlug"] = "Shipping";
+    ViewData["HeroTitle"] = "Track your order";
+    ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/help_centre_img/help_area/help_centre_hero_bg.png');";
+    ViewData["IsArticle"] = true;
+}
+
+<div class="article-detail-page">
+    <div class="article-body">
+
+        <p>After you make a purchase, you can check your order status and any available tracking updates from your order details page in the Whatnot app or on whatnot.com.</p>
+
+        <p>We'll keep you updated as your item moves through each step. And if something goes wrong, every purchase on Whatnot is covered by <a asp-action="ProtectionPolicy">Buyer Protection Policy</a>.</p>
+
+        <p><strong>In this article:</strong></p>
+        <ul>
+            <li><a href="#check-order-status">Check your order status</a></li>
+            <li><a href="#track-package">Track your package with the shipping carrier</a></li>
+            <li><a href="#delayed-or-missing">If your order is delayed or missing</a></li>
+        </ul>
+
+        <div class="text-center my-4">
+            <img src="/help_centre_img/help_area/order_status.png"
+                 alt="Order status and tracking in the Lively app"
+                 class="img-fluid"
+                 style="border-radius: 12px;" />
+        </div>
+
+        <hr />
+
+        <h2 id="check-order-status">Check your order status</h2>
+
+        <p>Your order status shows where your item is in the process.</p>
+
+        <p>You may see updates like:</p>
+        <ul>
+            <li>Preparing package</li>
+            <li>Label created</li>
+            <li>Shipped</li>
+            <li>Pending Review</li>
+        </ul>
+
+        <p>Check order status in app</p>
+
+        <div class="article-accordion-yellow">
+
+            <div class="article-accordion-yellow__item">
+                <button class="article-accordion-yellow__trigger" type="button">
+                    <span class="article-accordion-yellow__icon">−</span>
+                    <span class="article-accordion-yellow__title">Check order status in app</span>
+                </button>
+                <div class="article-accordion-yellow__content">
+                    <ol>
+                        <li>Open the <a asp-action="Index" asp-controller="Home">Lively app</a>.</li>
+                        <li>Tap <strong>Activity.</strong></li>
+                        <li>From the <strong>Purchases tab</strong>, find and select the item.</li>
+                        <li>Check the status at the top of the screen.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="article-accordion-yellow__item is-collapsed">
+                <button class="article-accordion-yellow__trigger" type="button">
+                    <span class="article-accordion-yellow__icon">+</span>
+                    <span class="article-accordion-yellow__title">Check order status on lively.com</span>
+                </button>
+                <div class="article-accordion-yellow__content">
+                    <ol>
+                        <li>From <a href="https://lively.com">lively.com</a>, click the <strong>Activity</strong> icon in the top right.</li>
+                        <li>In the <strong>Purchases</strong> tab, find and select the item.</li>
+                        <li>Check the status at the top of the screen.</li>
+                    </ol>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="article-info-box mt-4">
+            <strong>Tip:</strong> If the seller scans your package in the Whatnot app at drop-off, you may see a confirmation photo in your order details. If you don't see one, it doesn't mean your order hasn't shipped. Check your order status or carrier tracking for the latest update.
+        </div>
+
+        <hr />
+
+        <h2 id="track-package">Track your package with the shipping carrier</h2>
+
+        <p>If your shipping service includes tracking, you can open the carrier's tracking page directly from your order details in Lively.</p>
+
+        <p>You may also see an estimated delivery date when available.</p>
+
+        <p><strong>Keep in mind:</strong></p>
+        <ul>
+            <li>Tracking may take 24–48 hours to update after a label is created Label created</li>
+            <li>Some shipping services (like USPS First-Class Mail) may not offer carrier tracking</li>
+        </ul>
+
+        <div class="article-accordion-yellow">
+
+            <div class="article-accordion-yellow__item">
+                <button class="article-accordion-yellow__trigger" type="button">
+                    <span class="article-accordion-yellow__icon">−</span>
+                    <span class="article-accordion-yellow__title">Track package from the app</span>
+                </button>
+                <div class="article-accordion-yellow__content">
+                    <ol>
+                        <li>Open the <a asp-action="Index" asp-controller="Home">Lively app.</a></li>
+                        <li>Tap <strong>Activity</strong>.</li>
+                        <li>From the <strong>Purchases tab</strong>, find and select the item.</li>
+                        <li>Scroll down and tap Track your purchase.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="article-accordion-yellow__item is-collapsed">
+                <button class="article-accordion-yellow__trigger" type="button">
+                    <span class="article-accordion-yellow__icon">+</span>
+                    <span class="article-accordion-yellow__title">Track package from Lively.com</span>
+                </button>
+                <div class="article-accordion-yellow__content">
+                    <ol>
+                        <li>From <a href="https://lively.com">Lively.com</a>, click the <strong>Activity</strong> icon in the top right.</li>
+                        <li>In the <strong>Purchases</strong> tab, find and select the item.</li>
+                        <li>Click Track your <strong>purchase</strong>.</li>
+                    </ol>
+                </div>
+            </div>
+
+        </div>
+
+        <hr />
+
+        <h2 id="delayed-or-missing">If your order is delayed or missing</h2>
+
+        <p>If something doesn't arrive on time, you can <a asp-action="GetHelpWithPurchase">get help with a delayed</a> or <a asp-action="GetHelpWithPurchase">missing package</a> directly from your order details.</p>
+
+        <p>Every purchase on Whatnot is covered by <a asp-action="ProtectionPolicy">Buyer Protection</a>. We'll review your case and work toward a resolution.</p>
+
+        <div class="helpful-widget">
+            <p>Was this article helpful?</p>
+            <div class="helpful-buttons">
+                <button type="button">Yes</button>
+                <button type="button">No</button>
+            </div>
+            <span>80 out of 145 found this helpful</span>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,180 @@
+﻿@{
+    ViewData["Title"] = "US shipping guide for buyers - Lively Help Center";
+    ViewData["CategorySlug"] = "Buying";
+    ViewData["SubCategorySlug"] = "Shipping";
+    ViewData["HeroTitle"] = "US shipping guide for buyers";
+    ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/help_centre_img/help_area/help_centre_hero_bg.png');";
+    ViewData["IsArticle"] = true;
+}
+
+<div class="article-detail-page">
+    <div class="article-body">
+
+        <p>Buying from U.S.-based sellers on Whatnot? Here's what you need to know about how shipping works, how much it might cost, and how long it usually takes.</p>
+
+        <p><strong>On this page:</strong></p>
+        <ul>
+            <li><a href="#how-us-shipping-works">How U.S. shipping works</a></li>
+            <li><a href="#typical-usps-costs">Typical USPS shipping services costs</a></li>
+            <li><a href="#delivery-times">Delivery times</a></li>
+            <li><a href="#related-resources">Related resources</a></li>
+        </ul>
+
+        <hr />
+
+        <h2 id="how-us-shipping-works">How U.S. shipping works</h2>
+
+        <p>When you buy from a U.S. seller, your order ships through USPS, whether the destination is domestic or international. You won't need to choose a USPS shipping service because Whatnot does that for you.</p>
+
+        <p>We automatically pick the most cost-effective USPS option based on:</p>
+        <ul>
+            <li>The product type/category</li>
+            <li>The total weight and size of your shipment</li>
+            <li>How far it's traveling between the seller and <a asp-action="Index" asp-controller="Home">your address</a> (measured by <a asp-action="Index" asp-controller="Home">USPS Zones</a>)</li>
+            <li>The seller's shipping preferences and discounts</li>
+        </ul>
+
+        <p>You'll usually pay for shipping, unless the seller's <a asp-action="Index" asp-controller="Home">offering a discount or free shipping</a>.</p>
+
+        <p>You'll see the total shipping cost for your item before checkout, and in <a asp-action="FindReceipt">your order receipt</a> later.</p>
+
+        <hr />
+
+        <h2 id="typical-usps-costs">Typical USPS shipping services costs</h2>
+
+        <p>Most orders ship using Whatnot's discounted prices or standard <a asp-action="Index" asp-controller="Home">USPS commercial rates</a>:</p>
+
+        <table class="table" style="width:100%; border-collapse: collapse; margin-bottom: 20px;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid #DDDDDD; padding: 10px; text-align: left;">Type of shipment</th>
+                    <th style="border: 1px solid #DDDDDD; padding: 10px; text-align: left;">What you'll usually pay</th>
+                    <th style="border: 1px solid #DDDDDD; padding: 10px; text-align: left;">How it might ship (USPS service)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="border: 1px solid #DDDDDD; padding: 10px;">Eligible cards or stickers (e.g. &lt; 3 oz, &lt; $20)</td>
+                    <td style="border: 1px solid #DDDDDD; padding: 10px;">$0.74 – $1.32 depending on weight + fees</td>
+                    <td style="border: 1px solid #DDDDDD; padding: 10px;">USPS First-Class Mail Letter ("Plain White Envelope")</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #DDDDDD; padding: 10px;">Small packages (&lt; 1 lb)</td>
+                    <td style="border: 1px solid #DDDDDD; padding: 10px;"><a asp-action="Index" asp-controller="Home">USPS commercial rates</a> that vary by weight and distance</td>
+                    <td style="border: 1px solid #DDDDDD; padding: 10px;">USPS Ground Advantage</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #DDDDDD; padding: 10px;">Medium packages (1-5 lbs)</td>
+                    <td style="border: 1px solid #DDDDDD; padding: 10px;">$9.21 ($8.77 + fees)</td>
+                    <td style="border: 1px solid #DDDDDD; padding: 10px;">USPS Priority Mail (default) or Flat Rate</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #DDDDDD; padding: 10px;">Heavy packages (5-70lbs)</td>
+                    <td style="border: 1px solid #DDDDDD; padding: 10px;"><a asp-action="Index" asp-controller="Home">$9.21 for Flat Rate</a>, or <a asp-action="Index" asp-controller="Home">USPS commercial rates</a> based on weight and distance</td>
+                    <td style="border: 1px solid #DDDDDD; padding: 10px;">USPS Priority Mail (default) or Flat Rate</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Notes:</strong></p>
+        <ul>
+            <li>Shipments going to <strong>Alaska, Hawaii, U.S. territories, or military addresses (APO/FPO/DPO)</strong> aren't eligible for Whatnot's discounted rates or Flat Rate shipping, and use <a asp-action="Index" asp-controller="Home">Priority Mail commercial rates</a> instead.</li>
+            <li><strong>Large packages over 1 cubic foot</strong> are charged based on <strong>dimensional weight</strong> (how much space they take up), which can cost more than smaller packages of the same weight.</li>
+            <li><strong>International shipments</strong> typically ship via USPS First-Class Package International Service (FCPIS) or USPS Priority Mail International (PMI).</li>
+        </ul>
+
+        <p>When you buy multiple items from the same seller, Whatnot's <a asp-action="Index" asp-controller="Home">Smart Bundling™</a> feature may combine them into the most cost-efficient shipment. In some cases, items may ship in a single package or more than one package to keep your shipping costs as low as possible. Bundling applies within the same seller and sales channel, so live show orders aren't bundled with marketplace orders.</p>
+
+        <h3>Example shipping during a show</h3>
+
+        <p>Imagine you're in Los Angeles buying from a seller in Boston during their show. For reference, USPS counts this as <a asp-action="Index" asp-controller="Home">Zone 8</a> when their commercial rates <a asp-action="Index" asp-controller="Home">apply</a>.</p>
+
+        <p>Here's how shipping costs might add up as you buy and bundle more items:</p>
+        <ol>
+            <li><strong>First item:</strong> a 4 oz pack of cards → ships with Ground Advantage → $5.20 total</li>
+            <li><strong>Second item:</strong> another 4 oz pack of cards (8 oz total) → still Ground Advantage → +$0.35 ($5.55 total)</li>
+            <li><strong>Third item:</strong> a pair of sneakers (2 lb total weight) → now over 1 lb but under 5lb → switches to Priority Mail → +$3.66 ($9.21 total)</li>
+        </ol>
+
+        <p>Each new purchase adds only the incremental cost, which is the small increase needed to move your package to the next USPS weight tier.</p>
+
+        <p>Once you reach the $9.21 Priority Mail rate, you can keep adding items from that seller at no extra shipping cost until your bundle hits 5 lb. After that, shipping adjusts again based on USPS commercial rates for heavier parcels.</p>
+
+        <h3>Seller shipping discounts</h3>
+
+        <p>Some sellers offer special shipping deals during shows.</p>
+
+        <p>You may see shows tagged with:</p>
+        <ul>
+            <li><strong>Free shipping:</strong> The seller covers all costs.</li>
+            <li><strong>Reduced shipping:</strong> You pay up to a max amount during that show, no matter how many items you buy.</li>
+        </ul>
+
+        <p>These discounts apply automatically at checkout.</p>
+
+        <hr />
+
+        <h2 id="delivery-times">Delivery times</h2>
+
+        <ul>
+            <li>Sellers are asked to ship within <strong>2 business days</strong> of purchase.</li>
+            <li>
+                Delivery time depends on distance and the USPS service used:
+                <ul>
+                    <li>Domestic orders can take up to 5-14 days to arrive</li>
+                    <li>International orders can take up to 28 days to arrive</li>
+                </ul>
+            </li>
+            <li>You can <a asp-action="TrackOrder">track your order</a> directly in the app.</li>
+            <li>If tracking is available for the service used, you'll see an estimated delivery date.</li>
+        </ul>
+
+        <p>Here's what you can typically expect for delivery times based on the shipping service used:</p>
+
+        <table class="table" style="width:100%; border-collapse: collapse; margin-bottom: 20px;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid #DDDDDD; padding: 10px; text-align: left;">Service Level</th>
+                    <th style="border: 1px solid #DDDDDD; padding: 10px; text-align: left;">Average Shipping Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="border: 1px solid #DDDDDD; padding: 10px;"><a asp-action="Index" asp-controller="Home">USPS First-Class Mail (FCML)</a></td>
+                    <td style="border: 1px solid #DDDDDD; padding: 10px;">5-14 Calendar Days</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #DDDDDD; padding: 10px;">USPS Priority Mail</td>
+                    <td style="border: 1px solid #DDDDDD; padding: 10px;">4-12 Calendar Days</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #DDDDDD; padding: 10px;">USPS Flat-Rate Boxes</td>
+                    <td style="border: 1px solid #DDDDDD; padding: 10px;">4-12 Calendar Days</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #DDDDDD; padding: 10px;">USPS Ground Advantage</td>
+                    <td style="border: 1px solid #DDDDDD; padding: 10px;">6-14 Calendar Days</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="related-resources">Related resources</h2>
+        <ul>
+            <li><a asp-action="TrackOrder">Track your order</a></li>
+            <li><a asp-action="Index" asp-controller="Home">Guide to First-Class Mail Letter for buyers</a></li>
+            <li><a asp-action="Index" asp-controller="Home">Smart Bundling™</a></li>
+            <li><a asp-action="Index" asp-controller="Home">International shipping customs &amp; imports</a></li>
+            <li><a asp-action="Index" asp-controller="Home">Troubleshoot unexpected shipping costs</a></li>
+        </ul>
+
+        <div class="helpful-widget">
+            <p>Was this article helpful?</p>
+            <div class="helpful-buttons">
+                <button type="button">Yes</button>
+                <button type="button">No</button>
+            </div>
+            <span>80 out of 145 found this helpful</span>
+        </div>
+
+    </div>
+</div>

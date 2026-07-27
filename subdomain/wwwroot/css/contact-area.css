@@ -16,7 +16,7 @@ body {
 .contact-hero {
     position: relative;
     height: 400px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/img/contact_area/contact_hero_bg.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/help_centre_img/contact_area/help_centre_hero_bg.png');
     background-size: cover;
     background-position: center;
     display: flex;

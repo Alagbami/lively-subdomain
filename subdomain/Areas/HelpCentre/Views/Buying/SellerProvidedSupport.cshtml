@@ -1,0 +1,167 @@
+﻿@{
+    ViewData["Title"] = "Seller Provided Support - Lively Help Center";
+    ViewData["CategorySlug"] = "Buying";
+    ViewData["SubCategorySlug"] = "Orders issues and refunds";
+    ViewData["HeroTitle"] = "Seller Provided Support";
+    ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/help_centre_img/help_area/help_centre_hero_bg.png');";
+    ViewData["IsArticle"] = true;
+}
+<div class="article-detail-page">
+    <div class="article-body">
+
+        <div class="article-info-box">
+            Seller Provided Support is currently available for purchases from select sellers. Depending on the seller, your support request may be routed directly to them or to Lively Support. This feature will expand to more sellers over time.
+        </div>
+
+        <h2>Overview</h2>
+
+        <p>Lively's Seller Provided Support (formerly known as Customer Service or Direct Service) gives sellers more control over their post-purchase experience.</p>
+
+        <p>For certain order issues, like missing or damaged items, your support request will go directly to the seller, allowing them to resolve the issue quickly and communicate with you directly through the app.</p>
+
+        <p>The strongest buying experiences are built on trust. Seller Provided Support helps sellers take more ownership over their post-purchase interactions, allowing them to respond faster and ensure you get what you ordered, in the condition you expect.</p>
+
+        <p>If an issue is outside the seller's control or can't be resolved directly, Lively Support will step in to help make things right.</p>
+
+        <h2>Lively Buyer Protection Coverage</h2>
+
+        <p>The issues below may be sent to the seller and are covered by <a asp-action="ProtectionPolicy">Lively's Buyer Protection Policy</a>:</p>
+
+        <ul>
+            <li>Item is substantially delayed in getting shipped</li>
+            <li>Item is missing*</li>
+            <li>Item is incorrect or the item is correct but the wrong size/color*</li>
+            <li>Item does not match the description, condition, or photos listed</li>
+            <li>Item is defective, doesn't work, or expired</li>
+            <li>Item was returned to sender</li>
+            <li>Item was damaged in transit</li>
+        </ul>
+
+        <p>*Missing and wrong item requests from purchases of products like Breaks/Surprise Products and any consumable product that can be opened (e.g., beauty and cosmetics) are excluded and handled by Lively Support.</p>
+
+        <h2>How Seller Provided Service Works</h2>
+
+        <p>All time frames listed are business hours/days and exclude the weekend.</p>
+
+        <p>When a buyer requests support on their order(s), your message goes directly to the seller's Inbox. Sellers are expected to review your request and respond as soon as possible.</p>
+
+        <p>Sellers can respond in the following ways:</p>
+
+        <div class="article-accordion-grey">
+
+            <div class="article-accordion-grey__item is-collapsed">
+                <button class="article-accordion-grey__trigger" type="button">
+                    <span class="article-accordion-grey__icon">+</span>
+                    <span>Seller provides a full refund and does not require a return</span>
+                </button>
+                <div class="article-accordion-grey__content">
+                    <ul>
+                        <li>The buyer will see their refund reflected on the original form of payment within 3–5 days.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="article-accordion-grey__item is-collapsed">
+                <button class="article-accordion-grey__trigger" type="button">
+                    <span class="article-accordion-grey__icon">+</span>
+                    <span>Seller provides a full refund and does require a return</span>
+                </button>
+                <div class="article-accordion-grey__content">
+                    <ul>
+                        <li>The buyer has 5 days to drop off their return package. After the seller receives the return package, they have 48 hours to review the returned items</li>
+                        <li>If the seller <strong>accepts</strong> the return, the buyer will see their refund reflected on the original form of payment within 3–5 days</li>
+                        <li>
+                            If the seller <strong>disputes</strong> the return, the request will be put on hold and escalated to Lively Support
+                            <ul>
+                                <li>Lively will investigate the buyer's support request. If the request is approved, buyers will see their refund reflected on the original form of payment within 3–5 days</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="article-accordion-grey__item is-collapsed">
+                <button class="article-accordion-grey__trigger" type="button">
+                    <span class="article-accordion-grey__icon">+</span>
+                    <span>Seller offers a partial refund</span>
+                </button>
+                <div class="article-accordion-grey__content">
+                    <ul>
+                        <li>The buyer has 48 hours to respond to the offer</li>
+                        <li>If the buyer <strong>accepts</strong>, the refund will be reflected on the original form of payment within 3–5 days</li>
+                        <li>If the buyer <strong>declines</strong>, the buyer will automatically be approved for a full refund if they return the item to the seller. The buyer will have five days to ship their return</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="article-accordion-grey__item is-collapsed">
+                <button class="article-accordion-grey__trigger" type="button">
+                    <span class="article-accordion-grey__icon">+</span>
+                    <span>Seller sends a replacement</span>
+                </button>
+                <div class="article-accordion-grey__content">
+                    <ul>
+                        <li>If the replacement is not sent within 48 hours, Lively may authorize the buyer to send the original item back to the seller within five days for a full refund.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="article-accordion-grey__item is-collapsed">
+                <button class="article-accordion-grey__trigger" type="button">
+                    <span class="article-accordion-grey__icon">+</span>
+                    <span>Seller sends a message explaining why they are not issuing a refund</span>
+                </button>
+                <div class="article-accordion-grey__content">
+                    <ul>
+                        <li>The buyer can escalate the request to Lively Support for a second look and our team will investigate.</li>
+                        <li>If the request is approved, buyers will see their refund reflected on the original form of payment within 3–5 days.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="article-accordion-grey__item is-collapsed">
+                <button class="article-accordion-grey__trigger" type="button">
+                    <span class="article-accordion-grey__icon">+</span>
+                    <span>Seller sends a message requesting more information or clarification</span>
+                </button>
+                <div class="article-accordion-grey__content">
+                    <ul>
+                        <li>The buyer provides additional photos, videos, or details on the issue.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <p>
+            If the issue isn't resolved or the seller doesn't respond, you can escalate to Lively Support by tapping the
+            <strong>"?"</strong> icon in the top right of the support request thread.
+        </p>
+
+        <hr />
+
+        <h2>Key Inbox Features</h2>
+
+        <ol>
+            <li>
+                Once you've submitted a support request, you can find it in your Inbox, accessible from the top-right of the Home menu on mobile and web.
+            </li>
+            <li>
+                To view requests related to your purchases, use the <strong>"Purchases"</strong> filter in your Inbox. Your Inbox includes both social DMs and any support requests where you've asked for help with a purchase.
+            </li>
+            <li>
+                If the seller does not respond or the issue is not resolved, you can select the <strong>"?"</strong> icon at the top-right of the support request to escalate to Lively Support. Lively will investigate the request and notify you by email.
+            </li>
+        </ol>
+
+        <div class="helpful-widget">
+            <p>Was this article helpful?</p>
+            <div class="helpful-buttons">
+                <button type="button">Yes</button>
+                <button type="button">No</button>
+            </div>
+            <span>80 out of 145 found this helpful</span>
+        </div>
+
+    </div>
+</div>

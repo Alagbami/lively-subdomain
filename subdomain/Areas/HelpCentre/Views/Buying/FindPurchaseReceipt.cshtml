@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Find the receipt for your purchase - Lively Help Center";
+    ViewData["CategorySlug"] = "Buying";
+    ViewData["SubCategorySlug"] = "Buying items";
+    ViewData["HeroTitle"] = "Find the receipt for your purchase";
+    ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/help_centre_img/help_area/help_centre_hero_bg.png');";
+    ViewData["IsArticle"] = true;
+}
+
+<div class="article-detail-page">
+    <div class="article-body">
+
+        <p>When you buy something on Lively, you'll receive an email receipt for every purchase, and you can view your order details anytime in the app or website.</p>
+
+        <p><strong>Your receipt includes:</strong></p>
+        <ul>
+            <li><strong>Subtotal:</strong> the cost of the item you purchased.</li>
+            <li><strong>Shipping costs:</strong> if items are bundled, the receipt shows the shipping cost for that specific item. To see the shipping costs associated with other items in the bundle, check their individual receipts.</li>
+            <li><strong>Taxes:</strong> any applicable sales tax.</li>
+            <li><strong>Shipping address:</strong> where the order will be delivered.</li>
+            <li><strong>Payment method (email only):</strong> for example, the type of credit card used and the last four digits.</li>
+        </ul>
+
+        <div class="article-info-box">
+            <strong>Tip:</strong> If you purchased during a show, you'll also get a video receipt with a short clip of the item you bought. Video receipts are available for 60 days. <a asp-action="FindReceipt">How to view your video receipt.</a>
+        </div>
+
+        <h2>View your receipt on the Lively app</h2>
+        <ol>
+            <li>Tap <strong>Activity</strong> at the bottom of the screen.</li>
+            <li>Go to the <strong>Purchases</strong> tab and select your item.</li>
+            <li>Scroll down and tap <strong>Receipt &amp; shipping details.</strong></li>
+        </ol>
+
+        <h2>View your receipt on Lively.com</h2>
+        <ol>
+            <li>Sign into Lively.<a href="https://lively.com">com</a>.</li>
+            <li>Open the <strong>Wallet</strong> tab.</li>
+            <li>Under Transaction history, select your item.</li>
+            <li>Check Receipt</li>
+        </ol>
+
+        <div class="helpful-widget">
+            <p>Was this article helpful?</p>
+            <div class="helpful-buttons">
+                <button type="button">Yes</button>
+                <button type="button">No</button>
+            </div>
+            <span>80 out of 145 found this helpful</span>
+        </div>
+
+    </div>
+</div>

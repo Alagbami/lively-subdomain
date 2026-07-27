@@ -10,7 +10,6 @@
             <h2 class="section-title">Top articles</h2>
             <ul class="article-list">
                 <li><a asp-action="PreBid">Pre-bid on an item before an auction</a></li>
-                <li><a asp-action="BuyNowPayLater">Pay over time with Buy Now, Pay Later</a></li>
                 <li><a asp-action="ProtectionPolicy">Lively Buyer Protection Policy</a></li>
                 <li><a asp-action="CancelOrder">Request to cancel your order</a></li>
             </ul>
@@ -31,14 +30,14 @@
                 <div class="articles-section" style="margin-top: 150px;">
                     <h3 class="subsection-title">Shipping</h3>
                     <ul class="article-list">
-                        <li><a href="#">Track your order</a></li>
-                        <li><a href="#">Get help with a delayed or missing order</a></li>
-                        <li><a href="#">Change your order's shipping address</a></li>
-                        <li><a href="#">Smart Bundling™</a></li>
-                        <li><a href="#">Weekly Bundling Feature</a></li>
-                        <li><a href="#">US shipping guide for buyers</a></li>
+                        <li><a asp-action="TrackOrder">Track your order</a></li>
+                        <li><a asp-action="DelayedOrMissingOrder">Get help with a delayed or missing order</a></li>
+                        <li><a asp-action="ShippingAddressChange">Change your order's shipping address</a></li>
+                        <li><a asp-action="SmartBundling">Smart Bundling™</a></li>
+                        <li><a asp-action="WeeklyBundlingFeature">Weekly Bundling Feature</a></li>
+                        <li><a asp-action="ShippingGuide">US shipping guide for buyers</a></li>
                     </ul>
-                    <a href="#" class="btn-see-all mt-3">See all 20 articles <i class="bi bi-chevron-right"></i></a>
+                    <a asp-action="Shipping" class="btn-see-all mt-3">See all 20 articles <i class="bi bi-chevron-right"></i></a>
                 </div>
             </div>
 
@@ -54,7 +53,7 @@
                         <li><a asp-action="HowToBid">How to bid in an auction</a></li>
                         <li><a asp-action="FixPaymentIssue">Fix a payment issue or declined payment</a></li>
                     </ul>
-                    <a asp-action="BuyingItems" class="btn-see-all mt-3">See all 25 articles <i class="bi bi-chevron-right"></i></a>
+                    <a asp-action="BuyingItems" class="btn-see-all mt-3">See all 15 articles <i class="bi bi-chevron-right"></i></a>
                 </div>
             </div>
 
@@ -65,8 +64,8 @@
                     <ul class="article-list">
                         <li><a asp-action="ProtectionPolicy">Lively Buyer Protection Policy</a></li>
                         <li><a asp-action="CancelOrder">Request to cancel your order</a></li>
-                        <li><a href="#">Get help with your purchase</a></li>
-                        <li><a href="#">Seller Provided Support for Buyers</a></li>
+                        <li><a asp-action="PurchaseRequest">Get help with your purchase</a></li>
+                        <li><a asp-action="SellerProvidedSupport">Seller Provided Support for Buyers</a></li>
                     </ul>
                 </div>
             </div>
