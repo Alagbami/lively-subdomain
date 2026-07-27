@@ -1,0 +1,109 @@
+﻿@{
+    ViewData["Title"] = "Downloading Your Order History - Lively Help Center";
+    ViewData["CategorySlug"] = "Buying";
+    ViewData["SubCategorySlug"] = "Buying items";
+    ViewData["HeroTitle"] = "Downloading Your Order History";
+    ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/help_centre_img/help_area/help_centre_hero_bg.png');";
+    ViewData["IsArticle"] = true;
+}
+
+<div class="article-detail-page">
+    <div class="article-body">
+
+        <p>If you'd like to view your list of purchases (as a buyer), you can choose to download your list at any time from the order history page.</p>
+        <p>Note: You can only download your order history using the web browser. This is not currently available on mobile.</p>
+
+        <ol>
+            <li>Open your web browser and go to Lively.com.</li>
+            <li>Click the profile icon in the upper right, then select the <strong>Buying</strong> tab.</li>
+            <li>Once, you are on the <strong>Buying tab</strong>, click <strong>Purchases</strong>.</li>
+            <li>At the bottom of the page, click Download Purchase History.</li>
+            <li>Select Order History as a Buyer.</li>
+            <li>Choose a <strong>Start Date</strong> and <strong>End Date</strong>. This will filter your order history list to only the orders made during the specified timeframe.</li>
+            <li>Click <strong>Download as CSV.</strong></li>
+        </ol>
+
+        <p>You can also download your sales history (as a seller).</p>
+
+        <ol>
+            <li>Open your web browser and go to Lively.com.</li>
+            <li>Click the profile icon in the upper right, then select <strong>Financials.</strong></li>
+            <li>From the Ledger tab the top of the page, click <strong>Export Data.</strong></li>
+        </ol>
+
+        <p>The CSV file will begin downloading. Once it's finished downloading, you can open the file and view the list of orders or sales.</p>
+
+        <hr />
+
+        <h2>Understanding the Order History Data</h2>
+
+        <p>Both the order history for sellers and buyers will include the following data:</p>
+        <ul>
+            <li><strong>Order ID:</strong> The unique ID number associated with the order.</li>
+            <li><strong>Buyer:</strong> The user who purchased the item.</li>
+            <li><strong>Seller:</strong> The seller of the item purchased.</li>
+            <li><strong>Product name:</strong> The name provided on the item listing.</li>
+            <li><strong>Product description:</strong> The description of the item.</li>
+            <li><strong>Product category:</strong> The Lively category the item was sold in.</li>
+            <li><strong>Processed date:</strong> The date and time the purchase was made.</li>
+            <li>
+                <strong>Order status:</strong> The status of the order. Options include:
+                <ul>
+                    <li><a asp-action="Index" asp-controller="Home">Created: The order was created, but the seller has yet to print the label or ship the package.</a></li>
+                    <li><a asp-action="Index" asp-controller="Home">Ask_Pending: The buyer has requested a price decrease on a marketplace (profile shop) item, but the seller has yet to accept or deny the offer.</a></li>
+                    <li><a asp-action="Index" asp-controller="Home">Processing: The order is currently still in progress. If you believe the order should not longer be showing as Processing, contact Lively support for assistance.</a></li>
+                    <li>Completed: The order has been delivered, and the seller has received a payout for the order.</li>
+                    <li>Cancelling: A request to cancel the order was submitted but has not been approved yet.</li>
+                    <li>Canceled: The order was canceled.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Order style:</strong> (buyers list only) Indicates where the order was made in the app. Options include:
+                <ul>
+                    <li>Direct_order: Purchase made from the marketplace (profile shop) OR livestream.</li>
+                    <li>Order: Purchase of a marketplace (profile shop) item, and the item was sent to the Lively warehouse for hand authentication.</li>
+                    <li>Offer: An offer was made on a marketplace (profile shop) item before the purchase was finalized, and the item was sent to the Lively warehouse for hand authentication.</li>
+                    <li>Direct_offer: An offer was made on a marketplace (profile shop) item before the purchase was finalized.</li>
+                    <li>Giveaway: The order was a giveaway.</li>
+                </ul>
+            </li>
+            <li><strong>Sold price:</strong> The price at which the item was sold.</li>
+            <li><strong>Quantity:</strong> The number of items sold in that purchase.</li>
+            <li><strong>Subtotal:</strong> The price of the order before shipping and taxes are applied.</li>
+            <li><strong>Shipping price:</strong> The total amount paid in shipping for the <strong>order.</strong></li>
+            <li><strong>Taxes:</strong> The total amount paid in taxes for the order.</li>
+            <li><strong>Credits applied:</strong> The total dollar amount in credits applied to the order.</li>
+            <li><strong>Total:</strong> The total amount paid by the buyer (including shipping and taxes)</li>
+        </ul>
+
+        <p>The Order History as a Seller CSV will also include the following data:</p>
+        <ul>
+            <li>
+                <strong>Sales channel:</strong> (sellers list only) Where the item was sold. Options include:
+                <ul>
+                    <li>Livestream: Purchase was made during a livestream.</li>
+                    <li>Standard: Purchase was made from the seller's profile shop.</li>
+                    <li>Story: Purchase was made from the seller's Lively story.</li>
+                </ul>
+            </li>
+            <li><strong>Paid out amount:</strong> The total amount paid out to the seller. Purchases with a negative payout amount (e.g., giveaways) will appear in red text with parentheses around the amount. For example: ($4.00) indicates the seller paid $4 for the order, which was taken from their payment ledger.</li>
+            <li><strong>Is paid out:</strong> If True, the purchases were completed and paid out to the seller. If this field is blank, the order has not been completed yet, and the seller has not received a payout for the purchase.</li>
+            <li><strong>Commission fee:</strong> The amount taken out in commission fees paid to Lively.</li>
+            <li><strong>Processing fee:</strong> The amount taken out in processing fees.</li>
+            <li><strong>Shipment ID:</strong> The unique ID associated with the shipment.</li>
+            <li><strong>Livestream ID:</strong> The unique ID associated with the livestream in which the purchase was made.</li>
+            <li><strong>Buyer shipping state:</strong> If the purchase was made by someone in the US, this indicates the state to which the purchase was shipped.</li>
+            <li><strong>Buyer shipping country:</strong> The country to which the order was shipped.</li>
+        </ul>
+
+        <div class="helpful-widget">
+            <p>Was this article helpful?</p>
+            <div class="helpful-buttons">
+                <button type="button">Yes</button>
+                <button type="button">No</button>
+            </div>
+            <span>80 out of 145 found this helpful</span>
+        </div>
+
+    </div>
+</div>
