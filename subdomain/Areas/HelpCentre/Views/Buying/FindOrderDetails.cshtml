@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Find your order details - Lively Help Center";
+    ViewData["CategorySlug"] = "Buying";
+    ViewData["SubCategorySlug"] = "Buying items";
+    ViewData["HeroTitle"] = "Find your order details";
+    ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/help_centre_img/help_area/help_centre_hero_bg.png');";
+    ViewData["IsArticle"] = true;
+}
+
+<div class="article-detail-page">
+    <div class="article-body">
+
+        <p>While getting help with an order, you may need to share order details like your Order ID or tracking number. Here's how to find them.</p>
+
+        <p><strong>Open your order details:</strong></p>
+        <ol>
+            <li>Open the Lively app or go to <a href="https://lively.com">lively.com</a></li>
+            <li>Go to <strong>Activity</strong></li>
+            <li>Select the <strong>Purchases</strong> tab</li>
+            <li>Choose the order you need help with</li>
+        </ol>
+
+        <p>From the order details page, you can view and copy:</p>
+        <ul>
+            <li><strong>Tracking number</strong> – select <strong>'Tracking'</strong></li>
+            <li><strong>Order ID</strong> – a 9-digit number (example: 123456789)</li>
+        </ul>
+
+        <p>Need help with an order? <a asp-action="Index" asp-controller="Home">Learn how to contact Lively support.</a></p>
+
+        <div class="helpful-widget">
+            <p>Was this article helpful?</p>
+            <div class="helpful-buttons">
+                <button type="button">Yes</button>
+                <button type="button">No</button>
+            </div>
+            <span>80 out of 145 found this helpful</span>
+        </div>
+
+    </div>
+</div>

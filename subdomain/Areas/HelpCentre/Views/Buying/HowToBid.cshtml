@@ -3,47 +3,157 @@
     ViewData["CategorySlug"] = "Buying";
     ViewData["SubCategorySlug"] = "Buying items";
     ViewData["HeroTitle"] = "How to bid in an auction";
-    ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/img/contact_area/contact_hero_bg.png');";
+    ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/help_centre_img/help_area/help_centre_hero_bg.png');";
     ViewData["IsArticle"] = true;
 }
 
 <div class="article-detail-page">
     <div class="article-body">
-        <p>A standard auction involves buyers continually placing higher bids until the auction closes. The highest bid when the auction ends is the winner.</p>
-        <p>Lively offers competitive bidding mechanisms during our livestream sales. Find out everything you need to know about placing bids below.</p>
+        <p>Bidding lets you compete for auction-style listings on Lively. During a show, the seller will set a starting price for a item, and buyers place bids in real time as a countdown timer runs.</p>
+        <p>When the timer reaches zero, the highest bidder wins and the item is automatically purchased using their saved payment method.</p>
 
-        <p><strong>On this page</strong></p>
+        <p><strong>On this page:</strong></p>
         <ul>
-            <li><a href="#">Before you bid</a></li>
-            <li><a href="#">How to bid using the Bid button</a></li>
-            <li><a href="#">How to type custom bids</a></li>
-            <li><a href="#">After you win</a></li>
+            <li>
+                <a href="#">Before you bid</a>
+                <ul>
+                    <li><a href="#">How the auction clock works</a></li>
+                    <li><a href="#">How bid amounts increase</a></li>
+                    <li><a href="#">What currency you'll see</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">How to bid</a>
+                <ul>
+                    <li><a href="#">Swipe to bid</a></li>
+                    <li><a href="#">Bid a custom amount and set a Max Bid</a></li>
+                    <li><a href="#">Pre-bid before the auction</a></li>
+                </ul>
+            </li>
+            <li><a href="#">After you bid</a></li>
+            <li><a href="#">Auction rules</a></li>
+            <li><a href="#">Frequently asked questions (FAQs)</a></li>
         </ul>
+
+        <hr />
 
         <h2>Before you bid</h2>
-        <p>Ensure you have a payment method and shipping address attached to your account before placing a bid in a Live Show.</p>
 
-        <h2>How to Bid</h2>
-        <p>There are two primary methods for placing a bid in an auction:</p>
-
-        <p><strong>Use the Bid button:</strong> Tap the colored Bid button at the bottom of your screen to place the next incremental bid.</p>
-        
-        <div class="text-center my-4">
-            <img src="~/img/help_center/pre_bid.png" alt="Bid button example" class="img-fluid" style="border-radius: 12px; margin-bottom: 2rem;" />
-        </div>
-
-        <h2>Bid a custom amount and sending a bid</h2>
-        <p>If you wish to bid significantly higher that the current increment to secure your purchase, you can enter a custom bid.</p>
+        <h3>How the auction clock works</h3>
+        <p>Sellers set the duration of the auction for each item and choose between two auction clocks:</p>
         <ul>
-            <li>Tap the amount shown above the bid button to open your keypad.</li>
-            <li>Input your custom maximum bid amount.</li>
+            <li><strong>Standard</strong>: Starts with a set duration (e.g. 30 seconds). Each new bid adds a few seconds so others can respond.</li>
         </ul>
 
-        <p>To avoid accidental bids, you will be prompted to swipe or confirm your custom bid amount.</p>
+        <div class="text-center my-4">
+            <img src="/help_centre_img/help_area/standard_section.png" alt="Standard auction clock" class="img-fluid" style="border-radius: 12px;" />
+        </div>
+
+        <ul>
+            <li><strong>Auction Timer Reset:</strong> This is means every time a user win a bid the timer reset back to the default timer set by the seller.</li>
+        </ul>
+
+        <div class="text-center my-4">
+            <img src="/help_centre_img/help_area/auction_timer.png" alt="Auction timer reset" class="img-fluid" style="border-radius: 12px;" />
+        </div>
+
+        <p>You'll always see a live countdown on screen, so you can follow the action in real time.</p>
 
         <div class="article-info-box">
-            <strong>Remember:</strong> All bids are binding. Only bid what you are willing to pay. 
+            <strong>Tip:</strong> Auctions move fast on Lively, and many wrap up in 30 seconds or less.
         </div>
+
+        <h3>How bid amounts increase</h3>
+        <p>Each bid must go up by at least a minimum amount, called a bid increment.</p>
+        <p><a href="#">On Lively, bid increases are set by the seller. Every time a buyer places a bid during an auction, the price goes up by a fixed amount chosen by the seller.</a></p>
+        <p>This keeps bidding simple and predictable.</p>
+
+        <h3>What currency you'll see</h3>
+        <p>Prices display in NGN. At checkout, Lively converts the total to your local currency.</p>
+
+        <hr />
+
+        <h2>How to bid</h2>
+
+        <h3>Swipe to bid</h3>
+        <p>Swipe the Bid button (or click on web) to place the next valid bid. You'll see the amount before bidding.</p>
+        <p>The shipping cost you'll pay will always be shown underneath the running item's title.</p>
+
+        <div class="text-center my-4">
+            <img src="/help_centre_img/help_area/auction_section.png" alt="Swipe to bid" class="img-fluid" style="border-radius: 12px;" />
+        </div>
+
+        <h3>Bid a custom amount and set a Max Bid</h3>
+        <p>Enter a custom bid if you want to bid higher than the next increment. Just tap the Custom button next to the bid button to start.</p>
+        <p>When entering a custom bid, you'll see the Max Bid option:</p>
+        <ul>
+            <li><strong>Max Bid on (default):</strong> Lively will automatically bid for you in <a href="#">increments</a> up to your limit.</li>
+            <li><strong>Max Bid off:</strong> Your full custom amount is placed immediately as a single bid.</li>
+        </ul>
+
+        <div class="text-center my-4">
+            <img src="/help_centre_img/help_area/max_bid_section.png" alt="Max bid custom amount screens" class="img-fluid" style="border-radius: 12px;" />
+        </div>
+
+        <p><strong>When you use Max Bid,</strong> Lively automatically raises your bid only if another buyer bids higher:</p>
+        <ul>
+            <li>If no one else bids, you could win below your max.</li>
+            <li>If bidding continues, your bid will increase in increments up to the limit you set.</li>
+            <li>If someone goes over your max, you can swipe to bid again or enter a new custom bid.</li>
+            <li>Remember you'll also pay shipping and tax if you win</li>
+        </ul>
+
+        <div class="article-info-box">
+            <strong>Tip:</strong> Short auctions move quickly — using Max Bid ensures you stay in the lead without having to swipe every time.
+        </div>
+
+        <h3>Pre-bid before the auction</h3>
+        <p>If a seller lists items before their show, you can place a pre-bid. Your pre-bid functions exactly like a Max Bid and will be used automatically once the auction starts, even if you're not watching live.</p>
+
+        <div class="text-center my-4">
+            <img src="/help_centre_img/help_shared/prebid_screenshot.png" alt="Pre-bid before the auction" class="img-fluid" style="border-radius: 12px;" />
+        </div>
+
+        <p><strong>When you pre-bid:</strong></p>
+        <ul>
+            <li>You set a Max Bid (the most you're willing to pay for the item).</li>
+            <li>Once the auction begins, Lively automatically bids for you in <a href="#">increments</a> up to your set limit</li>
+        </ul>
+        <p><a href="#">Learn how to pre-bid on an item.</a></p>
+
+        <hr />
+
+        <h2>After you bid</h2>
+        <p>If you're outbid, you can choose to bid again, either by swiping or placing a custom bid.</p>
+        <p>If you're the highest bidder when the timer ends, you win the auction and your <a href="#">default payment method</a> is charged. You can view your order details under <strong>Activity &gt; Purchases.</strong></p>
+
+        <hr />
+
+        <h2>Auction rules</h2>
+        <p>To keep auctions fair and fun for everyone, buyers should follow these rules:</p>
+        <ul>
+            <li><strong>You bid, you buy.</strong> All bids are binding. If you place a bid, you're prepared and committed to purchasing that item. Canceling or filing a chargeback may result in account actions, including a ban.</li>
+            <li><strong>No bidding up prices.</strong> Only bid only on items you genuinely want. Manipulating prices (known as shill bidding) will lead to an account ban.</li>
+            <li>Clear errors or glitches. Double check your bid amount before bidding. If you accidentally enter an incorrect amount (e.g. ₦100,000 instead of ₦10,000), Lively may cancel the auction so the seller can re-run it</li>
+        </ul>
+        <p><a href="#">Learn more in our Community Guidelines.</a></p>
+
+        <hr />
+
+        <h2>Frequently asked questions (FAQs)</h2>
+
+        <h3>Can I cancel a bid or pre-bid?</h3>
+        <p>No. All bids are final once confirmed. Bids and pre-bids can't be canceled or reduced.</p>
+        <p>If you win an auction, you have 24 hours to <a href="#">request a cancellation</a> of your purchase from the seller. The seller can choose to approve or deny the request</p>
+
+        <h3>Can others see my Max Bid?</h3>
+        <p>No. Your Max Bid is private. The seller and other buyers only see the current highest bid.</p>
+
+        <h3>What if someone bids the same as my Max Bid?</h3>
+        <p>Whoever placed that amount first stays in the lead. You can always swipe to bid again or set a new Max Bid to stay competitive.</p>
+
+        <h3>Why did the auction reach my Max Bid so quickly?</h3>
+        <p>If many buyers are bidding quickly (or using their own Max Bids) your Max Bid may be reached faster than expected. You won't be charged more than your limit. If you're outbid, you can bid again.</p>
 
         <div class="helpful-widget">
             <p>Was this article helpful?</p>
@@ -51,7 +161,7 @@
                 <button type="button">Yes</button>
                 <button type="button">No</button>
             </div>
-            <span>158 out of 192 found this helpful</span>
+            <span>80 out of 145 found this helpful</span>
         </div>
     </div>
 </div>

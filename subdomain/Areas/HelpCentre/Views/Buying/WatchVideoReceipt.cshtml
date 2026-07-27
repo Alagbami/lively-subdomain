@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Watch your video receipt - Lively Help Center";
+    ViewData["CategorySlug"] = "Buying";
+    ViewData["SubCategorySlug"] = "Buying items";
+    ViewData["HeroTitle"] = "Watch your video receipt";
+    ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/help_centre_img/help_area/help_centre_hero_bg.png');";
+    ViewData["IsArticle"] = true;
+}
+
+<div class="article-detail-page">
+    <div class="article-body">
+
+        <p>When you buy something during a show on Lively, you'll get a video receipt with a short clip of when your item was featured.</p>
+        <p>Need a full breakdown of your order cost? <a asp-action="FindReceipt">How to view your receipt.</a></p>
+        <p>Are you a seller looking for show recordings? <a asp-action="Index" asp-controller="Home">How to access your past shows.</a></p>
+
+        <h2>How video receipts work</h2>
+        <ul>
+            <li>Your video receipt highlights a <strong>short clip</strong> from the moment your <strong>item was auctioned or pinned</strong></li>
+            <li>If you <strong>bought during a Card Break</strong>, you'll see the <strong>full video</strong> from that show</li>
+            <li>Video receipts are <strong>available for 60 days</strong> after your purchase</li>
+        </ul>
+
+        <h2>How to find your video receipt</h2>
+        <p>You can only view video receipts in the Lively app, not <a href="https://lively.com">Lively.com</a>.</p>
+        <p>If the video is still available, you'll see how many days remain. If it's expired, the video receipt won't appear.</p>
+
+        <ol>
+            <li>Open the Lively app</li>
+            <li>Tap the <strong>Activity</strong> icon on the bottom menu</li>
+            <li>Tap <strong>Purchases</strong></li>
+            <li>Select the order you want to view</li>
+            <li>Scroll to <strong>Order Details</strong></li>
+            <li>Tap <strong>Video Receipt</strong></li>
+        </ol>
+
+        <h2>Need more help?</h2>
+        <p><a asp-action="Index" asp-controller="Home">Get help with your purchase.</a></p>
+
+        <div class="helpful-widget">
+            <p>Was this article helpful?</p>
+            <div class="helpful-buttons">
+                <button type="button">Yes</button>
+                <button type="button">No</button>
+            </div>
+            <span>80 out of 145 found this helpful</span>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,160 @@
+﻿@{
+    ViewData["Title"] = "Get help with a purchase - Lively Help Center";
+    ViewData["CategorySlug"] = "Buying";
+    ViewData["SubCategorySlug"] = "Orders issues and refunds";
+    ViewData["HeroTitle"] = "Get help with a purchase";
+    ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/help_centre_img/help_area/help_centre_hero_bg.png');";
+    ViewData["IsArticle"] = true;
+}
+
+<div class="article-detail-page">
+    <div class="article-body">
+
+        <p>We know it's frustrating when something goes wrong with an order — whether your package didn't arrive, your item arrived damaged, or it's not what you expected.</p>
+
+        <p>If you need help or want to request a refund, you can do it right in the app or on <a href="https://lively.com">Lively.com</a>.</p>
+
+        <p>Depending on the situation, your request will either go directly to the seller (if they can access <a asp-action="SellerProvidedSupport">Seller Provided Support</a>) or to Lively Support for review.</p>
+
+        <p>Every purchase is backed by our <a asp-action="ProtectionPolicy">Buyer Protection Policy</a>. We're here to help make things right.</p>
+
+        <div class="article-info-box">
+            <strong>Tip:</strong> If it's been less than 24 hours and your order hasn't shipped, you can request to cancel instead. This is often the fastest way to resolve an issue early.
+        </div>
+
+        <p class="mt-4"><strong>In this article:</strong></p>
+        <ul>
+            <li><a href="#buyer-protection">What's covered under Buyer Protection</a></li>
+            <li><a href="#timelines">Support request timelines</a></li>
+            <li><a href="#how-to-get-help">How to get help with a purchase</a></li>
+            <li><a href="#after-submit">After you submit your request</a></li>
+            <li><a href="#returning-item">Returning your item</a></li>
+            <li><a href="#receiving-refund">Receiving a refund</a></li>
+            <li><a href="#keeping-fair">Keeping refunds fair for everyone</a></li>
+        </ul>
+
+        <hr />
+
+        <h2 id="buyer-protection">What's covered under Buyer Protection</h2>
+
+        <p>Every purchase is backed by our <a asp-action="ProtectionPolicy">Buyer Protection Policy</a>. It covers issues like:</p>
+
+        <h3>Before delivery –</h3>
+        <ul>
+            <li>Your order hasn't shipped and is taking longer than expected</li>
+            <li>Your package shipped but is delayed or stuck in transit</li>
+        </ul>
+
+        <h3>After delivery –</h3>
+        <ul>
+            <li>The item was damaged during shipping</li>
+            <li>Something is missing from your order</li>
+            <li>You received the wrong item</li>
+            <li>The item doesn't match the listing (description, condition, size, color, photos)</li>
+            <li>The item is defective, expired, or not working</li>
+            <li>The item is counterfeit</li>
+        </ul>
+
+        <h3>Not covered –</h3>
+        <ul>
+            <li>You changed your mind after buying</li>
+            <li>It doesn't fit your style, preference, or size</li>
+            <li>The listing clearly shared the item's flaws before purchase</li>
+        </ul>
+
+        <p>Not sure if your issue's covered? Review our full <a asp-action="ProtectionPolicy">Buyer Protection Policy</a> for details.</p>
+
+        <h2 id="timelines">Support request timelines</h2>
+
+        <p>To stay eligible for Buyer Protection, contact us before the earlier of:</p>
+        <ul>
+            <li>30 days from purchase</li>
+            <li>14 days from delivery</li>
+        </ul>
+
+        <p>Some categories have shorter timelines:</p>
+        <ul>
+            <li><strong>Coins & Money, Sports Cards, Sneakers & Streetwear, Trading Card Games, Luxury Goods:</strong> 7 days from delivery or 30 days from purchase (whichever comes first)</li>
+            <li><strong>Plants:</strong> 2 days from delivery or 30 days from purchase (whichever comes first)</li>
+        </ul>
+
+        <h2 id="how-to-get-help">How to get help with a purchase</h2>
+
+        <ol>
+            <li>Open the app or go to <a href="https://lively.com">Lively.com</a></li>
+            <li>Go to <strong>Activity &gt; Purchases.</strong></li>
+            <li>Select the order.</li>
+            <li>Tap or click <strong>Get help with this purchase.</strong></li>
+            <li>Choose the option that matches your issue.</li>
+            <li>Describe the situation and upload any supporting evidence (like photos).</li>
+            <li>Submit your request.</li>
+        </ol>
+
+        <h2 id="after-submit">After you submit your request</h2>
+
+        <p>Your request will go to either the seller or Lively Support, depending on the issue and whether the seller can access <a asp-action="SellerProvidedSupport">Seller Provided Support</a>.</p>
+
+        <ul>
+            <li>
+                <strong>If your request goes to the seller:</strong>
+                <ul>
+                    <li>You'll receive updates in your Lively Inbox (mobile or web)</li>
+                    <li>Most issues can be resolved directly with the seller</li>
+                    <li>If the seller doesn't respond or the issue isn't resolved, you can escalate to Lively Support</li>
+                    <li>
+                        <a asp-action="SellerProvidedSupport">Learn more about Seller Provided Support.</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <strong>If your request goes to Lively Support:</strong>
+                <ul>
+                    <li>You'll receive updates by email</li>
+                    <li>Our team will review the details and share next steps</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p>Depending on the situation, the resolution may include a full or partial refund, a return, a replacement, or another outcome under <a asp-action="ProtectionPolicy">Buyer Protection</a>.</p>
+
+        <h2 id="returning-item">Returning your item</h2>
+
+        <p>In some cases, you'll need to return the item so we can review the problem and process your request.</p>
+
+        <p>If a return is required, we'll send you a prepaid label and simple instructions:</p>
+        <ul>
+            <li>Ship within <strong>5 business days.</strong></li>
+            <li>Keep the item in the same condition it arrived.</li>
+            <li>Include your order number if asked.</li>
+        </ul>
+
+        <h2 id="receiving-refund">Receiving a refund</h2>
+
+        <p>If a refund or partial refund is approved:</p>
+        <ul>
+            <li>It may take <strong>3–5 business days</strong> for your bank or payment provider to process</li>
+            <li>You'll see the refund as a credit on your statement, or the original charge may disappear</li>
+        </ul>
+
+        <h2 id="keeping-fair">Keeping refunds fair for everyone</h2>
+
+        <p>We monitor refund activity to protect <a asp-action="ProtectionPolicy">Buyer Protection</a> for both buyers and sellers. This helps prevent misuse and keeps coverage fair for everyone in the community.</p>
+
+        <h3>Related articles</h3>
+        <ul>
+            <li><a asp-action="ProtectionPolicy">Lively Buyer Protection Policy</a></li>
+            <li><a asp-action="Index" asp-controller="Home">Contact Lively support</a></li>
+            <li><a asp-action="CancelOrder">Request to cancel your order</a></li>
+        </ul>
+
+        <div class="helpful-widget">
+            <p>Was this article helpful?</p>
+            <div class="helpful-buttons">
+                <button type="button">Yes</button>
+                <button type="button">No</button>
+            </div>
+            <span>80 out of 145 found this helpful</span>
+        </div>
+
+    </div>
+</div>

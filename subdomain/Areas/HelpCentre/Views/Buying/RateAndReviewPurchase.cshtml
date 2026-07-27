@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "Rate your purchase - Lively Help Center";
+    ViewData["CategorySlug"] = "Buying";
+    ViewData["SubCategorySlug"] = "Buying items";
+    ViewData["HeroTitle"] = "Rate your purchase";
+    ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/help_centre_img/help_area/help_centre_hero_bg.png');";
+    ViewData["IsArticle"] = true;
+}
+
+<div class="article-detail-page">
+    <div class="article-body">
+
+        <p>After delivery, you can choose to rate your purchase on a 5-star scale and leave a written review.</p>
+
+        <p>Every rating contributes to a seller’s average rating on their profile, but only ratings with written reviews appear individually on the seller’s profile.</p>
+
+        <p>Rating a purchase is optional, but it helps sellers improve and helps other buyers shop with confidence on Lively.</p>
+
+        <p><strong>On this page:</strong></p>
+        <ul>
+            <li><a href="#leave-a-rating">Leave a rating</a></li>
+            <li><a href="#delete-your-review">Delete your review</a></li>
+        </ul>
+
+        <div class="text-center my-4">
+            <img src="/help_centre_img/help_area/rating_a_purchase.png"
+                 alt="Rate purchase screen in Lively app"
+                 class="img-fluid"
+                 style="border-radius: 12px;" />
+        </div>
+        <hr />
+
+        <h2 id="leave-a-rating">Leave a rating</h2>
+
+        <p>You can rate your purchase in the Lively mobile app within 30 days of delivery, as long as the order status is <strong>Pending Review</strong>.</p>
+
+        <p>The order is marked <strong>Complete</strong> after you submit a review or when the review window closes.</p>
+
+        <p>If you've asked the seller to <a asp-action="Index" asp-controller="Home">cancel your order</a>, you won’t be able to leave a rating or review, even if the seller declines the request.</p>
+
+        <p><strong>To rate your purchase:</strong></p>
+        <ol>
+            <li>Open the Lively app</li>
+            <li>Tap the <strong>Activity</strong> tab, then <strong>Purchases</strong></li>
+            <li>Select the order</li>
+            <li>Tap <strong>Rate Purchase</strong></li>
+            <li>Rate your overall experience on a 5-star scale and leave an optional written comment</li>
+        </ol>
+
+        <p>If you choose 4 stars or fewer, you'll be asked to rate specific areas too:</p>
+        <ul>
+            <li><strong>Shipping:</strong> How fast was it?</li>
+            <li><strong>Packaging:</strong> How was the condition of your order?</li>
+            <li><strong>Accuracy:</strong> Did you receive what you expected?</li>
+        </ul>
+
+        <hr />
+
+        <p>Reviews must follow Lively’s <a asp-action="Index" asp-controller="Home">Community Guidelines</a>. If a review violates our policies, it may be reported, and we may take action under our <a asp-action="Index" asp-controller="Home">What Actions We Take</a> policy.</p>
+
+        <p>Sellers can view ratings left on their profile and may publicly reply to written reviews. <a asp-action="Index" asp-controller="Home">Learn more.</a></p>
+
+        <p>Reviews are meant to share feedback. For help with an order, <a asp-action="Index" asp-controller="Home">request support with your purchase.</a></p>
+        <h2 id="delete-your-review">Delete your review</h2>
+
+        <p>Reviews can’t be edited, but you can delete them using the Lively mobile app.</p>
+
+        <p>When you delete a review, both the rating and any written comment are removed from the seller’s profile and average rating. You won’t be able to leave a new review for that purchase.</p>
+
+        <p><strong>To delete your review:</strong></p>
+        <ol>
+            <li>Open the Lively app</li>
+            <li>Tap the <strong>Activity</strong> tab, then <strong>Purchases</strong></li>
+            <li>Select the order you rated</li>
+            <li>Scroll down and tap the seller’s username to open their profile</li>
+            <li>Go to the <strong>Reviews</strong> tab</li>
+            <li>Find your review (sorted by most recent)</li>
+            <li>Tap the <strong>three dots (⋯)</strong> menu and choose <strong>Delete</strong></li>
+        </ol>
+
+
+        <div class="helpful-widget">
+            <p>Was this article helpful?</p>
+            <div class="helpful-buttons">
+                <button type="button">Yes</button>
+                <button type="button">No</button>
+            </div>
+            <span>80 out of 145 found this helpful</span>
+        </div>
+
+    </div>
+</div>

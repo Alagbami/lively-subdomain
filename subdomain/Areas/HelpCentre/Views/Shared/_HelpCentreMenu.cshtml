@@ -3,7 +3,9 @@
         <div class="header-content-wrapper">
             <a href="#" class="btn-contact-us">Contact Us</a>
             <div class="header-logo text-center">
-                <img src="/img/logo-white.svg" alt="lively">
+                <a href="/">
+                    <img src="/help_centre_img/help_shared/logo.png" alt="lively">
+                </a>
             </div>
             <div class="header-tools">
                 <a href="#" class="lang-dropdown">
@@ -46,7 +48,7 @@
                     @if (ViewData["IsArticle"] != null && (bool)ViewData["IsArticle"])
                     {
                         <div class="d-flex align-items-center mt-2">
-                            <img src="/img/lively-icon-small.png" alt="Lively" style="width:24px; height:24px; border-radius:50%;" onerror="this.src='/img/logo-white.svg'; this.style.width='auto';" class="me-2" />
+                            <img src="~/help_centre_img/help_shared/logo.svg" alt="Lively" style="width:40px; height:40px; border-radius:50%;" onerror="this.src=''; this.style.width='auto';" class="me-2" />
                             <span class="text-white opacity-75" style="font-size: 14px;">Lively Support &nbsp; January 19, 2026 at 10:38 AM</span>
                         </div>
                     }
