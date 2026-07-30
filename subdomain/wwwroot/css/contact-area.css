@@ -482,3 +482,14 @@ body {
 body.search-open {
     overflow: hidden;
 }
+/* Dedicated Search Page — Dimmed Hero */
+.search-hero-dimmed {
+    position: relative;
+    height: 220px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/help_centre_img/help_area/help_centre_hero_bg.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
