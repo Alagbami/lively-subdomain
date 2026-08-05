@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <link rel="stylesheet"
+          href="~/css/help-centre.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/css/contact-area.css"
+          asp-append-version="true" />
+
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+
+<body>
+
+    <!-- Contact-Specific Hero -->
+    <div class="contact-hero">
+
+        <!-- Header Bar -->
+        <div class="contact-header">
+            <div class="header-content-wrapper">
+
+                <a href="/contact" class="btn-contact-us">
+                    Contact Us
+                </a>
+
+                <div class="header-logo">
+                    <img src="/help_centre_img/help_shared/logo.png"
+                         alt="Lively Logo" />
+                </div>
+
+                <div class="header-tools">
+                    <a href="#" class="lang-dropdown">
+                        English <i class="bi bi-chevron-down"></i>
+                    </a>
+                    <a href="/Contact/Home/Search" style="text-decoration: none;">
+                        <div class="search-circle">
+                            <i class="bi bi-search"></i>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Hero Title Only — no search bar -->
+        <div class="hero-content">
+            <h1>Submit a request</h1>
+        </div>
+
+    </div>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <partial name="~/Areas/HelpCentre/Views/Shared/_HelpCentreFooter.cshtml" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/contact-area.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

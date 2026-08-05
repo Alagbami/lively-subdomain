@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <link rel="stylesheet"
+          href="~/css/help-centre.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/css/contact-area.css"
+          asp-append-version="true" />
+
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+
+    <!-- Search Header -->
+    <div class="search-overlay-header">
+        <div class="content-container">
+            <h2 class="search-overlay-heading">What can we help you with?</h2>
+            <div class="search-bar-wrapper">
+                <input type="text"
+                       class="search-overlay-input"
+                       id="searchPageInput"
+                       placeholder="Type your question here..."
+                       value="@ViewData["Query"]" />
+                <button type="button" class="btn-search-overlay" id="btnSearchPage">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dimmed Hero with Close Button -->
+    <div class="search-hero-dimmed">
+        <a href="/contact" class="close-overlay">
+            <i class="bi bi-x"></i>
+        </a>
+    </div>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <partial name="~/Areas/HelpCentre/Views/Shared/_HelpCentreFooter.cshtml" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/contact-area.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

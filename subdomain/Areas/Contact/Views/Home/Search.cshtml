@@ -1,13 +1,13 @@
-@model Rotex.Lively.Web.Client.Areas.Contact.ViewModels.ContactViewModel
+﻿@model Rotex.Lively.Web.Client.Areas.Contact.ViewModels.ContactViewModel
 @{
-    ViewData["Title"] = "Submit a request - Lively";
-    Layout = "~/Areas/Contact/Views/Shared/_ContactLayout.cshtml";
+    ViewData["Title"] = "Search - Lively";
+    Layout = "~/Areas/Contact/Views/Shared/_ContactSearchLayout.cshtml";
 }
 
 <div class="contact-main">
     <div class="content-container">
         <p class="info-text">
-            To submit a support request related to a recent order, please visit the <a href="#">Activity</a> tab and select &#34;Get help with this purchase&#34; from the order details page
+            To submit a support request related to a recent order, please visit the <a href="#">Activity</a> tab and select "Get help with this purchase" from the order details page
         </p>
 
         <h2 class="request-heading">How can we help you today?</h2>
@@ -26,7 +26,6 @@
             </div>
         </div>
         <input type="hidden" name="RequestTypeId" id="RequestTypeId" value="" />
-
         <!-- Dynamic DSA Report Form (Hidden by default) -->
         <div id="dsaReportForm" class="dynamic-form-section" style="display: none;">
             <div class="form-group-item">
@@ -214,3 +213,25 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var btn = document.getElementById('btnSearchPage');
+            var input = document.getElementById('searchPageInput');
+
+            btn.addEventListener('click', function () {
+                var query = input.value.trim();
+                if (query.length > 0) {
+                    window.location.href = '/Contact/Home/Search?q=' + encodeURIComponent(query);
+                }
+            });
+
+            input.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter') {
+                    btn.click();
+                }
+            });
+        });
+    </script>
+}

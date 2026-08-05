@@ -20,5 +20,21 @@ namespace Rotex.Lively.Web.Client.Areas.Contact.Controllers
             };
             return View(viewModel);
         }
+
+        public IActionResult Search(string q)
+        {
+            var viewModel = new ContactViewModel
+            {
+                RequestTypes = ContactDummyDataService.GetRequestTypes(),
+                Regions = ContactDummyDataService.GetRegions(),
+                ConfirmationOptions = ContactDummyDataService.GetConfirmationOptions(),
+                HelpOptions = ContactDummyDataService.GetHelpOptions(),
+                Countries = ContactDummyDataService.GetCountries(),
+                AppealOptions = ContactDummyDataService.GetAppealOptions()
+            };
+
+            ViewData["Query"] = q ?? string.Empty;
+            return View(viewModel);
+        }
     }
 }

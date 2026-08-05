@@ -88,23 +88,46 @@
         return zone;
     };
 
-    // 5. Search Overlay Toggle
-    const searchToggle = document.getElementById('searchToggle');
-    const searchOverlay = document.getElementById('searchOverlay');
-    const closeSearch = document.getElementById('closeSearch');
+    // 5. Submit Button Enablement
+    function checkFormValidity(formId, buttonSelector) {
+        const form = document.getElementById(formId);
+        if (!form) return;
 
-    if (searchToggle && searchOverlay) {
-        searchToggle.addEventListener('click', function (e) {
-            e.preventDefault();
-            searchOverlay.style.display = 'flex';
-            document.body.classList.add('search-open');
+        const submitBtn = form.querySelector(buttonSelector);
+        if (!submitBtn) return;
+
+        function validate() {
+            const requiredInputs = form.querySelectorAll('input[required], textarea[required]');
+            let allFilled = true;
+
+            requiredInputs.forEach(input => {
+                if (!input.value.trim()) allFilled = false;
+            });
+
+            const requiredHiddenIds = [
+                'Region', 'IsIllegalContent',
+                'HelpOption', 'Country', 'IsAppealing'
+            ];
+
+            requiredHiddenIds.forEach(id => {
+                const hidden = form.querySelector('#' + id);
+                if (hidden && !hidden.value.trim()) allFilled = false;
+            });
+
+            submitBtn.disabled = !allFilled;
+        }
+
+        form.querySelectorAll('input[required], textarea[required]').forEach(input => {
+            input.addEventListener('input', validate);
         });
+
+        form.querySelectorAll('input[type="hidden"]').forEach(hidden => {
+            hidden.addEventListener('change', validate);
+        });
+
+        validate();
     }
 
-    if (closeSearch && searchOverlay) {
-        closeSearch.addEventListener('click', function () {
-            searchOverlay.style.display = 'none';
-            document.body.classList.remove('search-open');
-        });
-    }
+    checkFormValidity('dsaReportForm', '.btn-submit-form');
+    checkFormValidity('trustSafetyForm', '.btn-submit-form');
 });
