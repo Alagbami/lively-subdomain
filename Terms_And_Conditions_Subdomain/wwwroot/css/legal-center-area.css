@@ -1,0 +1,246 @@
+﻿/* ─── Base ─────────────────────────────────────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: #171717;
+    background: #ffffff;
+}
+
+/* ─── Header — red line + grey line below it ────────────── */
+.legal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 32px;
+    border-bottom: 0.6px solid #FF0056;
+    position: relative;
+}
+
+    .legal-header::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: #1717173D;
+    }
+
+/* ─── Page container — no left border ───────────────────── */
+.legal-page-container {
+    display: flex;
+    max-width: 1366px;
+    margin: 0 auto;
+    min-height: calc(100vh - 140px);
+    border-left: none;
+}
+
+/* ─── Sidebar — correct width and padding from Figma ─────── */
+.legal-sidebar {
+    width: 340px;
+    flex-shrink: 0;
+    padding: 24px 20px 24px 60px;
+    gap: 40px;
+}
+
+.legal-header-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: -0.2px;
+    color: #171717;
+}
+
+/* Separator below header */
+.legal-header-border {
+    border-bottom: 1px solid #1717173D;
+    margin: 0 32px;
+}
+
+/* ─── Sidebar ───────────────────────────────────────────── */
+
+
+.legal-sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.sidebar-doc-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 0;
+    color: #171717;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+    .sidebar-doc-title a {
+        color: #171717;
+        text-decoration: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+.chevron {
+    font-size: 10px;
+    margin-left: 6px;
+}
+
+.sidebar-section-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px 0;
+}
+
+    .sidebar-section-list li {
+        margin-bottom: 8px;
+    }
+
+    .sidebar-section-list a {
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 1;
+        letter-spacing: 0;
+        color: #171717;
+        text-decoration: none;
+        display: block;
+    }
+
+        .sidebar-section-list a:hover {
+            color: #FF0056;
+        }
+
+/* ─── Main content ──────────────────────────────────────── */
+.legal-content {
+    flex: 1;
+    padding: 32px 40px 48px 32px;
+}
+
+/* ─── Page header (title block) ─────────────────────────── */
+
+    .legal-page-header h1 {
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: 0;
+        color: #171717;
+        margin: 0 0 6px 0;
+    }
+
+.legal-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1;
+    color: #171717;
+    margin-top: 6px;
+}
+
+.download-pdf {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 0;
+    text-align: center;
+    color: #171717;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+}
+
+    .download-pdf:hover {
+        color: #FF0056;
+    }
+
+/* ─── Sections ──────────────────────────────────────────── */
+.legal-section {
+    margin-bottom: 28px;
+}
+
+    .legal-section h2 {
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1;
+        letter-spacing: 0;
+        color: #171717;
+        margin: 0 0 14px 0;
+        padding-top: 4px;
+    }
+
+    /* ─── Clause paragraphs ─────────────────────────────────── */
+    .legal-section p {
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.6;
+        letter-spacing: 0;
+        color: #171717;
+        margin: 0 0 12px 0;
+    }
+
+/* ─── Sub-clauses ───────────────────────────────────────── */
+.sub-clauses {
+    margin-left: 20px;
+    margin-bottom: 6px;
+}
+
+.sub-clause {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 0;
+    color: #171717;
+    margin: 0 0 10px 0;
+}
+
+/* ─── Footer ────────────────────────────────────────────── */
+.legal-footer {
+    text-align: right;
+    padding: 20px 32px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 0;
+    color: #171717;
+    border-top: 1px solid #17171733;
+}
+
+/* ─── Logo — let height scale naturally ─────────────────── */
+.legal-logo img {
+    display: block;
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ─── Page header title block — bottom border ───────────── */
+.legal-page-header {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #1717173D;
+}

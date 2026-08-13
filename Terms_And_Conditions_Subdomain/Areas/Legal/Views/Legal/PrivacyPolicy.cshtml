@@ -1,0 +1,69 @@
+﻿@model YourNamespace.Areas.Legal.ViewModels.LegalPageViewModel
+@{
+    ViewData["Title"] = Model.PageTitle;
+}
+
+@section Sidebar {
+    <nav class="legal-sidebar-nav">
+        <div class="sidebar-doc-title">
+            <a href="/Legal/Legal/TermsAndConditions">
+                Terms and conditions (English) <span class="chevron">&#118;</span>
+            </a>
+        </div>
+
+        <div class="sidebar-doc-title active">
+            Privacy and Policy (English) <span class="chevron">&#94;</span>
+        </div>
+        <ul class="sidebar-section-list">
+            @foreach (var legalSection in Model.Sections)
+            {
+                <li><a href="#@legalSection.AnchorId">@legalSection.NavLabel</a></li>
+            }
+        </ul>
+    </nav>
+}
+
+<div class="legal-page-header">
+    <h1>@Model.PageTitle</h1>
+    <div class="legal-meta">
+        <span>Version @Model.Version</span>
+        <span>Last Updated: @Model.LastUpdated</span>
+        <a href="#" class="download-pdf">&#8595; Download PDF</a>
+    </div>
+</div>
+
+@foreach (var legalSection in Model.Sections)
+{
+    <section id="@legalSection.AnchorId" class="legal-section">
+        @if (legalSection.SectionNumber > 0)
+        {
+            <h2>@legalSection.SectionNumber. @legalSection.Title</h2>
+        }
+
+        @foreach (var clause in legalSection.Clauses)
+        {
+            @if (!string.IsNullOrEmpty(clause.Number) || !string.IsNullOrEmpty(clause.Text))
+            {
+                <p>
+                    @if (!string.IsNullOrEmpty(clause.Number))
+                    {
+                        <strong>@clause.Number</strong>
+                    }
+                    @Html.Raw(clause.Text)
+                </p>
+            }
+
+            @if (clause.SubClauses.Any())
+            {
+                <div class="sub-clauses">
+                    @foreach (var sub in clause.SubClauses)
+                    {
+                        <p class="sub-clause">
+                            <strong>@Html.Raw(sub.Label)</strong> @Html.Raw(sub.Text)
+                        </p>
+                    }
+                </div>
+            }
+        }
+    </section>
+}

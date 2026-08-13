@@ -1,0 +1,23 @@
+﻿## Visual Studio
+.vs/
+*.user
+*.suo
+
+## Build output
+[Bb]in/
+[Oo]bj/
+
+## ASP.NET Core
+wwwroot/lib/
+
+## User-specific files
+*.user
+*.userosscache
+*.sln.docstates
+
+## Logs
+*.log
+
+## Operating system files
+.DS_Store
+Thumbs.db
