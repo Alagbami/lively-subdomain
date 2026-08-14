@@ -88,7 +88,7 @@ body {
     .sidebar-section-list a {
         font-family: 'Inter', sans-serif;
         font-weight: 400;
-        font-size: 13px;
+        font-size: 11px;
         line-height: 1;
         letter-spacing: 0;
         color: #171717;
@@ -264,11 +264,11 @@ body {
 .sidebar-doc-title {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1;
     letter-spacing: 0;
     color: #171717;
-    margin-bottom: 8px;
+    margin-bottom: 23px;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
