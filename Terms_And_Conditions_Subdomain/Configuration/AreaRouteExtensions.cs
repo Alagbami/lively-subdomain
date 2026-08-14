@@ -7,9 +7,16 @@ namespace YourNamespace.Configuration
         public static void MapCustomAreaRoutes(this IEndpointRouteBuilder endpoints)
         {
             endpoints.MapAreaControllerRoute(
-                name: "Legal",
+                name: "LegalTerms",
                 areaName: "Legal",
-                pattern: "Legal/{controller=Legal}/{action=TermsAndConditions}/{id?}");
+                pattern: "termsandconditions",
+                defaults: new { controller = "Legal", action = "TermsAndConditions" });
+
+            endpoints.MapAreaControllerRoute(
+                name: "LegalPrivacy",
+                areaName: "Legal",
+                pattern: "privacypolicy",
+                defaults: new { controller = "Legal", action = "PrivacyPolicy" });
         }
     }
 }

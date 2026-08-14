@@ -12,6 +12,7 @@ namespace YourNamespace.Areas.Legal.DummyData
                 PageTitle = "Terms and conditions (English)",
                 Version = "1.0",
                 LastUpdated = "August 7th, 2026",
+                PdfDownloadDocument = "terms",
                 Sections = new List<LegalSection>
                 {
                     new LegalSection
@@ -473,6 +474,7 @@ namespace YourNamespace.Areas.Legal.DummyData
                     }
                 },
 
+
             };
 
             }
@@ -484,6 +486,7 @@ namespace YourNamespace.Areas.Legal.DummyData
             {
                 PageTitle = "PRIVACY POLICY (English)",
                 Version = "1.0",
+                PdfDownloadDocument = "privacy",
                 LastUpdated = "August 7th, 2026",
                 Sections = new List<LegalSection>
         {

@@ -7,6 +7,7 @@ namespace YourNamespace.Areas.Legal.ViewModels
         public string PageTitle { get; set; } = string.Empty;
         public string Version { get; set; } = string.Empty;
         public string LastUpdated { get; set; } = string.Empty;
+        public string PdfDownloadDocument { get; set; } = string.Empty;
         public List<LegalSection> Sections { get; set; } = new();
     }
 }

@@ -4,20 +4,30 @@
 }
 
 @section Sidebar {
-    <nav class="legal-sidebar-nav">
+    <nav class="legal-sidebar-nav" id="legalSidebarNav">
         <div class="sidebar-doc-title">
-            <a href="/Legal/Legal/TermsAndConditions">
-                Terms and conditions (English) <span class="chevron">&#118;</span>
+            <a asp-area="Legal"
+               asp-controller="Legal"
+               asp-action="TermsAndConditions">
+                Terms and conditions (English)
+                <img src="~/img/arrow-down.svg" class="chevron-icon" alt="collapsed" />
             </a>
         </div>
 
         <div class="sidebar-doc-title active">
-            Privacy and Policy (English) <span class="chevron">&#94;</span>
+            Privacy and Policy (English)
+            <img src="~/img/arrow-up.svg" class="chevron-icon" alt="expanded" />
         </div>
-        <ul class="sidebar-section-list">
+        <ul class="sidebar-section-list" id="sidebarSectionList">
             @foreach (var legalSection in Model.Sections)
             {
-                <li><a href="#@legalSection.AnchorId">@legalSection.NavLabel</a></li>
+                <li>
+                    <a href="#@legalSection.AnchorId"
+                       class="sidebar-link"
+                       data-section="@legalSection.AnchorId">
+                        @legalSection.NavLabel
+                    </a>
+                </li>
             }
         </ul>
     </nav>
@@ -28,7 +38,13 @@
     <div class="legal-meta">
         <span>Version @Model.Version</span>
         <span>Last Updated: @Model.LastUpdated</span>
-        <a href="#" class="download-pdf">&#8595; Download PDF</a>
+        <a asp-area="Legal"
+           asp-controller="Legal"
+           asp-action="DownloadPdf"
+           asp-route-document="@Model.PdfDownloadDocument"
+           class="download-pdf">
+            &#8595; Download PDF
+        </a>
     </div>
 </div>
 
@@ -66,4 +82,8 @@
             }
         }
     </section>
+}
+
+@section Scripts {
+    <script src="~/js/legal-center-area.js"></script>
 }

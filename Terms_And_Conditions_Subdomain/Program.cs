@@ -21,10 +21,11 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 
+app.MapCustomAreaRoutes();
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 
-app.MapCustomAreaRoutes();
 app.Run();

@@ -45,12 +45,6 @@ body {
 }
 
 /* ─── Sidebar — correct width and padding from Figma ─────── */
-.legal-sidebar {
-    width: 340px;
-    flex-shrink: 0;
-    padding: 24px 20px 24px 60px;
-    gap: 40px;
-}
 
 .legal-header-title {
     font-family: 'Inter', sans-serif;
@@ -76,25 +70,6 @@ body {
     gap: 0;
 }
 
-.sidebar-doc-title {
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 1;
-    letter-spacing: 0;
-    color: #171717;
-    margin-bottom: 8px;
-    cursor: pointer;
-}
-
-    .sidebar-doc-title a {
-        color: #171717;
-        text-decoration: none;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
 .chevron {
     font-size: 10px;
     margin-left: 6px;
@@ -107,7 +82,7 @@ body {
 }
 
     .sidebar-section-list li {
-        margin-bottom: 8px;
+        margin-bottom: 20px;
     }
 
     .sidebar-section-list a {
@@ -243,4 +218,73 @@ body {
     margin-bottom: 28px;
     padding-bottom: 20px;
     border-bottom: 1px solid #1717173D;
+}
+
+/* ─── Sidebar — fixed + independent scroll ──────────────── */
+.legal-sidebar {
+    width: 340px;
+    flex-shrink: 0;
+    padding: 24px 20px 24px 60px;
+    border-right: 1px solid #1717173D;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* ─── Sidebar active link — scroll-spy highlight ─────────── */
+.sidebar-link {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1;
+    color: #171717;
+    text-decoration: none;
+    display: block;
+    padding: 2px 0;
+    transition: font-size 0.15s ease, font-weight 0.15s ease, color 0.15s ease;
+}
+
+    .sidebar-link.is-active {
+        font-weight: 700;
+        font-size: 14px;
+        color: #171717;
+    }
+
+/* ─── Chevron icon sizing ────────────────────────────────── */
+.chevron-icon {
+    width: 12px;
+    height: 12px;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+/* ─── Sidebar doc title — flex for icon alignment ────────── */
+.sidebar-doc-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 0;
+    color: #171717;
+    margin-bottom: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .sidebar-doc-title a {
+        color: #171717;
+        text-decoration: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+/* ─── Sidebar section list — collapsed state ────────────── */
+.sidebar-section-list.is-collapsed {
+    display: none;
 }
