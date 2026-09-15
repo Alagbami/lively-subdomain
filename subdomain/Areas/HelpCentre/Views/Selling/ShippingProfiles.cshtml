@@ -1,0 +1,162 @@
+﻿@{
+    ViewData["Title"] = "Choose shipping profiles for your listings - Lively Help Center";
+    ViewData["CategorySlug"] = "Selling";
+    ViewData["SubCategorySlug"] = "Listing products";
+    ViewData["HeroTitle"] = "Choose shipping profiles for your listings";
+    ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/help_centre_img/help_area/help_centre_hero_bg.png');";
+    ViewData["IsArticle"] = true;
+}
+
+<div class="article-detail-page">
+    <div class="article-body">
+
+        <p>A shipping profile tells Whatnot your item's packed weight and, in some cases, its dimensions.</p>
+        <p>This information helps determine how the item ships, what buyers pay for shipping at checkout, and how orders are bundled.</p>
+        <p>Choose the suggested profile that best matches your item's packed weight and shipping needs, or create a custom shipping profile for more control.</p>
+
+        <p><strong>In this article:</strong></p>
+        <ul>
+            <li>
+                <a href="#about">About shipping profiles</a>
+                <ul>
+                    <li><a href="#suggested-vs-custom">Suggested vs. custom shipping profiles</a></li>
+                    <li><a href="#bundling">How bundling works with shipping profiles</a></li>
+                </ul>
+            </li>
+            <li><a href="#choose-suggested">Choose a suggested shipping profile</a></li>
+            <li>
+                <a href="#create-custom">Create a custom shipping profile</a>
+                <ul>
+                    <li><a href="#custom-fields">Custom shipping profile fields</a></li>
+                    <li><a href="#max-bundle">When to set a max bundle size</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <hr />
+
+        <h2 id="about">About shipping profiles</h2>
+
+        <p>Whenever you <a href="#">list a product</a> on Lively, you'll choose a shipping profile.</p>
+        <p>A shipping profile tells Lively the packed weight of your item, including the item, box or mailer, and any packaging materials. In some cases, shipping profiles also include dimensions.</p>
+
+        <p>Lively uses shipping profiles to:</p>
+        <ul>
+            <li>Calculate what buyers pay for shipping</li>
+            <li>Determine which shipping services are available</li>
+            <li>Generate the shipping label after a sale</li>
+            <li>Combine items into shipments using <a href="#">Smart Bundling™</a></li>
+        </ul>
+
+        <p>Make sure the weight and dimensions are accurate:</p>
+        <ul>
+            <li><strong>If too low</strong>, the shipping label may be underpaid. You might need to <a href="#">adjust the shipment</a> after the sale, pay the cost difference (<a href="#">carrier adjustments</a>), or risk the package being refused.</li>
+            <li><strong>If too high</strong>, buyers may pay more for shipping than necessary.</li>
+        </ul>
+
+        <div class="article-info-box">
+            <strong>Example calculating packed weight:</strong>
+            <ul>
+                <li>Item weight: 12 oz</li>
+                <li>Packaging weight: 8 oz</li>
+                <li>Total packed weight: <strong>20 oz</strong></li>
+                <li>Shipping profile: <strong>1–2 lb</strong></li>
+            </ul>
+        </div>
+
+        <h3 id="suggested-vs-custom">Suggested vs. custom shipping profiles</h3>
+
+        <p>For most listings, use a suggested shipping profile that matches your item's packed weight and size.</p>
+        <p>Once you publish a listing, you can't turn it back into a draft. If you want to hide it from buyers, deactivate it instead. Create a custom shipping profile if you need more control over how an item ships or bundles.</p>
+
+        <p><strong>Use a <a href="#">suggested profile</a> if:</strong></p>
+        <ul>
+            <li>The item is standard size and weight</li>
+            <li>It can ship with other items in the same package</li>
+            <li>You don't need to limit bundling</li>
+        </ul>
+
+        <p><strong>Create a <a href="#">custom profile</a> if:</strong></p>
+        <ul>
+            <li>The item is oversized, bulky, or heavy</li>
+            <li>The item is fragile and should ship separately</li>
+            <li>You want to limit how many items can be bundled in one package</li>
+            <li>You want to define incremental weights when similar items bundle</li>
+        </ul>
+
+        <div class="article-info-box">
+            <strong>What's incremental weight?</strong>
+            <p>Incremental weight lets you add a smaller amount of weight for each additional item in a bundle, instead of charging the item's full packed weight every time.</p>
+            <p>For example, an art print weighs 2 oz and the mailer weighs 3 oz.</p>
+            <ul>
+                <li>One print ships at 5 oz (2 oz print + 3 oz mailer)</li>
+                <li>Two prints ship at 7 oz</li>
+                <li>Three prints ship at 9 oz</li>
+            </ul>
+            <p>This helps calculate shipping more accurately when multiple items can share the same packaging.</p>
+        </div>
+
+        <h3 id="bundling">How bundling works with shipping profiles</h3>
+
+        <p>When the same buyer purchases multiple items from you, Lively may combine them into one shipment. This is called <a href="#">Smart Bundling™.</a></p>
+        <p>For most sellers, you don't need to do anything special — bundling happens automatically to help reduce the number of shipments you send and lower shipping costs for buyers.</p>
+
+        <p>Bundling behavior only changes if:</p>
+        <ul>
+            <li>You're using a <strong>custom shipping profile</strong>, and</li>
+            <li>You set a <strong>maximum bundle size</strong></li>
+        </ul>
+
+        <p>If you set a max bundle size:</p>
+        <ul>
+            <li>Items only bundle with other items using the exact same custom profile</li>
+            <li>Bundling stops once the limit is reached</li>
+        </ul>
+
+        <div class="article-info-box">
+            <strong>Example:</strong> If you set a max bundle size of 3 for an item and a buyer orders 4 → 3 ship together, 1 ships separately.
+        </div>
+
+        <p>If no max bundle size is set, <a href="#">Smart Bundling™</a> continues automatically, even across different listing and shipping profiles.</p>
+
+        <h2 id="choose-suggested">Choose a suggested shipping profile</h2>
+
+        <p>When you list a product, Lively will ask you to choose a shipping profile and suggest options based on the item's weight, location and/or size.</p>
+
+        <div class="article-info-box">
+            <strong>Tip:</strong> Use a scale to weigh your item and packaging materials so you can choose an accurate shipping profile.
+        </div>
+
+        <p><strong>To list an item and choose a shipping profile:</strong></p>
+        <ol>
+            <li>From the app or <a href="https://lively.africa">Lively.africa</a>, open <strong>Seller Hub.</strong></li>
+            <li>(On web) Go to your <strong><a href="#">Inventory.</a></strong></li>
+            <li>Select <strong>Create a Product.</strong></li>
+            <li>Under <strong>Shipping Profile</strong> or <strong>Weight</strong>, choose a profile.</li>
+        </ol>
+
+        <p>You can update the shipping profile for active listings at any time.</p>
+
+        <h2 id="max-bundle">When to set a max bundle size</h2>
+
+        <p>Duplicate a listing when you want to create a separate listing based on an existing one. The duplicate has its own inventory and is created as a draft that you can edit before publishing.</p>
+        <p>You can only duplicate listings from Seller Hub on <a href="https://lively.africa">lively.africa.</a></p>
+
+        <p>You may want to limit bundling if you're shipping:</p>
+        <ul>
+            <li>Fragile items that shouldn't combine</li>
+            <li>Heavy or bulky items that don't fit together</li>
+            <li>Pre-packaged or boxed items you don't want shipped together</li>
+        </ul>
+
+        <div class="helpful-widget">
+            <p>Was this article helpful?</p>
+            <div class="helpful-buttons">
+                <button type="button">Yes</button>
+                <button type="button">No</button>
+            </div>
+            <span>80 out of 145 found this helpful</span>
+        </div>
+
+    </div>
+</div>

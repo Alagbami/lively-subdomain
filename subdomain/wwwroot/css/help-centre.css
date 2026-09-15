@@ -751,3 +751,223 @@ body.search-open {
 .article-accordion-grey__item.is-collapsed .article-accordion-grey__content {
     display: none;
 }
+
+.img-screenshot {
+    width: 300px;
+    justify-content: left;
+    display: flex;
+}
+
+.double-screenshot {
+    width: 600px;
+    justify-content: left;
+    display: flex;
+}
+
+/* =========================================================
+   ARTICLE TABS  (replaces .article-accordion-yellow)
+   Design: "From Seller Hub | In your show" / "In the app | On lively.africa"
+   - active tab: dark text, 2px dark underline
+   - thin light-grey rule under the whole tab bar
+   - steps shown directly beneath (no box, no ▶ icon)
+   Add this block to help-centre.css
+   ========================================================= */
+
+.article-tabs {
+    margin: 12px 0 32px;
+}
+
+/* ---- tab bar ---- */
+.article-tabs__nav {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    margin: 0 0 16px;
+    padding: 0;
+    border-bottom: 1px solid #E6E6E6;
+    overflow-x: auto; /* scroll instead of wrap on small screens */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+    .article-tabs__nav::-webkit-scrollbar {
+        display: none;
+    }
+
+/* ---- individual tab ---- */
+.article-tabs__tab {
+    appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    margin: 0 0 -1px; /* underline sits on top of the grey rule */
+    padding: 8px 12px 10px;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 500;
+    color: #555555;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color .15s ease, border-color .15s ease;
+}
+
+    .article-tabs__tab:hover {
+        color: #171717;
+    }
+
+    .article-tabs__tab:focus-visible {
+        outline: 2px solid var(--lively-blue);
+        outline-offset: -2px;
+        border-radius: 4px;
+    }
+
+    .article-tabs__tab.is-active,
+    .article-tabs__tab[aria-selected="true"] {
+        color: #171717;
+        font-weight: 600;
+        border-bottom-color: #171717;
+    }
+
+/* ---- panels ---- */
+.article-tabs__panel {
+    display: none;
+}
+
+    .article-tabs__panel.is-active {
+        display: block;
+    }
+
+    .article-tabs__panel > :last-child {
+        margin-bottom: 0;
+    }
+
+    /* nested lists inside a step keep normal bullets/spacing */
+    .article-tabs__panel ol ul,
+    .article-tabs__panel ol ol {
+        margin-top: 6px;
+        margin-bottom: 6px;
+    }
+
+/* ---- mobile ---- */
+@media (max-width: 575.98px) {
+    .article-tabs__tab {
+        font-size: 13px;
+        padding: 8px 10px 10px;
+    }
+}
+
+
+/* =========================================================
+   ARTICLE TABS  (replaces .article-accordion-yellow)
+   Design: "From Seller Hub | In your show" / "In the app | On lively.africa"
+   - active tab: dark text, 2px dark underline
+   - thin light-grey rule under the whole tab bar
+   - steps shown directly beneath (no box, no ▶ icon)
+   ========================================================= */
+
+.article-tabs {
+    margin: 12px 0 32px;
+}
+
+/* ---- tab bar ---- */
+.article-tabs__nav {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    margin: 0 0 16px;
+    padding: 0;
+    border-bottom: 1px solid #E6E6E6;
+    overflow-x: auto; /* scroll instead of wrap on small screens */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+    .article-tabs__nav::-webkit-scrollbar {
+        display: none;
+    }
+
+/* ---- individual tab ---- */
+.article-tabs__tab {
+    appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    margin: 0 0 -1px; /* underline sits on top of the grey rule */
+    padding: 8px 12px 10px;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 500;
+    color: #555555;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color .15s ease, border-color .15s ease;
+}
+
+    .article-tabs__tab:hover {
+        color: #171717;
+    }
+
+    .article-tabs__tab:focus-visible {
+        outline: 2px solid var(--lively-blue);
+        outline-offset: -2px;
+        border-radius: 4px;
+    }
+
+    .article-tabs__tab.is-active,
+    .article-tabs__tab[aria-selected="true"] {
+        color: #171717;
+        font-weight: 600;
+        border-bottom-color: #171717;
+    }
+
+/* ---- panels ---- */
+.article-tabs__panel {
+    display: none;
+}
+
+    .article-tabs__panel.is-active {
+        display: block;
+    }
+
+    .article-tabs__panel > :last-child {
+        margin-bottom: 0;
+    }
+
+    /* nested lists inside a step keep normal bullets/spacing */
+    .article-tabs__panel ol ul,
+    .article-tabs__panel ol ol {
+        margin-top: 6px;
+        margin-bottom: 6px;
+    }
+
+/* ---- mobile ---- */
+@media (max-width: 575.98px) {
+    .article-tabs__tab {
+        font-size: 13px;
+        padding: 8px 10px 10px;
+    }
+}
+
+/* =========================================================
+   ARTICLE IMAGE / VIDEO PLACEHOLDER
+   Grey block used in the design where a screenshot or video
+   will go. Swap for an <img>/<video> when the asset is ready.
+   ========================================================= */
+.article-image-placeholder {
+    width: 100%;
+    max-width: 720px;
+    aspect-ratio: 16 / 9;
+    background: #D9D9D9;
+    border-radius: 6px;
+    margin: 20px 0 28px;
+}
+
+@media (max-width: 575.98px) {
+    .article-image-placeholder {
+        aspect-ratio: 4 / 3;
+    }
+}

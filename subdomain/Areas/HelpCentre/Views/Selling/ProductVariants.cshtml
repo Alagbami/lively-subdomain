@@ -1,0 +1,129 @@
+﻿@{
+    ViewData["Title"] = "Create and sell variants of a product - Lively Help Center";
+    ViewData["CategorySlug"] = "Selling";
+    ViewData["SubCategorySlug"] = "Listing products";
+    ViewData["HeroTitle"] = "Create and sell variants of a product";
+    ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/help_centre_img/help_area/help_centre_hero_bg.png');";
+    ViewData["IsArticle"] = true;
+}
+
+<div class="article-detail-page">
+    <div class="article-body">
+
+        <p>Variants let you sell multiple options of the same product (like different sizes or colors of a specific sneaker model) in a single listing. Variants can be run as an Auction or sold as Buy It Now. Build them right in Lively.</p>
+
+        <p><strong>On this page:</strong></p>
+        <ul>
+            <li><a href="#before-start">Before you start</a></li>
+            <li>
+                <a href="#create-variant">Create a variant</a>
+                <ul>
+                    <li><a href="#on-app">On the app</a></li>
+                    <li><a href="#on-web">On web from Seller Hub</a></li>
+                </ul>
+            </li>
+            <li><a href="#add-existing">Add variants to an existing listing</a></li>
+            <li><a href="#variant-photos">(Optional) Add photos for each variant</a></li>
+            <li><a href="#remove-update">Remove or update variants</a></li>
+            <li><a href="#faqs">Frequently asked questions (FAQs)</a></li>
+        </ul>
+
+        <hr />
+
+        <h2 id="before-start">Before you start</h2>
+
+        <ul>
+            <li>You can add up to <strong>3 options per product</strong> (like Size, Color, or Style)</li>
+            <li>You can have up to <strong>2,048 variants total per product</strong></li>
+            <li>Choose option values from our suggested list, or add your own custom values</li>
+            <li>They're available for <strong>Auction and Buy It Now listings</strong> (including Flash Sales)</li>
+            <li><a asp-action="BuyItNowOffers">Offers</a> are not supported</li>
+            <li>You can define different quantities or prices for each variant</li>
+            <li>Buyers can purchase on any platform; sellers can create and manage listings on Web, Seller Hub, iOS, or Android</li>
+        </ul>
+
+        @* Uses note-box (yellow) instead of info-box here to match the PDF: this callout is yellow on the live page. *@
+        <div class="article-note-box">
+            <strong>Tip:</strong> A T-shirt with 3 sizes and 2 colors creates 6 variants automatically, so you don't need to create each one by hand.
+        </div>
+
+        <h2 id="create-variant">Create a variant</h2>
+
+        <p>Buyers can purchase variants from your live shop, pinned listings, or Flash Sales.</p>
+
+        <h3 id="on-app">On the app</h3>
+
+        <ol>
+            <li>From your live show, open your shop and tap the + button</li>
+            <li>Select <strong>Create Quality Listing</strong></li>
+            <li>Enter listing details like Title or Description</li>
+            <li>Tap <strong>Manage Variants</strong></li>
+            <li>Add up to 3 options (like Size or Color), then enter the values for each, pick from our suggested list or type in your own</li>
+            <li>Update the quantity of each variant based on your inventory</li>
+            <li>(Optional) On Listing Details, select Variant Override to define a different price for a given variant</li>
+        </ol>
+
+        <h3 id="on-web">On web from Seller Hub</h3>
+
+        @* GAP: steps 1-3 below were not captured in the PDF screenshots (only step 4 "Tap Publish" was visible). Reconstructed to mirror the app flow - verify against the live page. *@
+        <ol>
+            <li>From Seller Hub, open your <a href="#">Inventory</a>.</li>
+            <li>Click <strong>Create Product.</strong></li>
+            <li>Enter listing details like Title or Description, then add up to 3 options and their values under <strong>Manage Variants</strong>.</li>
+            <li>Tap <strong>Publish</strong></li>
+        </ol>
+
+        <h2 id="add-existing">Add variants to an existing listing</h2>
+
+        <p>Already listed a product without variants? You can turn it into a variant listing later:</p>
+
+        <ol>
+            <li>Go to <a href="#">Inventory</a> and open the product</li>
+            <li>Tap <strong>Manage Variants</strong></li>
+            <li>Add your options and values the same way you would for a new listing</li>
+            <li>Save your changes</li>
+        </ol>
+
+        <h2 id="variant-photos">(Optional) Add photos for each variant</h2>
+
+        <p>Give buyers a clearer look at each option. If you do not, we will show them the photos you added to the listing itself.</p>
+
+        <ol>
+            <li>From the listing editor, select a variant</li>
+            <li>Upload photos just for that variant, or use <strong>Apply to all</strong> to use the same photos across every variant</li>
+        </ol>
+
+        <h2 id="remove-update">Remove or update variants</h2>
+
+        <ul>
+            <li>To pause a variant without deleting it, set its quantity to 0</li>
+        </ul>
+
+        <h2 id="faqs">Frequently asked questions (FAQs)</h2>
+
+        <p><strong>How do I run auctions with variants?</strong></p>
+        <p>Before you start the auction, we will ask you to confirm the variant within this listing you are running. The variant details will be shown to buyers as they bid.</p>
+
+        <p><strong>Can I use Flash Sales with variants?</strong></p>
+        <p>Yes. Currently you can only run one specific variant as a Flash Sale at a time.</p>
+
+        <p><strong>Can I use variants with offers?</strong></p>
+        <p>No. Variants don't currently support offers.</p>
+
+        <p><strong>Can I add variants to a listing I already created?</strong></p>
+        <p>Yes, head to the product in your <a href="#">Inventory</a> and add options and values at any time.</p>
+
+        <p><strong>Do I need to connect Shopify to use variants?</strong></p>
+        <p>No. You can also build variants directly in Lively on Web, Seller Hub, iOS, or Android.</p>
+
+        <div class="helpful-widget">
+            <p>Was this article helpful?</p>
+            <div class="helpful-buttons">
+                <button type="button">Yes</button>
+                <button type="button">No</button>
+            </div>
+            <span>80 out of 145 found this helpful</span>
+        </div>
+
+    </div>
+</div>

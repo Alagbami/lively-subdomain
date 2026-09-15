@@ -181,5 +181,51 @@ namespace subdomain.Areas.HelpCentre.Controllers
         {
             return View();
         }
+        public IActionResult ShippingCost()
+        {
+            return View();
+        }
+        public IActionResult FreePickup()
+        {
+            return View();
+        }
+        [HttpGet]
+        public IActionResult FreeShippingFirstTimeBuyers() => View();
+
+        [HttpGet]
+        public IActionResult FcmlShippingForBuyers() => View();
+
+        [HttpGet]
+        public IActionResult UsShippingGuide() => View();
+
+        [HttpGet]
+        public IActionResult InternationalShippingCustoms() => View();
+
+        [HttpGet]
+        public IActionResult SignatureConfirmation() => View();
+
+        [HttpGet]
+        public IActionResult TaxesOnShipping() => View();
+
+        [HttpGet]
+        public IActionResult MilitaryShippingAddress() => View();
+
+        [HttpGet]
+        public IActionResult ShippingUk() => View();
+
+        [HttpGet]
+        public IActionResult ShippingGermany() => View();
+
+        [HttpGet]
+        public IActionResult ShippingNetherlands() => View();
+
+        [HttpGet]
+        public IActionResult ShippingAustralia() => View();
+
+        [HttpGet]
+        public IActionResult ShippingAustria() => View();
+
+        [HttpGet]
+        public IActionResult ShippingFrance() => View();
     }
 }

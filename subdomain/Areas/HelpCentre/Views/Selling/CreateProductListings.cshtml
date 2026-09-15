@@ -1,0 +1,412 @@
+﻿@{
+    ViewData["Title"] = "Create product listings - Lively Help Center";
+    ViewData["CategorySlug"] = "Selling";
+    ViewData["SubCategorySlug"] = "Listing products";
+    ViewData["HeroTitle"] = "Create product listings";
+    ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/help_centre_img/help_area/help_centre_hero_bg.png');";
+    ViewData["IsArticle"] = true;
+}
+
+<div class="article-detail-page">
+    <div class="article-body">
+
+        <p>Before buyers can purchase your items, you'll need to create product listings. A listing describes what you're selling and how buyers can purchase it.</p>
+        <p>This guide explains the different ways to sell your items, where buyers can find them, and how to create and manage individual product listings.</p>
+
+        <div class="article-info-box">
+            <strong>Tip:</strong> You can upload listings in bulk by <a asp-action="BulkImportCsv">importing a CSV file.</a>
+        </div>
+
+        <p><strong>On this page:</strong></p>
+        <ul>
+            <li>
+                <a href="#before-create">Before you create a listing</a>
+                <ul>
+                    <li><a href="#how-sell">Choose how you'll sell your item</a></li>
+                    <li><a href="#where-buy">Choose where buyers can purchase your item</a></li>
+                    <li><a href="#listing-type">Choose a listing type (show listings only)</a></li>
+                </ul>
+            </li>
+            <li><a href="#create-listing">Create a product listing</a></li>
+            <li><a href="#listing-details">Adding your listing details</a></li>
+            <li><a href="#save-draft">Save and publish listing drafts</a></li>
+            <li><a href="#manage">Manage your listings</a></li>
+        </ul>
+
+        <hr />
+
+        <h2 id="before-create">Before you create a listing</h2>
+
+        <p>Before creating a listing, decide:</p>
+        <ul>
+            <li>How you'll sell your item</li>
+            <li>Where people can purchase it</li>
+            <li>When listing from a show, choose a <strong>Quality Listing</strong> or <strong>Temporary Listing</strong></li>
+        </ul>
+
+        <h3 id="how-sell">Choose how you'll sell your item</h3>
+
+        <div style="overflow-x:auto; margin-bottom: 24px;">
+            <table style="width:100%; border-collapse: collapse; font-size:15px;">
+                <thead>
+                    <tr style="background:#F3F3F3;">
+                        <th style="padding:12px 16px; text-align:left; border:1px solid #E0E0E0;">Listing format</th>
+                        <th style="padding:12px 16px; text-align:left; border:1px solid #E0E0E0;">What it does</th>
+                        <th style="padding:12px 16px; text-align:left; border:1px solid #E0E0E0;">Best for</th>
+                        <th style="padding:12px 16px; text-align:left; border:1px solid #E0E0E0;">Optional features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0; vertical-align:top;">Buy It Now (BIN)</td>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0; vertical-align:top;">Buyers purchase your item immediately at a fixed price.</td>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0; vertical-align:top;">
+                            <ul style="padding-left:16px; margin:0;">
+                                <li>Fixed-price inventory</li>
+                                <li>Multiple quantities</li>
+                                <li>Items you want available in your profile shop</li>
+                            </ul>
+                        </td>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0; vertical-align:top;">
+                            <ul style="padding-left:16px; margin:0;">
+                                <li><a asp-action="BuyItNowOffers">Accept offers</a></li>
+                                <li><a asp-action="RunFlashSale">Flash Sales</a></li>
+                                <li><a href="#">Reserve for Live</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr style="background:#FAFAFA;">
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0; vertical-align:top;">Auction</td>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0; vertical-align:top;">Buyers compete by placing bids during a live show. You choose the starting bid and auction duration.</td>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0; vertical-align:top;">
+                            <ul style="padding-left:16px; margin:0;">
+                                <li>Live selling</li>
+                                <li>Collectibles or unique items</li>
+                                <li>Items that benefit from competitive bidding</li>
+                            </ul>
+                        </td>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0; vertical-align:top;">
+                            <ul style="padding-left:16px; margin:0;">
+                                <li>Sudden Death timer</li>
+                                <li>Pre-bids, when listed before your show starts</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0; vertical-align:top;">Giveaway</td>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0; vertical-align:top;">Offer an item for free during a live show. Lively randomly selects an eligible winner. You cover shipping costs.</td>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0; vertical-align:top;">
+                            <ul style="padding-left:16px; margin:0;">
+                                <li>Engaging your audience</li>
+                                <li>Growing your community</li>
+                            </ul>
+                        </td>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0; vertical-align:top;">
+                            <ul style="padding-left:16px; margin:0;">
+                                <li>International Giveaways</li>
+                                <li>Followers Only</li>
+                                <li>Buyer Appreciation</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 id="where-buy">Choose where buyers can purchase your item</h3>
+
+        <p>Listings can appear in one or both of these places:</p>
+        <ul>
+            <li><strong>Profile Shop:</strong> Your storefront on your profile where buyers can browse and purchase eligible Buy It Now listings anytime. Listings sold outside of live shows are sometimes also referred to as Marketplace listings.</li>
+            <li><strong>Live Shop:</strong> The store for a specific show where buyers can browse items you've assigned to the show before it starts and purchase eligible listings while you're live.</li>
+        </ul>
+
+        <p>Where your listing appears depends on how you create it and whether you reserve it for a live show.</p>
+
+        <div style="overflow-x:auto; margin-bottom: 24px;">
+            <table style="width:100%; border-collapse: collapse; font-size:15px;">
+                <thead>
+                    <tr style="background:#F3F3F3;">
+                        <th style="padding:12px 16px; text-align:left; border:1px solid #E0E0E0;">Listing format</th>
+                        <th style="padding:12px 16px; text-align:left; border:1px solid #E0E0E0;">Profile Shop</th>
+                        <th style="padding:12px 16px; text-align:left; border:1px solid #E0E0E0;">Live Shop</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0;">Buy It Now (BIN)</td>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0;">✓ By default</td>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0;">—</td>
+                    </tr>
+                    <tr style="background:#FAFAFA;">
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0;">Buy It Now + Reserve for Live</td>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0;">—</td>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0;">✓</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0;">Auction</td>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0;">—</td>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0;">✓ By default</td>
+                    </tr>
+                    <tr style="background:#FAFAFA;">
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0;">Giveaway</td>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0;">—</td>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0;">✓ By default</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="article-info-box">
+            <strong>Tip:</strong> By default, Buy It Now listings appear in your <strong>Profile Shop.</strong> Turning on <strong>Reserve for Live</strong> moves the listing to your <strong>Live Shop</strong> instead. If you want the same item available in both places, create it without reserving it for live, then <a asp-action="ManageProductListings" asp-fragment="add-show">import it into your show</a> later.
+        </div>
+
+        <h3 id="listing-type">Choose a listing type (show listings only)</h3>
+
+        <p>If you create a listing from an upcoming or active show, you'll choose between two listing types.</p>
+
+        <div style="overflow-x:auto; margin-bottom: 24px;">
+            <table style="width:100%; border-collapse: collapse; font-size:15px;">
+                <thead>
+                    <tr style="background:#F3F3F3;">
+                        <th style="padding:12px 16px; text-align:left; border:1px solid #E0E0E0;">Listing format</th>
+                        <th style="padding:12px 16px; text-align:left; border:1px solid #E0E0E0;">What it does</th>
+                        <th style="padding:12px 16px; text-align:left; border:1px solid #E0E0E0;">Best for</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0; vertical-align:top;">Quality Listing</td>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0; vertical-align:top;">A reusable listing that includes photos, descriptions, and detailed product information. It remains available after your show ends.</td>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0; vertical-align:top;">
+                            <ul style="padding-left:16px; margin:0;">
+                                <li>Inventory you'll sell across multiple shows</li>
+                                <li>Making listings discoverable in search</li>
+                                <li>Helping buyers learn about the product</li>
+                                <li>Working toward <a href="#">Elite Shop</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr style="background:#FAFAFA;">
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0; vertical-align:top;">Temporary Listing</td>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0; vertical-align:top;">A quick listing with only basic information. It only appears in the assigned show and expires when the show ends.</td>
+                        <td style="padding:12px 16px; border:1px solid #E0E0E0; vertical-align:top;">
+                            <ul style="padding-left:16px; margin:0;">
+                                <li>One-time items</li>
+                                <li>Items you need to add quickly while preparing or selling live</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 id="create-listing">Create a product listing</h2>
+
+        <p>You can create Buy It Now and Auction listings from Seller Hub on the Lively app or at Lively.africa.</p>
+        <p>You can also create listings from an upcoming or active show. Listings created from a show's Live Shop are automatically reserved for that show.</p>
+
+        <div class="article-note-box">
+            <strong>Note:</strong> You can only create Giveaway listings from an upcoming or active show. <a asp-action="GiveawayListings">Learn more about adding Giveaways to your show.</a>
+        </div>
+
+        <h3>Create a listing on the mobile app</h3>
+
+        <div class="article-tabs">
+            <div class="article-tabs__nav">
+                <button class="article-tabs__tab is-active" type="button">From Seller Hub</button>
+                <button class="article-tabs__tab" type="button">In your show</button>
+            </div>
+
+            <div class="article-tabs__panel is-active">
+                <ol>
+                    <li>Open the app.</li>
+                    <li>Tap <strong>Seller Hub.</strong></li>
+                    <li>Tap <strong>Create Product.</strong></li>
+                    <li>Fill out your listing details (<a href="#listing-details">learn more</a>).</li>
+                    <li>Tap <strong>Publish</strong> or <strong>Save Draft.</strong></li>
+                </ol>
+            </div>
+
+            <div class="article-tabs__panel">
+                <ol>
+                    <li>Open your upcoming or live show.</li>
+                    <li>Tap <strong>Shop.</strong></li>
+                    <li>Tap <strong>+</strong>.</li>
+                    <li>
+                        Choose:
+                        <ul>
+                            <li><strong>Create Quality Listing</strong></li>
+                            <li><strong>Create Temporary Listing</strong></li>
+                            <li><strong>Import from Inventory</strong></li>
+                        </ul>
+                    </li>
+                    <li>Fill out your listing details (<a href="#listing-details">learn more</a>).</li>
+                    <li>Tap <strong>Add Listing.</strong></li>
+                </ol>
+            </div>
+        </div>
+
+        <h3>Create a listing on the web</h3>
+
+        <div class="article-tabs">
+            <div class="article-tabs__nav">
+                <button class="article-tabs__tab is-active" type="button">From Seller Hub</button>
+                <button class="article-tabs__tab" type="button">In your show</button>
+            </div>
+
+            <div class="article-tabs__panel is-active">
+                <ol>
+                    <li>From Seller Hub, open your <a href="#">Inventory.</a></li>
+                    <li>Click <strong>Create Product.</strong></li>
+                    <li>Fill out your listing details (<a href="#listing-details">learn more</a>).</li>
+                    <li>Click <strong>Publish</strong> or <strong>Save Draft.</strong></li>
+                </ol>
+            </div>
+
+            <div class="article-tabs__panel">
+                <ol>
+                    <li>In <strong>Seller Hub</strong>, go to <a href="#">Shows</a> and open your upcoming or active show.</li>
+                    <li>Click <strong>Add.</strong></li>
+                    <li>
+                        Choose:
+                        <ul>
+                            <li><strong>Create Quality Listing</strong></li>
+                            <li><strong>Create Temporary Listing</strong></li>
+                            <li><strong>Import from Inventory</strong></li>
+                        </ul>
+                    </li>
+                    <li>Fill out your listing details (<a href="#listing-details">learn more</a>).</li>
+                    <li>Click <strong>Add Listing.</strong></li>
+                </ol>
+            </div>
+        </div>
+
+        <h2 id="listing-details">Adding your listing details</h2>
+
+        <p>The information you'll need to provide depends on your listing format, listing type, and product category.</p>
+
+        <h3>Product details</h3>
+
+        <h4><strong>Category</strong></h4>
+        <p>Choose the category that best matches your item.</p>
+
+        <h4><strong>Photos or videos</strong></h4>
+        <p>Add clear photos that show your item's condition.</p>
+        <p>If available on your account:</p>
+        <p>You can <a href="#">upload videos</a> up to 30 seconds long.</p>
+
+        <h4><strong>Title</strong></h4>
+        <p>Write a clear, descriptive title so buyers can quickly understand what you're selling.</p>
+
+        <div class="article-info-box">
+            <strong>Tip:</strong> Descriptive titles and relevant keywords can help buyers find your item in search on Lively.
+        </div>
+
+        <h4><strong>Description</strong></h4>
+        <p>Include important details buyers should know about your item.</p>
+
+        <h4><strong>Condition</strong></h4>
+        <p>Choose the option that best describes your item's condition so buyers know what to expect.</p>
+
+        <h4><strong>Quantity</strong></h4>
+        <p>If you have multiple quantities of the same item, enter how many are available.</p>
+
+        <h4><strong>Product variants</strong></h4>
+        <p>If your item comes in multiple options, such as different sizes or colors, add those <a asp-action="ProductVariants">variants</a>.</p>
+
+        <h4><strong>SKU</strong></h4>
+        <p>Your own product identifier. You choose the format — there's no required structure.</p>
+        <p>A SKU can help you:</p>
+        <ul>
+            <li>Match packed items to orders faster. Your SKU prints on the packing slip, so buyers may see it too.</li>
+            <li>Reconcile sales with your own inventory system. SKU appears as its own column in your <a href="#">Weekly Orders Report.</a></li>
+            <li>Re-upload or update listings in bulk. SKU is a matching column in <a asp-action="BulkImportCsv">CSV import.</a></li>
+        </ul>
+
+        <div class="article-note-box">
+            <strong>Note:</strong> You can't change a SKU once a listing has sold.
+        </div>
+
+        <h4><strong>Cost Per Item</strong></h4>
+        <p>The cost of this item to you. Lively doesn't share this with buyers, so it's only visible to you. Entering it lets you see per-item profit ("Cost of Goods") in your <a href="#">Weekly Orders Report.</a></p>
+
+        <h3>Shipping</h3>
+
+        <h4><strong>Shipping Profile</strong></h4>
+        <p>Choose the Shipping Profile that matches your item's packed weight and/or size.</p>
+
+        <div class="article-info-box">
+            <strong>Tip:</strong> Include the weight of your packaging when selecting a Shipping Profile. An accurate Shipping Profile helps determine shipping costs and the shipping label used for each order. <a asp-action="ShippingProfiles">Learn more.</a>
+        </div>
+
+        <h4><strong>Restricted items</strong></h4>
+        <p>Based on carrier restrictions, indicate whether your item contains hazardous materials, such as lithium batteries, fragrances, or nail polish.</p>
+
+        <h3>Pricing</h3>
+
+        <p>The pricing fields depend on how you're selling the item.</p>
+
+        <h4><strong>Buy It Now (BIN)</strong></h4>
+        <p><strong>Required:</strong></p>
+        <ul>
+            <li>Price</li>
+        </ul>
+        <p><strong>Optional:</strong></p>
+        <ul>
+            <li><a asp-action="BuyItNowOffers">Accept offers:</a> Let buyers send offers instead of paying the listed price.</li>
+            <li><a asp-action="RunFlashSale">Flash Sale:</a> Temporarily discount your listing during a live show.</li>
+            <li><a href="#">Reserve for Live:</a> Make the listing available only during a show.</li>
+        </ul>
+
+        <h4><strong>Auction</strong></h4>
+        <p><strong>Required:</strong></p>
+        <ul>
+            <li>Starting Bid</li>
+            <li><a href="#">Reserve for Live</a> (automatically selected)</li>
+        </ul>
+        <p><strong>Optional:</strong></p>
+        <ul>
+            <li>Sudden Death: End the auction immediately when the timer reaches zero, so additional bids don't extend the time.</li>
+        </ul>
+
+        <div class="article-info-box">
+            <strong>Tip:</strong> You'll choose auction settings, such as Auction Duration and Counter Bid Time, when you start the auction during your show. <a href="#">Learn more.</a>
+        </div>
+
+        <h2 id="save-draft">Save a listing as a draft</h2>
+
+        <p>Not ready to publish your listing? Select <strong>Save Draft</strong> while creating it. You can come back and finish it later.</p>
+
+        <p><strong>Note:</strong></p>
+        <ul>
+            <li>Once you publish a listing, you can't convert it back to a draft. To hide a published listing from Shoppers, <a asp-action="ManageProductListings" asp-fragment="deactivate">deactivate</a> it instead.</li>
+            <li>Drafts aren't available for listings created directly from a Show's Live Shop.</li>
+        </ul>
+
+        <p><a asp-action="ManageProductListings" asp-fragment="publish-draft">Publish your draft</a> when you're ready.</p>
+
+        <h2 id="manage">Manage your listings</h2>
+
+        <p>Go to <strong>Seller Hub &gt; Inventory</strong> in the app or on Lively.africa to manage your listings. From there, you can:</p>
+        <ul>
+            <li>Edit listings.</li>
+            <li>Publish drafts.</li>
+            <li>Deactivate, reactivate, or delete listings.</li>
+            <li>Add listings to upcoming or live Shows.</li>
+            <li>Manage multiple listings at once.</li>
+        </ul>
+
+        <p>Learn how to <a asp-action="ManageProductListings">manage your product listings.</a></p>
+
+        <div class="helpful-widget">
+            <p>Was this article helpful?</p>
+            <div class="helpful-buttons">
+                <button type="button">Yes</button>
+                <button type="button">No</button>
+            </div>
+            <span>80 out of 145 found this helpful</span>
+        </div>
+
+    </div>
+</div>

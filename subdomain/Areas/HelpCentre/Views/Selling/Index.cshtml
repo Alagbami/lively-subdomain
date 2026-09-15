@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "Selling - Lively Help Centre";
+    ViewData["CategorySlug"] = "Selling";
+    ViewData["HeroTitle"] = "Selling";
+    ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/help_centre_img/help_area/help_centre_hero_bg.png');";
+}
+
+<div class="help-centre-details">
+    <div class="content-container details-container">
+
+        <div class="details-grid">
+
+            <!-- Column 1: Getting Started -->
+            <div class="details-column">
+                <div class="articles-section">
+                    <h3 class="subsection-title">Getting Started</h3>
+                    <ul class="article-list">
+                        <li><a asp-action="StartSelling">Start Selling on Lively</a></li>
+                        <li><a asp-action="ApplyToSell">Apply to sell on Lively</a></li>
+                        <li><a asp-action="NewSellerListingGuide">New seller guide to listing products</a></li>
+                        <li><a asp-action="ShippingChecklist">Shipping checklist for new sellers</a></li>
+                        <li><a asp-action="RehearsalMode">Practice going live with rehearsal mode</a></li>
+                    </ul>
+                </div>
+
+                <div class="articles-section" style="margin-top: 60px;">
+                    <h3 class="subsection-title">Shipping</h3>
+                    <ul class="article-list">
+                        <li><a asp-action="SetUpShipping">Set up shipping</a></li>
+                        <li><a asp-action="ShipAnOrder">Ship an order</a></li>
+                        <li><a asp-action="ManageShipments">Manage your shipments</a></li>
+                        <li><a asp-action="FixShippingProblem">Fix a problem with shipping</a></li>
+                        <li><a asp-action="ShipInternationally">Ship internationally</a></li>
+                        <li><a asp-action="ShippingGuidesByCountry">Shipping guides by country</a></li>
+                        <li><a asp-action="ShippingServiceOptions">Shipping service options</a></li>
+                    </ul>
+                    <a asp-action="ShippingArticles" class="btn-see-all mt-3">See all 7 articles <i class="bi bi-chevron-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Column 2: Listing Products + Earnings & Finances -->
+            <div class="details-column">
+                <div class="articles-section">
+                    <h3 class="subsection-title">Listing products</h3>
+                    <ul class="article-list">
+                        <li><a asp-action="CreateProductListings">Create product listings</a></li>
+                        <li><a asp-action="ListingConditions">Listing conditions and expectations on Lively</a></li>
+                        <li><a asp-action="ShippingProfiles">Choose shipping profiles for your listings</a></li>
+                        <li><a asp-action="ProductVariants">Create and sell variants of a products</a></li>
+                        <li><a asp-action="ListingGuidelines">Lively listing Guidelines</a></li>
+                    </ul>
+                    <a asp-action="ListingProductsArticles" class="btn-see-all mt-3">See all 21 articles <i class="bi bi-chevron-right"></i></a>
+                </div>
+
+                <div class="articles-section" style="margin-top: 60px;">
+                    <h3 class="subsection-title">Earnings & finances</h3>
+                    <ul class="article-list">
+                        <li><a asp-action="GettingPaid">Getting paid</a></li>
+                        <li><a asp-action="FeesAndCommissions">Fees & commissions</a></li>
+                        <li><a asp-action="EarningsStatements">Earnings statements & reports</a></li>
+                        <li><a asp-action="TaxesAndCompliance">Taxes & compliances</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Column 3: Going Live + Seller Tools -->
+            <div class="details-column">
+                <div class="articles-section">
+                    <h3 class="subsection-title">Going live</h3>
+                    <ul class="article-list">
+                        <li><a asp-action="ScheduleShow">Schedule, edit, and start a show</a></li>
+                        <li><a asp-action="ShowManagement">Show management for sellers</a></li>
+                        <li><a asp-action="StartGiveaway">Start a Giveaway during show</a></li>
+                        <li><a asp-action="InviteCoHost">Invite a co-host to your show</a></li>
+                        <li><a asp-action="RaidShow">Raid another seller's show</a></li>
+                        <li><a asp-action="UnderstandShowPerformance">Understand your show's performance while you're live</a></li>
+                    </ul>
+                    <a asp-action="GoingLiveArticles" class="btn-see-all mt-3">See all 24 articles <i class="bi bi-chevron-right"></i></a>
+                </div>
+
+                <div class="articles-section" style="margin-top: 60px;">
+                    <h3 class="subsection-title">Seller tools</h3>
+                    <ul class="article-list">
+                        <li><a asp-action="LivestreamTools">Livestream Tools</a></li>
+                        <li><a asp-action="PromoteTools">Promote Tools</a></li>
+                        <li><a asp-action="CommunityBoost">Community Boost</a></li>
+                        <li><a asp-action="SurpriseSetFeature">Surprise Set Feature for Sellers</a></li>
+                        <li><a asp-action="AccountHealthDashboard">Account Health Dashboard</a></li>
+                        <li><a asp-action="ImproveSellerPerformance">Improve your Seller Performance Metrics</a></li>
+                    </ul>
+                    <a asp-action="SellerToolsArticles" class="btn-see-all mt-3">See all 22 articles <i class="bi bi-chevron-right"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

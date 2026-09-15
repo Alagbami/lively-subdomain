@@ -1,0 +1,293 @@
+﻿@{
+    ViewData["Title"] = "Manage your product listings - Lively Help Center";
+    ViewData["CategorySlug"] = "Selling";
+    ViewData["SubCategorySlug"] = "Listing products";
+    ViewData["HeroTitle"] = "Manage your product listings";
+    ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/help_centre_img/help_area/help_centre_hero_bg.png');";
+    ViewData["IsArticle"] = true;
+}
+
+<div class="article-detail-page">
+    <div class="article-body">
+
+        <p>Once you've created a listing, you can manage it from <strong>Seller Hub &gt; Inventory</strong> as your inventory and selling needs change.</p>
+        <p>You can manage listings in the Lively app or on <a href="https://lively.africa">Lively.africa</a>. Some options and steps vary between the app and web.</p>
+
+        <p><strong>On this page:</strong></p>
+        <ul>
+            <li><a href="#find">Find your listings and drafts</a></li>
+            <li><a href="#publish-draft">Publish a draft</a></li>
+            <li>
+                <a href="#edit">Edit a listing</a>
+                <ul>
+                    <li><a href="#change-format">Change a listing's selling format</a></li>
+                </ul>
+            </li>
+            <li><a href="#add-show">Add an existing listing to a show</a></li>
+            <li><a href="#duplicate">Duplicate a listing</a></li>
+            <li><a href="#deactivate">Deactivate or reactivate a listing</a></li>
+            <li><a href="#delete">Delete a listing</a></li>
+            <li><a href="#manage-multiple">Manage multiple listings at once</a></li>
+        </ul>
+
+        <hr />
+
+        <h2 id="find">Find your listings and drafts</h2>
+
+        <p>In the app or on <a href="https://lively.africa">Lively.africa</a>, go to <strong>Seller Hub &gt; Inventory</strong> to find your listings.</p>
+        <p>They're organized into tabs:</p>
+        <ul>
+            <li><strong>Active:</strong> Listings buyers can see and purchase</li>
+            <li><strong>Drafts:</strong> Unfinished listings only you can see</li>
+            <li><strong>Inactive:</strong> Listings you've deactivated or that have sold out</li>
+        </ul>
+
+        <div class="article-info-box">
+            <strong>Tip:</strong> When a listing sells out, it moves to <strong>Inactive.</strong> Add more stock or add the listing to a show to make it <strong>Active</strong> again.
+        </div>
+
+        <h2 id="publish-draft">Publish a draft</h2>
+
+        <p>If you saved a listing as a draft, you can publish it when you're ready.</p>
+        <p>Once you publish a listing, you can't turn it back into a draft. If you want to hide it from buyers, <a href="#deactivate">deactivate it</a> instead.</p>
+
+        <div class="article-note-box">
+            <strong>Note:</strong> Listings created directly from a show's Live Shop can't be saved as drafts.
+        </div>
+
+        <div class="article-tabs">
+            <div class="article-tabs__nav">
+                <button class="article-tabs__tab is-active" type="button">In the app</button>
+                <button class="article-tabs__tab" type="button">On lively.africa</button>
+            </div>
+
+            <div class="article-tabs__panel is-active">
+                <ol>
+                    <li>Open <strong>Seller Hub</strong>, and tap the menu.</li>
+                    <li>Go to <strong>Inventory &gt; Drafts.</strong></li>
+                    <li>Select your draft.</li>
+                    <li>Complete any remaining details.</li>
+                    <li>Tap <strong>Publish.</strong></li>
+                </ol>
+            </div>
+
+            <div class="article-tabs__panel">
+                <ol>
+                    <li>Go to <strong>Seller Hub &gt; Inventory &gt; <a href="#">Drafts.</a></strong></li>
+                    <li>Select your draft.</li>
+                    <li>Complete any remaining details.</li>
+                    <li>Click <strong>Publish.</strong></li>
+                </ol>
+            </div>
+        </div>
+
+        <h2 id="edit">Edit a listing</h2>
+
+        <p>You can edit Active, Draft, and Inactive listings, including sold-out listings.</p>
+        <p>However, you can't edit a listing:</p>
+        <ul>
+            <li>While a buyer is checking out</li>
+            <li>While its Auction is running in your show</li>
+            <li>While it's part of a <a asp-action="RunFlashSale">Flash Sale</a> that has already started</li>
+        </ul>
+
+        <p><strong>To edit a listing:</strong></p>
+        <ol type="a">
+            <li>From the app or <a href="https://lively.africa">lively.africa</a>, go to <strong>Seller Hub &gt; <a href="#">Inventory.</a></strong></li>
+            <li>Select the listing you want to update.</li>
+            <li>Make your changes, then save.</li>
+        </ol>
+
+        <div class="article-info-box">
+            <strong>Tip:</strong> If you can't edit a listing, <a href="#duplicate">duplicate it</a> and make your changes to the new listing instead.
+        </div>
+
+        <h3 id="change-format">Change a listing's selling format</h3>
+
+        <p>When editing a listing, you can switch a listing between <strong>Buy It Now</strong> and <strong>Auction.</strong></p>
+        <p>Select the new format, add a <strong>price</strong> for Buy It Now or a <strong>starting bid</strong> for Auction, then save.</p>
+        <p>If you switch a listing to Auction, you'll still need to <a href="#">start the Auction from your show</a> before buyers can bid and purchase.</p>
+
+        <p>A few things to know:</p>
+        <ul>
+            <li><strong>Giveaways can't be switched to another selling format.</strong> Create a new listing instead.</li>
+            <li><strong>Some listings can't be switched while they're in use.</strong> This includes listings while a buyer is checking out and Auctions currently running in a show.</li>
+            <li><strong>Duplicates keep the same selling format at first.</strong> If you <a href="#duplicate">duplicate a listing</a>, you can change the format of the new listing afterward.</li>
+        </ul>
+
+        <h2 id="add-show">Add an existing listing to a show</h2>
+
+        <p>You can add an existing listing to an upcoming or live show from <strong>Inventory</strong> or directly from your Show.</p>
+
+        <h3>From Inventory</h3>
+
+        <div class="article-tabs">
+            <div class="article-tabs__nav">
+                <button class="article-tabs__tab is-active" type="button">In the app</button>
+                <button class="article-tabs__tab" type="button">On lively.africa</button>
+            </div>
+
+            <div class="article-tabs__panel is-active">
+                <ol>
+                    <li>Open the listing.</li>
+                    <li>Tap <strong>Assign to Live Show.</strong></li>
+                    <li>Choose a show.</li>
+                </ol>
+                <p>When selecting multiple listings, the option may appear as <strong>Feature in Show</strong> on iOS or <strong>Assign to Live Show</strong> on Android.</p>
+            </div>
+
+            <div class="article-tabs__panel">
+                <ol>
+                    <li>From <a href="#">Inventory</a>, check the box next to the listing(s).</li>
+                    <li>Click <strong>Add to Show.</strong></li>
+                    <li>Choose a show.</li>
+                </ol>
+            </div>
+        </div>
+
+        <h3>From your show</h3>
+        <ol>
+            <li>From the app or <a href="https://lively.africa">lively.africa</a>, open your upcoming or live show.</li>
+            <li>Tap or click <strong>Add</strong> or the <strong>+</strong> icon.</li>
+            <li>Select <strong>Import from Inventory</strong>, then choose the listings you want to add.</li>
+        </ol>
+
+        <h2 id="duplicate">Duplicate a listing</h2>
+
+        <p>Duplicate a listing when you want to create a separate listing based on an existing one. The duplicate has its own inventory and is created as a draft that you can edit before publishing.</p>
+        <p>You can only duplicate listings from Seller Hub on <a href="https://lively.africa">lively.africa.</a></p>
+
+        <p><strong>To duplicate a listing:</strong></p>
+        <ol>
+            <li>Go to <strong>Seller Hub &gt; <a href="#">Inventory.</a></strong></li>
+            <li>Check the box next to the listing(s).</li>
+            <li>Click <strong>Duplicate</strong> in the menu bar at the bottom.</li>
+            <li>Edit the new draft as needed, then <strong>save it as a draft</strong> or <strong>publish it.</strong></li>
+        </ol>
+
+        <div class="article-info-box">
+            <strong>Tip:</strong> If you want the same inventory across multiple shows, <a asp-action="CloneProductListings">clone the listing</a> instead of duplicating it.
+        </div>
+
+        <h2 id="deactivate">Deactivate or reactivate a listing</h2>
+
+        <p>Deactivating hides a listing from buyers without deleting it. You can reactivate it when you're ready.</p>
+
+        <h3>How to deactivate</h3>
+
+        <div class="article-tabs">
+            <div class="article-tabs__nav">
+                <button class="article-tabs__tab is-active" type="button">In the app</button>
+                <button class="article-tabs__tab" type="button">On lively.africa</button>
+            </div>
+
+            <div class="article-tabs__panel is-active">
+                <ol>
+                    <li>Open the listing.</li>
+                    <li>Tap the <strong>… menu icon.</strong></li>
+                    <li>Choose <strong>Deactivate.</strong></li>
+                </ol>
+            </div>
+
+            <div class="article-tabs__panel">
+                <ol>
+                    <li>Go to <strong>Seller Hub &gt; <a href="#">Inventory.</a></strong></li>
+                    <li>Check the box next to the listing(s).</li>
+                    <li>Click <strong>Deactivate.</strong></li>
+                </ol>
+            </div>
+        </div>
+
+        <h3>How to reactivate</h3>
+
+        <div class="article-tabs">
+            <div class="article-tabs__nav">
+                <button class="article-tabs__tab is-active" type="button">In the app</button>
+                <button class="article-tabs__tab" type="button">On lively.africa</button>
+            </div>
+
+            <div class="article-tabs__panel is-active">
+                <ol>
+                    <li>Open the listing.</li>
+                    <li>Tap the <strong>… menu icon.</strong></li>
+                    <li>Choose <strong>Activate.</strong></li>
+                </ol>
+            </div>
+
+            <div class="article-tabs__panel">
+                <ol>
+                    <li>Go to <strong>Seller Hub &gt; Inventory &gt; <a href="#">Inactive.</a></strong></li>
+                    <li>Select the listing you want to reactivate.</li>
+                    <li>Click the <strong>Status</strong> dropdown in the top-right, then select <strong>Activate.</strong></li>
+                    <li>
+                        Fix any issues preventing the listing from being activated, such as:
+                        <ul>
+                            <li>The listing is reserved for live but isn't assigned to a show.</li>
+                            <li>The quantity is zero.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Save</strong> your changes to make it active.</li>
+                </ol>
+            </div>
+        </div>
+
+        <h2 id="delete">Delete a listing</h2>
+
+        <p>Deleting a listing is permanent. If you want to hide a listing from buyers without deleting it, <a href="#deactivate">deactivate it</a> instead.</p>
+
+        <p><strong>To delete a listing:</strong></p>
+        <ol>
+            <li>In the app or on <a href="https://lively.africa">lively.africa</a>, go to <strong>Seller Hub &gt; <a href="#">Inventory.</a></strong></li>
+            <li>Select the listing you want to delete.</li>
+            <li>Click <strong>Delete Listing.</strong></li>
+            <li><strong>Confirm.</strong></li>
+        </ol>
+
+        <p>You can't delete a listing if it:</p>
+        <ul>
+            <li>Has already sold</li>
+            <li>Is part of a <a asp-action="RunFlashSale">Flash Sale</a> that's already started</li>
+            <li>Is part of an active <a href="#">Party Purchase</a></li>
+            <li>Is an Auction currently running in your show</li>
+        </ul>
+
+        <h2 id="manage-multiple">Manage multiple listings at once</h2>
+
+        <p>You can manage multiple listings at the same time. The actions available depend on the listings you select and whether you're using the Lively app or <a href="https://lively.africa">lively.africa.</a></p>
+
+        <div class="article-tabs">
+            <div class="article-tabs__nav">
+                <button class="article-tabs__tab is-active" type="button">In the app</button>
+                <button class="article-tabs__tab" type="button">On lively.africa</button>
+            </div>
+
+            <div class="article-tabs__panel is-active">
+                <ol>
+                    <li>Go to <strong>Seller Hub</strong> and open the menu.</li>
+                    <li>Tap <strong>Inventory.</strong></li>
+                    <li>Tap <strong>Manage.</strong></li>
+                    <li>Check the box next to each listing you want to manage.</li>
+                    <li>Tap <strong>Feature in Show</strong>, or tap <strong>…</strong> to choose another action.</li>
+                </ol>
+            </div>
+
+            <div class="article-tabs__panel">
+                <ol>
+                    <li>Go to <strong>Seller Hub &gt; <a href="#">Inventory.</a></strong></li>
+                    <li>Check the box next to each listing you want to manage.</li>
+                    <li>Choose an action from the bar at the bottom of the page.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="helpful-widget">
+            <p>Was this article helpful?</p>
+            <div class="helpful-buttons">
+                <button type="button">Yes</button>
+                <button type="button">No</button>
+            </div>
+            <span>80 out of 145 found this helpful</span>
+        </div>
+
+    </div>
+</div>

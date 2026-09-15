@@ -1,0 +1,143 @@
+﻿@{
+    ViewData["Title"] = "Enable and respond to Buy It Now offers - Lively Help Center";
+    ViewData["CategorySlug"] = "Selling";
+    ViewData["SubCategorySlug"] = "Listing products";
+    ViewData["HeroTitle"] = "Enable and respond to Buy It Now offers";
+    ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/help_centre_img/help_area/help_centre_hero_bg.png');";
+    ViewData["IsArticle"] = true;
+}
+
+<div class="article-detail-page">
+    <div class="article-body">
+
+        <p>When you list an item as <strong>Buy It Now</strong> (also called Buy Now or BIN), you can allow buyers to make offers on the listing price. If a buyer sends an offer, you can accept, counter with a different price, or decline.</p>
+        <p>This gives buyers more flexibility and gives you the opportunity to negotiate a sale.</p>
+        <p>You can turn on offers for any BIN listing, whether it is reserved for a show or not.</p>
+
+        <p><strong>On this page:</strong></p>
+        <ul>
+            <li><a href="#allow-offers">Allow offers on a BIN product</a></li>
+            <li>
+                <a href="#respond-offers">Respond to offers</a>
+                <ul>
+                    <li><a href="#respond-seller-hub">Respond to an offer from Seller Hub</a></li>
+                    <li><a href="#respond-live-show">Respond to offers from a live show</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <hr />
+
+        <h2 id="allow-offers">Allow offers on a BIN product</h2>
+
+        <p>You can let buyers make offers whenever you create a new Buy It Now product listing.</p>
+        <p><strong>When offers are turned on:</strong></p>
+
+        <ul>
+            <li>Buyers will see an <strong>Offer</strong> icon next to the product.</li>
+            <li>They can suggest a percentage discount or enter a custom offer.</li>
+        </ul>
+
+        @* Buying-side target unknown - wired as # placeholder. Point at the buyer "make offers" article action when it exists. *@
+        <p><a href="#">Learn more about how buyers make offers.</a></p>
+
+        @* Accordion markup follows the shared component naming (__item + is-collapsed per project docs, header/panel mirroring the article-tabs BEM pattern). Both panels are expanded here to match the PDF (minus icons). Add is-collapsed to an __item to collapse it on load. *@
+        <div class="article-accordion-grey">
+            <div class="article-accordion-grey__item">
+                <button class="article-accordion-grey__header" type="button">Turn on offers in the app</button>
+                <div class="article-accordion-grey__panel">
+                    <ol>
+                        <li>From the app, tap <strong>Seller Hub</strong> at the bottom of the screen.</li>
+                        <li>Choose <strong>Create a Product</strong>.</li>
+                        <li>Scroll down to <strong>Pricing</strong>, and select <strong>Buy It Now</strong>.</li>
+                        <li>Toggle on <strong>Accept Offers</strong></li>
+                    </ol>
+                </div>
+            </div>
+            <div class="article-accordion-grey__item">
+                <button class="article-accordion-grey__header" type="button">Turn on offers on web</button>
+                <div class="article-accordion-grey__panel">
+                    <ol>
+                        <li>From <a href="https://lively.com">lively.com</a>, open the <a href="#">Inventory</a> page in Seller Hub.</li>
+                        <li>Click <strong>Create Product</strong>.</li>
+                        <li>Under <strong>Pricing</strong>, select <strong>Buy It Now</strong>.</li>
+                        <li>Toggle on <strong>Accept Offers</strong>.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="article-info-box">
+            <strong>Tip:</strong> Already created the product? You can turn on offers anytime by editing the listing from your <a href="#">Inventory</a> page in Seller Hub.
+        </div>
+
+        <p><strong>Notes:</strong></p>
+        <ul>
+            <li>If you import products from your shop to a show, offers are turned on by default.</li>
+            <li>If you use the CSV upload feature, enter <strong>TRUE</strong> in the <strong>Offerable</strong> column to ensure uploaded products accept offers. See this <a asp-action="BulkImportCsv">CSV template</a> for updated fields.</li>
+        </ul>
+
+        <h2 id="respond-offers">Respond to offers</h2>
+
+        <p>You can respond to offers during a <a href="#">live show</a> or from your <a href="#">Seller Hub</a>.</p>
+        <p><strong>When you respond to offers:</strong></p>
+
+        <ul>
+            <li>If you <strong>Accept</strong>, the buyer is charged and you can <a asp-action="ShipAnOrder">pack and ship the order</a>.</li>
+            <li>If you <strong>Counter</strong>, you can enter a custom amount. The buyer is notified and can respond.</li>
+            <li>If you <strong>Decline</strong>, the buyer is notified. You may need to relist the item from <strong>Seller Hub</strong> then <strong>Inventory</strong> then <strong>Inactive</strong>.</li>
+        </ul>
+
+        <div class="article-info-box">
+            <strong>Tip:</strong> If you see <strong>Waiting for seller</strong> next to an item on your <strong>Orders</strong> page, a buyer has submitted an offer and is waiting for your response. Review the offer and accept it if you plan to move the order forward and ship the item.
+        </div>
+
+        <h3 id="respond-seller-hub">Respond to an offer from Seller Hub</h3>
+
+        <p><strong>In the Lively app:</strong></p>
+
+        <ol>
+            <li>Tap <strong>Seller Hub</strong> at the bottom of the screen.</li>
+            <li>Choose <strong>menu icon</strong> in the top right</li>
+            <li>Select <strong>Offers</strong></li>
+            <li>Find and select the offer you want to respond to</li>
+            <li>Choose to <strong>decline, counter,</strong> or <strong>accept</strong></li>
+        </ol>
+
+        <p><strong>On <a href="https://lively.com">lively.com</a>:</strong></p>
+
+        <ol>
+            <li>From <a href="https://lively.com">lively.com</a>, click your <strong>account icon</strong> in the top right</li>
+            <li>From the <strong>Selling</strong> tab, select <strong>Seller Hub</strong></li>
+            <li>Hover over <strong>Inventory</strong> in the left menu</li>
+            <li>Open the <strong>Offers</strong> page</li>
+            <li>Find the offer and click <strong>Respond</strong></li>
+            <li>Choose to <strong>decline, counter, accept</strong> or <strong>message</strong> the buyer</li>
+        </ol>
+
+        <h3 id="respond-live-show">Respond to offers from a live show</h3>
+
+        <ol>
+            <li>From <a href="https://lively.com">lively.com</a>, open your scheduled show</li>
+            <li>Click on <strong>Offers</strong> to review any incoming (you can search and sort too)</li>
+            <li>
+                You can choose to:
+                @* GAP: the options under this step were cut off in the PDF screenshots (page ends here). Reconstructed from the Seller Hub steps above - verify against the live page. *@
+                <ul>
+                    <li><strong>decline, counter,</strong> or <strong>accept</strong> the offer</li>
+                    <li><strong>message</strong> the buyer</li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="helpful-widget">
+            <p>Was this article helpful?</p>
+            <div class="helpful-buttons">
+                <button type="button">Yes</button>
+                <button type="button">No</button>
+            </div>
+            <span>80 out of 145 found this helpful</span>
+        </div>
+
+    </div>
+</div>

@@ -1,8 +1,8 @@
 ﻿@{
-    ViewData["Title"] = "Add or update your shipping address - Lively Help Center";
+    ViewData["Title"] = "Change your order's shipping address - Lively Help Center";
     ViewData["CategorySlug"] = "Buying";
     ViewData["SubCategorySlug"] = "Shipping";
-    ViewData["HeroTitle"] = "Add or update your shipping address";
+    ViewData["HeroTitle"] = "Change your order's shipping address";
     ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/help_centre_img/help_area/help_centre_hero_bg.png');";
     ViewData["IsArticle"] = true;
 }
@@ -10,30 +10,79 @@
 <div class="article-detail-page">
     <div class="article-body">
 
-        <h2>Add or update your shipping address</h2>
+        <p>If your order is headed to the wrong address, don't worry — you may be able to update it, or get help from Lively Support or the carrier.</p>
 
-        <p>Your default shipping address is where your future orders will be sent. You can update it anytime before you buy.</p>
+        <p>Sellers aren't able to change shipping addresses after a purchase, but there are a few ways you can fix the issue yourself or with support.</p>
 
-        <h3>Update your shipping address in the app</h3>
-        <ol>
-            <li>Tap <strong>Account</strong></li>
-            <li>Scroll down and tap <strong>Addresses</strong></li>
-            <li>Tap the + icon, or choose a saved address to edit or delete</li>
-        </ol>
+        <p><strong>In this article:</strong></p>
+        <ul>
+            <li><a href="#update-address">Update your order's shipping address (if eligible)</a></li>
+            <li><a href="#cant-update">If you can't update your address in Lively</a></li>
+            <li><a href="#prevent-future">Prevent future address issues</a></li>
+        </ul>
 
-        <h3>Update your shipping address on web</h3>
-        <ol>
-            <li>From <a href="https://lively.com">lively.com</a>, click your <strong>account icon</strong> in the top right</li>
-            <li>Under the <strong>Buying</strong> tab, open your <a asp-action="Index" asp-controller="Home">Payment &amp; Shipping Settings</a></li>
-            <li>Click <strong>Addresses</strong> on the left</li>
-            <li>Click <strong>Add</strong>, or use the <strong>··· More</strong> icon next to an address to edit or delete</li>
-        </ol>
+        <p><strong>Not sure where your order is headed?</strong> <a href="#">Check your receipt</a> to confirm the shipping address.</p>
 
-        <div class="article-info-box">
-            <strong>Tip:</strong> If you're watching a show, tap the <strong>Wallet icon</strong> &gt; <strong>Shipping</strong> to make a quick change. Updates here will apply to future purchases.
+        <hr />
+
+        <h2 id="update-address">Update your order's shipping address (if eligible)</h2>
+
+        <p>You can only update your order's address in Lively if:</p>
+        <ul>
+            <li>The seller hasn't created a shipping label yet (order status is still <strong>Preparing Package</strong>)</li>
+            <li>The order is eligible for updates</li>
+        </ul>
+
+        <p>When you update your order's address, Lively will automatically use the new one once the seller creates the shipping label.</p>
+
+        <p>If your order is bundled, everything in that bundle will ship to the new address too.</p>
+
+        <div class="article-accordion-yellow">
+            <div class="article-accordion-yellow__item">
+                <button class="article-accordion-yellow__trigger" type="button">
+                    <span class="article-accordion-yellow__icon">−</span>
+                    <span class="article-accordion-yellow__title">Change your order's address on app</span>
+                </button>
+                <div class="article-accordion-yellow__content">
+                    <ol>
+                        <li>Tap <strong>Activity.</strong></li>
+                        <li>From the <strong>Purchases</strong> tab, tap your order to open it.</li>
+                        <li>Under the order's status, tap <strong>Shipping</strong> to (only appears if the address is eligible for changes).</li>
+                        <li>Select a saved address or add a new one.</li>
+                        <li>Tap <strong>Update</strong></li>
+                    </ol>
+
+                </div>
+                    <div class="my-4 double-screenshot">
+                        <img src="/help_centre_img/help_area/order_shipping_address_update.png"
+                             alt="Change order shipping address in the Lively app"
+                             class="double-screenshot" />
+                    </div>
+            </div>
         </div>
 
-        <p>Need to fix the address for an existing order? <a asp-action="ShippingAddress">How to change your order's shipping address</a></p>
+        <hr />
+
+        <div>
+                    <h2>If you can't update your address in Lively</h2>
+                <div>
+                    <ul>
+                        <li><strong>Order not shipped yet:</strong> <a href="#">Contact Support</a> right away and include your correct address. If possible, we'll help the seller update the label.</li>
+                        <li><strong>Order already shipped:</strong> Contact the carrier to request a reroute to your new address.</li>
+                        <li><strong>If rerouting is not possible:</strong> The package may be returned to the seller. <a href="#">Contact our Support team</a> so we can help coordinate reshipment.</li>
+                    </ul>
+
+                    <div class="article-info-box">
+                        <strong>Tip:</strong> It can help to direct message (DM) the seller too, so they know there's an issue. They can't change the shipment address for you, but staying in touch keeps everyone informed while we work to resolve it.
+                    </div>
+                </div>
+        </div>
+
+        <hr />
+
+        <h2 id="prevent-future">Prevent future address issues</h2>
+
+        <p>Before you buy again, <a asp-action="ShippingAddress">check your default shipping address</a> so future orders go to the right place.</p>
 
         <div class="helpful-widget">
             <p>Was this article helpful?</p>
