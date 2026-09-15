@@ -1,0 +1,162 @@
+﻿@{
+    ViewData["Title"] = "Bulk import products from a CSV file - Lively Help Center";
+    ViewData["CategorySlug"] = "Selling";
+    ViewData["SubCategorySlug"] = "Listing products";
+    ViewData["HeroTitle"] = "Bulk import products from a CSV file";
+    ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/help_centre_img/help_area/help_centre_hero_bg.png');";
+    ViewData["IsArticle"] = true;
+}
+
+<div class="article-detail-page">
+    <div class="article-body">
+
+        <p>If you have a large inventory, you can save time by importing your products with a CSV (comma-separated values) file instead of <a asp-action="CreateProductListings">creating listings one by one</a>.</p>
+
+        <p>You can use a CSV to:</p>
+        <ul>
+            <li>Create draft listings in your Inventory that you can edit and publish later.</li>
+            <li>Create temporary listings for a specific show.</li>
+        </ul>
+
+        <div class="article-note-box">
+            <strong>Note:</strong> CSV imports are only available on lively.africa from a desktop or laptop. They aren't available in the app.
+        </div>
+
+        <p><strong>On this page:</strong></p>
+        <ul>
+            <li>
+                <a href="#step-one">Step one: Create your CSV file</a>
+                <ul>
+                    <li><a href="#download-template">1. Download the correct template</a></li>
+                    <li><a href="#fill-template">2. Fill out the template</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#step-two">Step two: Upload your CSV file</a>
+                <ul>
+                    <li><a href="#import-inventory">Option 1: Import to Inventory</a></li>
+                    <li><a href="#upload-show">Option 2: Upload to a show</a></li>
+                </ul>
+            </li>
+            <li><a href="#faq">Frequently Asked Questions (FAQs)</a></li>
+        </ul>
+
+        <hr />
+
+        <h2 id="step-one">Step one: Create your CSV file</h2>
+
+        <h3 id="download-template">1. Download the correct template</h3>
+
+        <p>Start from the Lively CSV template so your columns and values match what the importer expects. <a href="#">Download the CSV template.</a></p>
+
+        <h3 id="fill-template">2. Fill out the template</h3>
+
+        <p>Open the template in Google Sheets and make a copy before editing.</p>
+
+        <p>For each product, add:</p>
+        <ul>
+            <li>Category</li>
+            <li>Sub Category</li>
+            <li>Title</li>
+            <li>Description</li>
+            <li>Quantity</li>
+            <li>Type</li>
+            <li>Price</li>
+            <li>Shipping Profile</li>
+            <li>Condition (if required)</li>
+            <li>Image URLs (up to eight)</li>
+        </ul>
+
+        <div class="article-note-box">
+            <strong>Important:</strong> The values for Category, Sub Category, Type, Condition, and Shipping Profile must exactly match the approved values listed in the template's Values tab. Don't modify the spelling, capitalization, or formatting of these fields.
+        </div>
+
+        <p><strong>Additional notes:</strong></p>
+        <ul>
+            <li><strong>Shipping Profile:</strong> Choose one of the shipping profiles listed in the template, or enter the name of a <a asp-action="ShippingProfiles">custom shipping profile</a> you've already created in Lively. Don't enter your own weight values.</li>
+            <li><strong>Offerable:</strong> For Buy It Now listings, enter TRUE if you want buyers to submit offers.</li>
+            <li><strong>Image URLs:</strong> Images must be publicly accessible, use https://, and not require a password or sign-in.</li>
+        </ul>
+
+        <h4><strong>When you're finished, download the file as a CSV.</strong></h4>
+
+        <hr />
+
+        <h2 id="step-two">Step two: Upload your CSV file</h2>
+
+        <p>Choose where you want to import your listings.</p>
+
+        <hr />
+
+        <h3 id="import-inventory">Option 1: Import to Inventory</h3>
+
+        <p>Choose this option if you want reusable listings that you can edit and publish later.</p>
+        <ol>
+            <li>From <a href="https://lively.africa">Lively.africa</a>, go to your <a href="#">Inventory</a> in Seller Hub.</li>
+            <li>Select <strong>Import from CSV.</strong></li>
+            <li>Choose your CSV file.</li>
+            <li>Select <strong>Import.</strong></li>
+        </ol>
+
+        <p><strong>After the upload:</strong></p>
+        <ul>
+            <li>Your products are saved as draft listings in your <a href="#">Inventory</a>.</li>
+            <li>Add at least one image to each listing before publishing.</li>
+            <li>You can edit, publish, duplicate, or add listings to a show later.</li>
+        </ul>
+
+        <h3 id="upload-show">Option 2: Upload to a show</h3>
+
+        <p>Choose this option if you want temporary listings for a specific show.</p>
+        <ol>
+            <li>From <a href="https://lively.africa">Lively.africa</a>, go to your <a href="#">Shows</a> in Seller Hub.</li>
+            <li>Open the show you want to update.</li>
+            <li>Select <strong>Add.</strong></li>
+            <li>Select <strong>Create Temporary Listing.</strong></li>
+            <li>Select <strong>Upload CSV.</strong></li>
+            <li>Choose your CSV file.</li>
+        </ol>
+
+        <h2 id="faq">Frequently Asked Questions (FAQs)</h2>
+
+        <h3>Are images required?</h3>
+        <p>No. You can upload products without images.</p>
+        <p>If you import products to your Inventory, each listing must have at least one image before you can publish it. You can add images after the upload while the listing is still a draft.</p>
+
+        <h3>Why aren't my image URLs working?</h3>
+        <p>Image URLs must:</p>
+        <ul>
+            <li>Use https://,</li>
+            <li>Be publicly accessible,</li>
+            <li>Not require a password or sign-in.</li>
+        </ul>
+        <p>If you're using an image hosting service, services like ImgBB, Imgur, or WeTransfer work well.</p>
+        <p>You can also test an image URL in a private or incognito browser window. If it loads there, it should work in your CSV.</p>
+
+        <h3>Can I use CSV imports for listings outside of shows?</h3>
+        <p>Yes. Import your CSV to your Inventory to create draft listings that you can publish to your Profile Shop.</p>
+
+        <h3>Can I include additional product attributes?</h3>
+        <p>Yes. If you're uploading Coins &amp; Bullion products, you can include additional attributes supported by the CSV template.</p>
+        <p>Support for more categories and attributes will be added over time.</p>
+
+        <h3>What if I made a mistake?</h3>
+        <p>Each CSV import creates new draft listings.</p>
+        <p>If you need to make changes, you can:</p>
+        <ul>
+            <li>Edit the draft listings in your <a href="#">Inventory</a>, or</li>
+            <li>Bulk delete the drafts and upload an updated CSV to avoid duplicate listings.</li>
+        </ul>
+        <p>If you need to update multiple listings, you can also use <a asp-action="ManageProductListings" asp-fragment="manage-multiple">bulk editing</a> after the import.</p>
+
+        <div class="helpful-widget">
+            <p>Was this article helpful?</p>
+            <div class="helpful-buttons">
+                <button type="button">Yes</button>
+                <button type="button">No</button>
+            </div>
+            <span>80 out of 145 found this helpful</span>
+        </div>
+
+    </div>
+</div>

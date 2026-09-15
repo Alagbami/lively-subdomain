@@ -181,51 +181,76 @@ namespace subdomain.Areas.HelpCentre.Controllers
         {
             return View();
         }
+        [HttpGet]
         public IActionResult ShippingCost()
         {
             return View();
         }
+        [HttpGet]
         public IActionResult FreePickup()
         {
             return View();
         }
         [HttpGet]
-        public IActionResult FreeShippingFirstTimeBuyers() => View();
+        public IActionResult FreeShippingFirstTimeBuyers()
+        {
+            return View();
+        }
 
         [HttpGet]
-        public IActionResult FcmlShippingForBuyers() => View();
+        public IActionResult FcmlShippingForBuyers()
+        {
+            return View();
+        }
 
         [HttpGet]
-        public IActionResult UsShippingGuide() => View();
+        public IActionResult UsShippingGuide()
+        {
+            return View();
+        }
 
         [HttpGet]
-        public IActionResult InternationalShippingCustoms() => View();
+        public IActionResult InternationalShippingCustoms()
+        {
+            return View();
+        }
 
         [HttpGet]
-        public IActionResult SignatureConfirmation() => View();
+        public IActionResult SignatureConfirmation()
+        { return View(); }
 
         [HttpGet]
-        public IActionResult TaxesOnShipping() => View();
+        public IActionResult TaxesOnShipping()
+        { return View(); }
 
         [HttpGet]
-        public IActionResult MilitaryShippingAddress() => View();
+        public IActionResult MilitaryShippingAddress()
+        { return View(); }
 
         [HttpGet]
-        public IActionResult ShippingUk() => View();
+        public IActionResult ShippingUk()
+        { return View(); }
 
         [HttpGet]
-        public IActionResult ShippingGermany() => View();
+        public IActionResult ShippingGermany()
+        { return View(); }
 
         [HttpGet]
-        public IActionResult ShippingNetherlands() => View();
+        public IActionResult ShippingNetherlands()
+        { return View(); }
 
         [HttpGet]
-        public IActionResult ShippingAustralia() => View();
+        public IActionResult ShippingAustralia()
+        { return View(); }
 
         [HttpGet]
-        public IActionResult ShippingAustria() => View();
+        public IActionResult ShippingAustria()
+        { return View(); }
 
         [HttpGet]
-        public IActionResult ShippingFrance() => View();
+        public IActionResult ShippingFrance()
+        {
+            return View();
+        }
     }
 }

@@ -1,0 +1,127 @@
+﻿@{
+    ViewData["Title"] = "Add Giveaway listings to your show - Lively Help Center";
+    ViewData["CategorySlug"] = "Selling";
+    ViewData["SubCategorySlug"] = "Listing products";
+    ViewData["HeroTitle"] = "Add Giveaway listings to your show";
+    ViewData["HeroStyle"] = "background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/help_centre_img/help_area/help_centre_hero_bg.png');";
+    ViewData["IsArticle"] = true;
+}
+
+<div class="article-detail-page">
+    <div class="article-body">
+
+        <p>Giveaways let you offer free items to your community during a show. Create giveaway listings before you go live or while your show is in progress, from the app or <a href="https://lively.africa">Lively.africa</a>.</p>
+
+        <p>There are three types of giveaways you can offer:</p>
+        <ul>
+            <li><strong>Standard Giveaways:</strong> Viewers in your show can enter.</li>
+            <li><strong>Follower-Only Giveaways:</strong> Only viewers who follow you can enter.</li>
+            <li><strong>Buyer Appreciation Giveaways (BAGs):</strong> Eligible buyers who make a purchase after the giveaway listing is created can enter.</li>
+        </ul>
+
+        <p>After you create a giveaway listing, start the giveaway to allow eligible viewers to enter. Giveaways end after a few minutes and Lively will randomly select a winner. <a asp-action="StartGiveaway">Learn how to run a Giveaway.</a></p>
+
+        <p><strong>On this page:</strong></p>
+        <ul>
+            <li><a href="#before-start">Before you start</a></li>
+            <li><a href="#add-giveaway">Add a giveaway listing to your show</a></li>
+            <li><a href="#bags">More about Buyer Appreciation Giveaways</a></li>
+        </ul>
+
+        <hr />
+
+        <h2 id="before-start">Before you start</h2>
+
+        <ul>
+            <li>As the seller, you'll cover giveaway shipping costs, including international shipping if enabled.</li>
+            <li>Ship giveaway items within <a href="#">two business days</a> like any other order.</li>
+            <li>For international shipments, recipients are responsible for duties, customs fees, and import taxes.</li>
+            <li>Review Lively's <a href="#">Prohibited Items Policy</a> to make sure the giveaway item is allowed.</li>
+        </ul>
+
+        <hr />
+
+        <h2 id="add-giveaway">Add a giveaway listing to your show</h2>
+
+        <p>Giveaways can only run during a live show, so you'll need to create one for a <a asp-action="ScheduleShow">scheduled show</a>.</p>
+
+        <hr />
+
+        <h3>How to run a Giveaway</h3>
+
+        <div class="article-tabs">
+            <div class="article-tabs__nav">
+                <button class="article-tabs__tab is-active" type="button">Add a Giveaway on the app</button>
+                <button class="article-tabs__tab" type="button">Add a Giveaway on web</button>
+            </div>
+
+            <div class="article-tabs__panel is-active">
+                <ol>
+                    <li>From the <strong>app</strong>, open <strong>Seller Hub.</strong></li>
+                    <li>Open your scheduled <strong>Show.</strong></li>
+                    <li>Tap <strong>Shop.</strong></li>
+                    <li>Select <strong>Quality Listing</strong> or <strong>Temporary Listing.</strong></li>
+                    <li>Add your item details.</li>
+                    <li>Select <strong>Giveaway.</strong></li>
+                    <li>
+                        Choose <strong>who can enter:</strong>
+                        <ul>
+                            <li>Everyone</li>
+                            <li>Followers only</li>
+                            <li>Buyer Appreciation</li>
+                        </ul>
+                    </li>
+                    <li>If you selected <strong>Buyer Appreciation</strong>, add your official rules (optional). Lively will always display the standard rules and requirements.</li>
+                    <li>Turn on <strong>International Shipping</strong> to allow eligible international viewers to enter (optional).</li>
+                    <li>Tap <strong>Publish.</strong></li>
+                </ol>
+            </div>
+
+            <div class="article-tabs__panel">
+                <div class="article-note-box">
+                    <strong>Note:</strong> On <a href="https://lively.africa">Lively.africa</a>, giveaways can only be created as Temporary Listings. These listings automatically disappear when your show ends.
+                </div>
+                <ol>
+                    <li>From the <a href="#">Shows</a> page, open your scheduled show.</li>
+                    <li>In the listings panel, click <strong>Add.</strong></li>
+                    <li>Select <strong>Create Temporary Listing.</strong></li>
+                    <li>Select <strong>Giveaway.</strong></li>
+                    <li>Add your item details.</li>
+                    <li>
+                        Choose <strong>who can enter:</strong>
+                        <ul>
+                            <li>Everyone</li>
+                            <li>Followers only</li>
+                            <li>Buyer Appreciation</li>
+                        </ul>
+                    </li>
+                    <li>If you selected <strong>Buyer Appreciation</strong>, add your official rules (optional). Lively will always display the standard rules and requirements.</li>
+                    <li>Turn on <strong>International Shipping</strong> to allow eligible international viewers to enter (optional).</li>
+                    <li>Click <strong>Confirm</strong> to publish.</li>
+                </ol>
+            </div>
+        </div>
+
+        <h2 id="bags">More about Buyer Appreciation Giveaways</h2>
+
+        <p>Buyer Appreciation Giveaways (BAGs) are a way to recognize customers who make purchases during your show.</p>
+
+        <p>Keep in mind:</p>
+        <ul>
+            <li><strong>No edits or deletions.</strong> BAG listings can't be edited or deleted after they're created.</li>
+            <li><strong>Rules are required.</strong> Lively automatically displays the standard giveaway requirements from our <a href="#">Terms</a> within the listing details. You can also add your own official rules.</li>
+            <li><strong>Alternative entry methods may apply.</strong> Buyers in eligible regions may be able to enter through another method, such as a web form, where required by law.</li>
+            <li><strong>No paid-entry promotions.</strong> Buyer Appreciation Giveaways can't be used as paid-entry promotions or raffles.</li>
+        </ul>
+
+        <div class="helpful-widget">
+            <p>Was this article helpful?</p>
+            <div class="helpful-buttons">
+                <button type="button">Yes</button>
+                <button type="button">No</button>
+            </div>
+            <span>80 out of 145 found this helpful</span>
+        </div>
+
+    </div>
+</div>

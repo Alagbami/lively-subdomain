@@ -259,5 +259,25 @@ namespace subdomain.Areas.HelpCentre.Controllers
         {
             return View();
         }
+        public IActionResult GettingStarted()
+        {
+            return View();
+        }
+        public IActionResult AffiliateProgram()
+        {
+            return View();
+        }
+        public IActionResult BulkImportCsv()
+        {
+            return View();
+        }
+        public IActionResult VacationMode()
+        {
+            return View();
+        }
+        public IActionResult GiveawayListings()
+        {
+            return View();
+        }
     }
 }
